@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Al Shaali Marine Custom Blue & White Luxury Yacht Palette */
+  --navy: #082B49;            /* Deep navy blue */
+  --ocean: #176B9A;           /* Ocean blue */
+  --ocean-light: #2087C2;     /* Bright maritime ocean */
+  --ice: #DCEFF7;             /* Ice blue */
+  --ice-tint: #EEF7FB;        /* Ultra soft ice tint */
+  --white: #FFFFFF;           /* Crisp luxury white */
+  --soft-gray: #F5F8FA;       /* Soft architectural gray */
+  --dark-text: #102A43;       /* Premium navy-charcoal text */
+  --muted-text: #486581;      /* Refined slate body text */
+  --border-light: #D9E2EC;    /* Hairline border */
+
+  /* Luxury Light Golden Palette for all Blue Background Sections */
+  --gold-light: #E8D5B5;      /* Primary soft light golden */
+  --gold-champagne: #DFCA9E;  /* Champagne golden */
+  --gold-pale: #F3EBDD;       /* Pale luminous gold */
+  --gold-muted: rgba(232, 213, 181, 0.82); /* Subtitle & body light gold */
+
+  /* Legacy references mapped gracefully */
+  --navy-deep: #062138;
+  --navy-ink: #082B49;
+  --sapphire: #176B9A;
+  --stone: #F5F8FA;
+  --silver: #829AB1;
+  --steel: #486581;
+  --gold: #176B9A;
+  --gold-light: #2087C2;
+  --line: rgba(8, 43, 73, 0.12);
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--white);
+  color: var(--dark-text);
+}
+
+body {
+  background-color: var(--white);
+  color: var(--dark-text);
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #176B9A;
+  color: #FFFFFF;
+}
+
+/* Luxury minimal maritime scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F8FA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(23, 107, 154, 0.35);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #176B9A;
+}
+
+/* Typography Helpers */
+.label-luxury {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ocean);
+}
+
+.heading-serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+}
+
+/* Glass & Surface Effects */
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(8, 43, 73, 0.1);
+}
+
+.glass-panel-navy {
+  background: rgba(8, 43, 73, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.yacht-card-white {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.yacht-card-white:hover {
+  border-color: var(--ocean);
+  box-shadow: 0 20px 40px rgba(8, 43, 73, 0.08), 0 0 20px rgba(23, 107, 154, 0.06);
+  transform: translateY(-4px);
+}
+
+/* Deep Ocean Blue Primary CTA Button */
+.btn-ocean {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 32px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: #082B49;
+  border: 1px solid #082B49;
+  font-weight: 600;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.btn-ocean:hover {
+  background: #176B9A;
+  border-color: #176B9A;
+  box-shadow: 0 10px 25px rgba(23, 107, 154, 0.25);
+  transform: translateY(-2px);
+}
+
+.btn-ocean-outline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #082B49;
+  border: 1.5px solid #082B49;
+  background: transparent;
+  font-weight: 600;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-ocean-outline:hover {
+  background: #082B49;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(8, 43, 73, 0.15);
+}
+
+.btn-white-outline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: rgba(8, 43, 73, 0.35);
+  backdrop-filter: blur(8px);
+  font-weight: 600;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-white-outline:hover {
+  border-color: #FFFFFF;
+  background: #FFFFFF;
+  color: #082B49;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Backward compatibility aliases */
+.btn-gold {
+  @apply btn-ocean;
+}
+
+.btn-outline-gold {
+  @apply btn-white-outline;
+}

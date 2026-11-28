@@ -18,7 +18,10 @@ export const metadata = {
   keywords:
     "Al Shaali Marine, AS Marine, superyachts UAE, Dubai yacht builder, Ajman shipyard, AS 130, AS 100, luxury yachts, yacht refit UAE",
   icons: {
-    icon: "/assets/favicon.svg",
+    icon: [
+      { url: "/assets/favicon.png" },
+      { url: "/favicon.ico" },
+    ],
     apple: "/assets/apple-touch-icon.png",
   },
 };

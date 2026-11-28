@@ -15,11 +15,10 @@ import {
   Newspaper,
   Award,
   Phone,
-  Layers,
-  Shield,
   ArrowRight,
 } from "lucide-react";
 import SoundAmbience from "./SoundAmbience";
+import UnderConstructionModal from "./UnderConstructionModal";
 
 export default function Header({ onOpenEnquiry }) {
   const [scrolled, setScrolled] = useState(false);
@@ -28,6 +27,7 @@ export default function Header({ onOpenEnquiry }) {
   const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
   const [mobileBrandsExpanded, setMobileBrandsExpanded] = useState(false);
   const [mobileMoreExpanded, setMobileMoreExpanded] = useState(false);
+  const [underConstructionTarget, setUnderConstructionTarget] = useState(null);
 
   const pathname = usePathname();
   const brandsTimeoutRef = useRef(null);
@@ -73,26 +73,30 @@ export default function Header({ onOpenEnquiry }) {
     }, 180);
   };
 
+  const triggerUnderConstruction = (name) => {
+    setBrandsDropdownOpen(false);
+    setMoreDropdownOpen(false);
+    setMobileMenuOpen(false);
+    setUnderConstructionTarget(name);
+  };
+
   const brandItems = [
     {
       name: "Asmaraty",
       division: "Yachts",
       desc: "Superyachts & Custom Royal Commissions",
-      href: "/#fleet",
       badge: "Flagship",
     },
     {
       name: "Glory",
       division: "Power Boats",
       desc: "High-Performance Cruisers & Motor Yachts",
-      href: "/new-build",
       badge: "Performance",
     },
     {
       name: "Warrior",
       division: "Center Console",
       desc: "Tactical Tournament Offshore Craft",
-      href: "/projects",
       badge: "Tactical",
     },
   ];
@@ -101,31 +105,26 @@ export default function Header({ onOpenEnquiry }) {
     {
       name: "Complete Fleet",
       desc: "2026 Superyacht Collection & Specifications",
-      href: "/#fleet",
       icon: Anchor,
     },
     {
       name: "Shipyard Dispatches",
       desc: "Latest News, Boat Shows & Expansions",
-      href: "/news",
       icon: Newspaper,
     },
     {
       name: "Chairman's Vision",
       desc: "Leadership Message & 45-Year Legacy",
-      href: "/#chairman-vision",
       icon: Award,
     },
     {
       name: "Owner Testimonials",
       desc: "Verified Commissions from Global Captains",
-      href: "/#testimonials",
       icon: Compass,
     },
     {
       name: "Contact & Atelier",
       desc: "Direct Consultation with Ajman Shipwrights",
-      href: "/contact",
       icon: Phone,
     },
   ];
@@ -143,7 +142,7 @@ export default function Header({ onOpenEnquiry }) {
       >
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between">
           
-          {/* Brand Logo */}
+          {/* Brand Logo - Navigates to Home */}
           <Link href="/" className="flex items-center group py-0.5" aria-label="Al Shaali Marine Home">
             <div className="relative h-10 sm:h-11 md:h-12 w-48 sm:w-56 md:w-60 transition-transform duration-300 group-hover:scale-[1.02]">
               <Image
@@ -160,7 +159,7 @@ export default function Header({ onOpenEnquiry }) {
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-7 xl:gap-8">
             
-            {/* 1. Home */}
+            {/* 1. Home - Allowed to navigate normally */}
             <Link
               href="/"
               className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${
@@ -174,9 +173,9 @@ export default function Header({ onOpenEnquiry }) {
               Home
             </Link>
 
-            {/* 2. About Us */}
-            <Link
-              href="/#about-us"
+            {/* 2. About Us - Triggers Under Construction */}
+            <button
+              onClick={() => triggerUnderConstruction("About Us")}
               className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${
                 isLightHeader
                   ? "text-[#102A43]/85 hover:text-[#176B9A]"
@@ -184,21 +183,19 @@ export default function Header({ onOpenEnquiry }) {
               }`}
             >
               About Us
-            </Link>
+            </button>
 
-            {/* 3. Shipyard */}
-            <Link
-              href="/refit"
+            {/* 3. Shipyard - Triggers Under Construction */}
+            <button
+              onClick={() => triggerUnderConstruction("Shipyard & Drydocks")}
               className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${
-                pathname === "/refit"
-                  ? "text-[#176B9A] font-bold"
-                  : isLightHeader
+                isLightHeader
                   ? "text-[#102A43]/85 hover:text-[#176B9A]"
                   : "text-white/90 hover:text-[#DCEFF7]"
               }`}
             >
               Shipyard
-            </Link>
+            </button>
 
             {/* 4. Brands (Dropdown Menu with Transition) */}
             <div
@@ -242,11 +239,11 @@ export default function Header({ onOpenEnquiry }) {
 
                     <div className="py-1">
                       {brandItems.map((brand) => (
-                        <Link
+                        <button
                           key={brand.name}
-                          href={brand.href}
-                          onClick={() => setBrandsDropdownOpen(false)}
-                          className="group/item flex items-start gap-3 p-3 hover:bg-[#F5F8FA] transition-colors border-l-2 border-transparent hover:border-[#176B9A]"
+                          type="button"
+                          onClick={() => triggerUnderConstruction(`${brand.name} ${brand.division}`)}
+                          className="w-full text-left group/item flex items-start gap-3 p-3 hover:bg-[#F5F8FA] transition-colors border-l-2 border-transparent hover:border-[#176B9A]"
                         >
                           <div className="w-8 h-8 rounded-none bg-[#082B49] text-[#DFCA9E] flex items-center justify-center flex-shrink-0 text-xs font-serif font-bold group-hover/item:bg-[#176B9A] group-hover/item:text-white transition-colors">
                             {brand.name[0]}
@@ -264,38 +261,36 @@ export default function Header({ onOpenEnquiry }) {
                               {brand.desc}
                             </p>
                           </div>
-                        </Link>
+                        </button>
                       ))}
                     </div>
 
                     <div className="pt-2 border-t border-[#D9E2EC]/70 px-3 pb-1">
-                      <Link
-                        href="/#fleet"
-                        onClick={() => setBrandsDropdownOpen(false)}
-                        className="text-[10.5px] uppercase tracking-wider text-[#176B9A] font-bold flex items-center justify-between hover:underline pt-1"
+                      <button
+                        type="button"
+                        onClick={() => triggerUnderConstruction("All Brand Divisions")}
+                        className="w-full text-[10.5px] uppercase tracking-wider text-[#176B9A] font-bold flex items-center justify-between hover:underline pt-1"
                       >
                         <span>View All Brand Divisions</span>
                         <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
+                      </button>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* 5. Career */}
-            <Link
-              href="/careers"
+            {/* 5. Career - Triggers Under Construction */}
+            <button
+              onClick={() => triggerUnderConstruction("Careers & Shipyard Recruitment")}
               className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${
-                pathname === "/careers"
-                  ? "text-[#176B9A] font-bold"
-                  : isLightHeader
+                isLightHeader
                   ? "text-[#102A43]/85 hover:text-[#176B9A]"
                   : "text-white/90 hover:text-[#DCEFF7]"
               }`}
             >
               Career
-            </Link>
+            </button>
 
             {/* 6. More (Dropdown Menu with Transition) */}
             <div
@@ -341,11 +336,11 @@ export default function Header({ onOpenEnquiry }) {
                       {moreItems.map((item) => {
                         const Icon = item.icon;
                         return (
-                          <Link
+                          <button
                             key={item.name}
-                            href={item.href}
-                            onClick={() => setMoreDropdownOpen(false)}
-                            className="group/more flex items-start gap-3 p-3 hover:bg-[#F5F8FA] transition-colors border-l-2 border-transparent hover:border-[#176B9A]"
+                            type="button"
+                            onClick={() => triggerUnderConstruction(item.name)}
+                            className="w-full text-left group/more flex items-start gap-3 p-3 hover:bg-[#F5F8FA] transition-colors border-l-2 border-transparent hover:border-[#176B9A]"
                           >
                             <div className="w-7 h-7 rounded-none bg-[#EEF3F8] text-[#176B9A] flex items-center justify-center flex-shrink-0 group-hover/more:bg-[#082B49] group-hover/more:text-[#DFCA9E] transition-colors">
                               <Icon className="w-4 h-4" />
@@ -358,7 +353,7 @@ export default function Header({ onOpenEnquiry }) {
                                 {item.desc}
                               </p>
                             </div>
-                          </Link>
+                          </button>
                         );
                       })}
                     </div>
@@ -425,22 +420,22 @@ export default function Header({ onOpenEnquiry }) {
               </Link>
 
               {/* About Us */}
-              <Link
-                href="/#about-us"
-                onClick={() => setMobileMenuOpen(false)}
-                className="font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]"
+              <button
+                type="button"
+                onClick={() => triggerUnderConstruction("About Us")}
+                className="text-left font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]"
               >
                 About Us
-              </Link>
+              </button>
 
               {/* Shipyard */}
-              <Link
-                href="/refit"
-                onClick={() => setMobileMenuOpen(false)}
-                className="font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]"
+              <button
+                type="button"
+                onClick={() => triggerUnderConstruction("Shipyard & Drydocks")}
+                className="text-left font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]"
               >
                 Shipyard & Drydocks
-              </Link>
+              </button>
 
               {/* Brands Accordion */}
               <div className="border-b border-[#176B9A]/20 pb-2">
@@ -460,27 +455,27 @@ export default function Header({ onOpenEnquiry }) {
                 {mobileBrandsExpanded && (
                   <div className="pl-4 pt-2 space-y-3 pb-2 border-l border-[#DFCA9E]/30 mt-1">
                     {brandItems.map((brand) => (
-                      <Link
+                      <button
                         key={brand.name}
-                        href={brand.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block text-xs uppercase tracking-wider text-[#DCEFF7] hover:text-[#DFCA9E]"
+                        type="button"
+                        onClick={() => triggerUnderConstruction(`${brand.name} ${brand.division}`)}
+                        className="block w-full text-left text-xs uppercase tracking-wider text-[#DCEFF7] hover:text-[#DFCA9E]"
                       >
                         <span className="font-bold">{brand.name}</span> · {brand.desc}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
               </div>
 
               {/* Career */}
-              <Link
-                href="/careers"
-                onClick={() => setMobileMenuOpen(false)}
-                className="font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]"
+              <button
+                type="button"
+                onClick={() => triggerUnderConstruction("Careers & Shipyard Recruitment")}
+                className="text-left font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]"
               >
                 Career
-              </Link>
+              </button>
 
               {/* More Accordion */}
               <div className="border-b border-[#176B9A]/20 pb-2">
@@ -500,14 +495,14 @@ export default function Header({ onOpenEnquiry }) {
                 {mobileMoreExpanded && (
                   <div className="pl-4 pt-2 space-y-3 pb-2 border-l border-[#176B9A]/50 mt-1">
                     {moreItems.map((item) => (
-                      <Link
+                      <button
                         key={item.name}
-                        href={item.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block text-xs uppercase tracking-wider text-[#DCEFF7] hover:text-[#DFCA9E]"
+                        type="button"
+                        onClick={() => triggerUnderConstruction(item.name)}
+                        className="block w-full text-left text-xs uppercase tracking-wider text-[#DCEFF7] hover:text-[#DFCA9E]"
                       >
                         {item.name}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
@@ -528,6 +523,14 @@ export default function Header({ onOpenEnquiry }) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Under Construction Modal */}
+      <UnderConstructionModal
+        isOpen={!!underConstructionTarget}
+        sectionName={underConstructionTarget || ""}
+        onClose={() => setUnderConstructionTarget(null)}
+        onOpenEnquiry={onOpenEnquiry}
+      />
     </>
   );
 }

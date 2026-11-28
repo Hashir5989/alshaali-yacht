@@ -10,11 +10,8 @@ import {
   X,
   ChevronDown,
   Sparkles,
-  Anchor,
-  Compass,
   Newspaper,
-  Award,
-  Phone,
+  Calendar,
   ArrowRight,
 } from "lucide-react";
 import SoundAmbience from "./SoundAmbience";
@@ -101,31 +98,21 @@ export default function Header({ onOpenEnquiry }) {
     },
   ];
 
-  const moreItems = [
+  // More Submenu: News & Events
+  const moreSubmenuItems = [
     {
-      name: "Complete Fleet",
-      desc: "2026 Superyacht Collection & Specifications",
-      icon: Anchor,
-    },
-    {
-      name: "Shipyard Dispatches",
-      desc: "Latest News, Boat Shows & Expansions",
+      name: "News",
+      category: "Press & Launches",
+      desc: "Shipyard dispatches, new vessel reveals & engineering milestones",
       icon: Newspaper,
+      badge: "Latest",
     },
     {
-      name: "Chairman's Vision",
-      desc: "Leadership Message & 45-Year Legacy",
-      icon: Award,
-    },
-    {
-      name: "Owner Testimonials",
-      desc: "Verified Commissions from Global Captains",
-      icon: Compass,
-    },
-    {
-      name: "Contact & Atelier",
-      desc: "Direct Consultation with Ajman Shipwrights",
-      icon: Phone,
+      name: "Events",
+      category: "Boat Shows & Debuts",
+      desc: "Dubai International Boat Show, global expos & private VIP previews",
+      icon: Calendar,
+      badge: "Upcoming",
     },
   ];
 
@@ -134,14 +121,13 @@ export default function Header({ onOpenEnquiry }) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isLightHeader
-            ? "bg-white/95 backdrop-blur-md border-b border-[#D9E2EC] py-3.5 shadow-lg text-[#102A43]"
-            : "bg-gradient-to-b from-[#082B49]/90 via-[#082B49]/40 to-transparent py-5 text-white"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isLightHeader
+          ? "bg-white/95 backdrop-blur-md border-b border-[#D9E2EC] py-3.5 shadow-lg text-[#102A43]"
+          : "bg-gradient-to-b from-[#082B49]/90 via-[#082B49]/40 to-transparent py-5 text-white"
+          }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between">
-          
+
           {/* Brand Logo - Navigates to Home */}
           <Link href="/" className="flex items-center group py-0.5" aria-label="Al Shaali Marine Home">
             <div className="relative h-10 sm:h-11 md:h-12 w-48 sm:w-56 md:w-60 transition-transform duration-300 group-hover:scale-[1.02]">
@@ -158,17 +144,16 @@ export default function Header({ onOpenEnquiry }) {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-7 xl:gap-8">
-            
+
             {/* 1. Home - Allowed to navigate normally */}
             <Link
               href="/"
-              className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${
-                pathname === "/" && !brandsDropdownOpen && !moreDropdownOpen
-                  ? "text-[#176B9A] font-bold"
-                  : isLightHeader
+              className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${pathname === "/" && !brandsDropdownOpen && !moreDropdownOpen
+                ? "text-[#176B9A] font-bold"
+                : isLightHeader
                   ? "text-[#102A43]/85 hover:text-[#176B9A]"
                   : "text-white/90 hover:text-[#DCEFF7]"
-              }`}
+                }`}
             >
               Home
             </Link>
@@ -176,11 +161,10 @@ export default function Header({ onOpenEnquiry }) {
             {/* 2. About Us - Triggers Under Construction */}
             <button
               onClick={() => triggerUnderConstruction("About Us")}
-              className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${
-                isLightHeader
-                  ? "text-[#102A43]/85 hover:text-[#176B9A]"
-                  : "text-white/90 hover:text-[#DCEFF7]"
-              }`}
+              className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${isLightHeader
+                ? "text-[#102A43]/85 hover:text-[#176B9A]"
+                : "text-white/90 hover:text-[#DCEFF7]"
+                }`}
             >
               About Us
             </button>
@@ -188,11 +172,10 @@ export default function Header({ onOpenEnquiry }) {
             {/* 3. Shipyard - Triggers Under Construction */}
             <button
               onClick={() => triggerUnderConstruction("Shipyard & Drydocks")}
-              className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${
-                isLightHeader
-                  ? "text-[#102A43]/85 hover:text-[#176B9A]"
-                  : "text-white/90 hover:text-[#DCEFF7]"
-              }`}
+              className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${isLightHeader
+                ? "text-[#102A43]/85 hover:text-[#176B9A]"
+                : "text-white/90 hover:text-[#DCEFF7]"
+                }`}
             >
               Shipyard
             </button>
@@ -206,19 +189,17 @@ export default function Header({ onOpenEnquiry }) {
               <button
                 type="button"
                 onClick={() => setBrandsDropdownOpen((prev) => !prev)}
-                className={`font-sans text-[11px] tracking-[0.24em] uppercase flex items-center gap-1.5 transition-colors ${
-                  brandsDropdownOpen
-                    ? "text-[#176B9A] font-bold"
-                    : isLightHeader
+                className={`font-sans text-[11px] tracking-[0.24em] uppercase flex items-center gap-1.5 transition-colors ${brandsDropdownOpen
+                  ? "text-[#176B9A] font-bold"
+                  : isLightHeader
                     ? "text-[#102A43]/85 hover:text-[#176B9A]"
                     : "text-white/90 hover:text-[#DCEFF7]"
-                }`}
+                  }`}
               >
                 <span>Brands</span>
                 <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                    brandsDropdownOpen ? "rotate-180 text-[#176B9A]" : ""
-                  }`}
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${brandsDropdownOpen ? "rotate-180 text-[#176B9A]" : ""
+                    }`}
                 />
               </button>
 
@@ -283,16 +264,15 @@ export default function Header({ onOpenEnquiry }) {
             {/* 5. Career - Triggers Under Construction */}
             <button
               onClick={() => triggerUnderConstruction("Careers & Shipyard Recruitment")}
-              className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${
-                isLightHeader
-                  ? "text-[#102A43]/85 hover:text-[#176B9A]"
-                  : "text-white/90 hover:text-[#DCEFF7]"
-              }`}
+              className={`font-sans text-[11px] tracking-[0.24em] uppercase py-2 relative transition-colors ${isLightHeader
+                ? "text-[#102A43]/85 hover:text-[#176B9A]"
+                : "text-white/90 hover:text-[#DCEFF7]"
+                }`}
             >
               Career
             </button>
 
-            {/* 6. More (Dropdown Menu with Transition) */}
+            {/* 6. More (Submenu with News & Events) */}
             <div
               className="relative py-2"
               onMouseEnter={handleMoreEnter}
@@ -301,23 +281,21 @@ export default function Header({ onOpenEnquiry }) {
               <button
                 type="button"
                 onClick={() => setMoreDropdownOpen((prev) => !prev)}
-                className={`font-sans text-[11px] tracking-[0.24em] uppercase flex items-center gap-1.5 transition-colors ${
-                  moreDropdownOpen
-                    ? "text-[#176B9A] font-bold"
-                    : isLightHeader
+                className={`font-sans text-[11px] tracking-[0.24em] uppercase flex items-center gap-1.5 transition-colors ${moreDropdownOpen
+                  ? "text-[#176B9A] font-bold"
+                  : isLightHeader
                     ? "text-[#102A43]/85 hover:text-[#176B9A]"
                     : "text-white/90 hover:text-[#DCEFF7]"
-                }`}
+                  }`}
               >
                 <span>More</span>
                 <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                    moreDropdownOpen ? "rotate-180 text-[#176B9A]" : ""
-                  }`}
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${moreDropdownOpen ? "rotate-180 text-[#176B9A]" : ""
+                    }`}
                 />
               </button>
 
-              {/* More Dropdown Menu */}
+              {/* More Submenu: News & Events */}
               <AnimatePresence>
                 {moreDropdownOpen && (
                   <motion.div
@@ -328,28 +306,33 @@ export default function Header({ onOpenEnquiry }) {
                     className="absolute top-full right-0 mt-1 w-80 bg-white/95 backdrop-blur-xl border border-[#D9E2EC] shadow-2xl p-3 z-50 text-[#102A43]"
                   >
                     <div className="text-[10px] uppercase tracking-[0.25em] font-mono font-bold text-[#829AB1] px-3 py-2 border-b border-[#D9E2EC]/70 flex items-center justify-between">
-                      <span>Explore Shipyard & Journal</span>
+                      <span>More Dispatches</span>
                       <span className="w-1.5 h-1.5 rounded-full bg-[#176B9A]" />
                     </div>
 
                     <div className="py-1">
-                      {moreItems.map((item) => {
+                      {moreSubmenuItems.map((item) => {
                         const Icon = item.icon;
                         return (
                           <button
                             key={item.name}
                             type="button"
-                            onClick={() => triggerUnderConstruction(item.name)}
-                            className="w-full text-left group/more flex items-start gap-3 p-3 hover:bg-[#F5F8FA] transition-colors border-l-2 border-transparent hover:border-[#176B9A]"
+                            onClick={() => triggerUnderConstruction(`${item.name} & ${item.category}`)}
+                            className="w-full text-left group/more flex items-start gap-3.5 p-3.5 hover:bg-[#F5F8FA] transition-colors border-l-2 border-transparent hover:border-[#176B9A]"
                           >
-                            <div className="w-7 h-7 rounded-none bg-[#EEF3F8] text-[#176B9A] flex items-center justify-center flex-shrink-0 group-hover/more:bg-[#082B49] group-hover/more:text-[#DFCA9E] transition-colors">
+                            <div className="w-8 h-8 rounded-none bg-[#EEF3F8] text-[#176B9A] flex items-center justify-center flex-shrink-0 group-hover/more:bg-[#082B49] group-hover/more:text-[#DFCA9E] transition-colors">
                               <Icon className="w-4 h-4" />
                             </div>
                             <div className="flex-grow">
-                              <span className="font-sans text-xs font-bold uppercase tracking-wider text-[#082B49] group-hover/more:text-[#176B9A] block">
-                                {item.name}
-                              </span>
-                              <p className="text-[11px] text-[#486581] leading-snug mt-0.5">
+                              <div className="flex items-center justify-between">
+                                <span className="font-sans text-xs font-bold uppercase tracking-wider text-[#082B49] group-hover/more:text-[#176B9A] block">
+                                  {item.name}
+                                </span>
+                                <span className="text-[9px] uppercase tracking-wider px-2 py-0.5 bg-[#EEF3F8] text-[#176B9A] font-mono font-semibold">
+                                  {item.badge}
+                                </span>
+                              </div>
+                              <p className="text-[11px] text-[#486581] leading-snug mt-1 font-light">
                                 {item.desc}
                               </p>
                             </div>
@@ -370,11 +353,10 @@ export default function Header({ onOpenEnquiry }) {
 
             <button
               onClick={() => onOpenEnquiry && onOpenEnquiry()}
-              className={`px-5 py-2.5 text-[10.5px] tracking-[0.22em] uppercase font-bold transition-all rounded-none shadow-md ${
-                isLightHeader
-                  ? "bg-[#082B49] text-white hover:bg-[#176B9A]"
-                  : "bg-white text-[#082B49] hover:bg-[#DFCA9E] hover:text-[#082B49]"
-              }`}
+              className={`px-5 py-2.5 text-[10.5px] tracking-[0.22em] uppercase font-bold transition-all rounded-none shadow-md ${isLightHeader
+                ? "bg-[#082B49] text-white hover:bg-[#176B9A]"
+                : "bg-white text-[#082B49] hover:bg-[#DFCA9E] hover:text-[#082B49]"
+                }`}
             >
               Enquire
             </button>
@@ -387,9 +369,8 @@ export default function Header({ onOpenEnquiry }) {
             <button
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-              className={`p-2 transition-colors ${
-                isLightHeader ? "text-[#082B49]" : "text-white"
-              }`}
+              className={`p-2 transition-colors ${isLightHeader ? "text-[#082B49]" : "text-white"
+                }`}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -409,7 +390,7 @@ export default function Header({ onOpenEnquiry }) {
             className="fixed top-[65px] left-0 right-0 z-40 bg-[#082B49]/98 backdrop-blur-2xl border-b border-[#176B9A]/40 text-[#E8D5B5] shadow-2xl lg:hidden overflow-y-auto max-h-[calc(100vh-70px)]"
           >
             <div className="px-6 py-8 flex flex-col gap-4">
-              
+
               {/* Home */}
               <Link
                 href="/"
@@ -446,9 +427,8 @@ export default function Header({ onOpenEnquiry }) {
                 >
                   <span>Brands</span>
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-300 ${
-                      mobileBrandsExpanded ? "rotate-180" : ""
-                    }`}
+                    className={`w-4 h-4 transition-transform duration-300 ${mobileBrandsExpanded ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
 
@@ -477,31 +457,30 @@ export default function Header({ onOpenEnquiry }) {
                 Career
               </button>
 
-              {/* More Accordion */}
+              {/* More (News & Events) Accordion */}
               <div className="border-b border-[#176B9A]/20 pb-2">
                 <button
                   type="button"
                   onClick={() => setMobileMoreExpanded((prev) => !prev)}
                   className="w-full flex items-center justify-between font-sans text-sm tracking-[0.25em] uppercase py-2 text-[#E8D5B5] hover:text-[#DFCA9E]"
                 >
-                  <span>More & Explore</span>
+                  <span>More (News & Events)</span>
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-300 ${
-                      mobileMoreExpanded ? "rotate-180 text-[#DFCA9E]" : ""
-                    }`}
+                    className={`w-4 h-4 transition-transform duration-300 ${mobileMoreExpanded ? "rotate-180 text-[#DFCA9E]" : ""
+                      }`}
                   />
                 </button>
 
                 {mobileMoreExpanded && (
                   <div className="pl-4 pt-2 space-y-3 pb-2 border-l border-[#176B9A]/50 mt-1">
-                    {moreItems.map((item) => (
+                    {moreSubmenuItems.map((item) => (
                       <button
                         key={item.name}
                         type="button"
-                        onClick={() => triggerUnderConstruction(item.name)}
+                        onClick={() => triggerUnderConstruction(`${item.name} & ${item.category}`)}
                         className="block w-full text-left text-xs uppercase tracking-wider text-[#DCEFF7] hover:text-[#DFCA9E]"
                       >
-                        {item.name}
+                        <span className="font-bold">{item.name}</span> · {item.category}
                       </button>
                     ))}
                   </div>

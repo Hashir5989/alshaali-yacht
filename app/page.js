@@ -16,6 +16,7 @@ import YachtConfigurator from "@/components/YachtConfigurator";
 import HeritageSection from "@/components/HeritageSection";
 
 import JournalHomeSection from "@/components/JournalHomeSection";
+import TestimonialCarouselSection from "@/components/TestimonialCarouselSection";
 import CtaVideoSection from "@/components/CtaVideoSection";
 import Footer from "@/components/Footer";
 import VipEnquiryModal from "@/components/VipEnquiryModal";
@@ -67,7 +68,10 @@ export default function HomePage() {
         {/* 6. Latest News & Shipyard Dispatches */}
         <JournalHomeSection />
 
-        {/* 7. Complete 2026 Fleet Collection with 3D Interactive Perspective Cards */}
+        {/* 7. Words from Our Owners & Captains Testimonial Carousel */}
+        <TestimonialCarouselSection />
+
+        {/* 8. Complete 2026 Fleet Collection with 3D Interactive Perspective Cards */}
         <FleetSection
           onSelectYacht={handleOpenYachtDetail}
           onOpenEnquiry={handleOpenEnquiry}

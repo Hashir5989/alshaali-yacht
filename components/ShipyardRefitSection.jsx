@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight, Wrench, ShieldCheck, Anchor, Compass, CheckCircle } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, Wrench, ShieldCheck, Anchor, Compass, ArrowRight } from "lucide-react";
 
 export default function ShipyardRefitSection({ onOpenEnquiry }) {
   const capabilities = [
@@ -30,22 +31,22 @@ export default function ShipyardRefitSection({ onOpenEnquiry }) {
   return (
     <section id="shipyard" className="py-24 sm:py-32 bg-white border-b border-[#D9E2EC] relative overflow-hidden text-[#102A43]">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-        {/* Section Head */}
+        {/* Section Head with Catching Title & Paragraph */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#176B9A]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#176B9A] animate-pulse" />
               <p className="font-sans text-[11px] tracking-[0.32em] uppercase text-[#176B9A] font-bold">
-                Shipyard Infrastructure & Drydocks
+                45,000 SQM Shipbuilding & Drydock Atelier
               </p>
             </div>
-            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#082B49] font-light">
-              Ajman Shipyard & Refit Atelier
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#082B49] font-light leading-[1.08]">
+              Where Master Shipwrights Bring Dreams to Water.
             </h2>
           </div>
 
           <p className="font-sans text-xs sm:text-sm text-[#486581] max-w-md leading-relaxed font-normal">
-            Spanning over 45,000 square metres on the Arabian Gulf, our shipyard provides comprehensive new build facilities and full-scale superyacht refit services.
+            Spanning over 45,000 square metres on the Arabian Gulf, our Ajman drydocks unite 45 years of composite shipbuilding innovation, high-tonnage haul-outs, and bespoke refit engineering.
           </p>
         </div>
 
@@ -108,15 +109,19 @@ export default function ShipyardRefitSection({ onOpenEnquiry }) {
             </div>
 
             <div className="pt-4 flex flex-wrap items-center gap-4">
+              <Link
+                href="/refit"
+                className="inline-flex items-center gap-3 bg-[#082B49] text-white hover:bg-[#176B9A] px-7 py-4 font-sans text-xs tracking-[0.2em] uppercase font-bold transition-all duration-300 shadow-md group"
+              >
+                <span>Explore Shipyard & Drydocks</span>
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 text-[#DCEFF7]" />
+              </Link>
               <button
                 onClick={() => onOpenEnquiry && onOpenEnquiry("Shipyard Refit Slot")}
-                className="btn-ocean"
+                className="inline-flex items-center gap-2 border border-[#082B49] text-[#082B49] hover:bg-[#082B49] hover:text-white px-6 py-4 font-sans text-xs tracking-[0.2em] uppercase font-semibold transition-all duration-300"
               >
-                Reserve Drydock Slot
+                <span>Reserve Drydock Slot</span>
               </button>
-              <a href="#contact" className="btn-ocean-outline">
-                Download Shipyard Capabilities Dossier
-              </a>
             </div>
           </div>
         </div>

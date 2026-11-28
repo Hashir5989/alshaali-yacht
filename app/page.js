@@ -56,7 +56,10 @@ export default function HomePage() {
         {/* 3. About Us & Four Decades of Arabian Shipbuilding Mastery */}
         <AboutUsHomeSection />
 
-        {/* 4. Complete 2026 Fleet Collection with 3D Interactive Perspective Cards */}
+        {/* 4. Ajman Shipyard & Drydock Atelier Facilities */}
+        <ShipyardRefitSection onOpenEnquiry={handleOpenEnquiry} />
+
+        {/* 5. Complete 2026 Fleet Collection with 3D Interactive Perspective Cards */}
         <FleetSection
           onSelectYacht={handleOpenYachtDetail}
           onOpenEnquiry={handleOpenEnquiry}
@@ -80,10 +83,7 @@ export default function HomePage() {
         {/* 7. Interactive Atelier Yacht Configurator (Liveries, Teak, Interior Moods) */}
         <YachtConfigurator onOpenEnquiry={handleOpenEnquiry} />
 
-        {/* 8. Ajman Drydocks & Shipyard Refit Engineering */}
-        <ShipyardRefitSection onOpenEnquiry={handleOpenEnquiry} />
-
-        {/* 9. 45-Year Heritage Milestone Journey (1979 - 2026) */}
+        {/* 8. 45-Year Heritage Milestone Journey (1979 - 2026) */}
         <HeritageSection />
 
         {/* 10. The Logbook: Latest Dispatches & News from the Yard */}

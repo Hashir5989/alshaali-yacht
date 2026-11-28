@@ -47,10 +47,6 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
   const ctaOpacity = useTransform(smoothProgress, [0.5, 0.65], [0, 1]);
   const ctaY = useTransform(smoothProgress, [0.5, 0.65], [20, 0]);
 
-  // Two-column split pillars (New Build / Refit)
-  const colsOpacity = useTransform(smoothProgress, [0.58, 0.74], [0, 1]);
-  const colsY = useTransform(smoothProgress, [0.58, 0.74], [25, 0]);
-
   return (
     <div ref={containerRef} className="relative h-[240vh] bg-[#082B49]">
       {/* Sticky Fullscreen Viewport pinned during scroll */}
@@ -178,41 +174,7 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
             </motion.div>
           </div>
 
-          {/* 2-Column Split Pillars */}
-          <motion.div
-            style={{ opacity: colsOpacity, y: colsY }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 border-t border-[#E8D5B5]/20 pt-6"
-          >
-            <a
-              href="/new-build"
-              className="group flex flex-col justify-between p-4 -m-4 rounded-none hover:bg-white/[0.06] transition-all duration-300 border border-transparent hover:border-[#E8D5B5]/30"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#DFCA9E] group-hover:text-[#E8D5B5] flex items-center gap-2 font-semibold">
-                  01 &nbsp;·&nbsp; Superyacht New Build
-                </span>
-                <ArrowUpRight className="w-4 h-4 text-[#DFCA9E] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </div>
-              <p className="text-xs sm:text-sm text-[#E8D5B5]/80 leading-relaxed font-light">
-                Flagship AS 130 tri-deck and AS 100 composite motor yachts built in Ajman — crafted to the vision of your chosen naval architects, or to ours.
-              </p>
-            </a>
 
-            <a
-              href="/refit"
-              className="group flex flex-col justify-between p-4 -m-4 rounded-none hover:bg-white/[0.06] transition-all duration-300 border border-transparent hover:border-[#E8D5B5]/30"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#DFCA9E] group-hover:text-[#E8D5B5] flex items-center gap-2 font-semibold">
-                  02 &nbsp;·&nbsp; Ajman Shipyard & Drydock Refit
-                </span>
-                <ArrowUpRight className="w-4 h-4 text-[#DFCA9E] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </div>
-              <p className="text-xs sm:text-sm text-[#E8D5B5]/80 leading-relaxed font-light">
-                We return your vessel to sea in flawless condition for the upcoming Mediterranean or Arabian season. 200-tonne lift capacity, managed from survey to sea trial.
-              </p>
-            </a>
-          </motion.div>
 
         </div>
       </div>

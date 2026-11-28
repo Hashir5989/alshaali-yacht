@@ -6,35 +6,36 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Quote, Sparkles } from "lucide-react";
 import AnimatedTitle from "./AnimatedTitle";
 import InteractiveCard3D from "./InteractiveCard3D";
-
-const LEADERS = [
-  {
-    id: "abdullah",
-    name: "ABDULLAH AL SHAALI",
-    role: "FOUNDER & CHAIRMAN",
-    tagline: "FOUNDER’S VISION · ENDURING HERITAGE",
-    quote:
-      "When we laid our first keel in 1979, our ambition was to show the world the true depth of Arabian maritime mastery. We do not simply engineer yachts; we sculpt living legends that honor the sea with uncompromising elegance, daring innovation, and enduring strength.",
-    bio: "Pioneered modern luxury yacht construction in the Arabian Gulf, establishing Al Shaali Marine as a distinguished international symbol of bespoke naval craftsmanship for more than four decades.",
-    image: "/assets/abdullah-al-shaali.webp",
-    colorMode: "object-cover object-top",
-  },
-  {
-    id: "mohammed",
-    name: "MOHAMMED ALSHAALI",
-    role: "CHAIRMAN",
-    tagline: "CHAIRMAN’S VISION · LEADERSHIP MESSAGE",
-    quote:
-      "Gulf Craft was built on a vision to create world-class yachts with passion, innovation, and dedication. Every vessel we craft carries that legacy, shaping the future of yachting with every wave.",
-    bio: "Pioneering Arabian maritime manufacturing and steering world-renowned superyacht craftsmanship for over four decades across global waters.",
-    image: "/assets/chairman-mohammed-alshaali.webp",
-    colorMode: "object-cover object-top filter grayscale contrast-110",
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ChairmanSection() {
+  const { isAr, t } = useLanguage();
   const [activeLeaderId, setActiveLeaderId] = useState("abdullah");
-  const currentLeader = LEADERS.find((l) => l.id === activeLeaderId) || LEADERS[0];
+
+  const leaders = [
+    {
+      id: "abdullah",
+      name: t("abdullah_name"),
+      role: t("abdullah_role"),
+      tagline: isAr ? "رؤية المؤسس · إرث أصيل" : "FOUNDER’S VISION · ENDURING HERITAGE",
+      quote: t("abdullah_quote"),
+      bio: t("abdullah_bio"),
+      image: "/assets/abdullah-al-shaali.webp",
+      colorMode: "object-cover object-top",
+    },
+    {
+      id: "mohammed",
+      name: t("mohammed_name"),
+      role: t("mohammed_role"),
+      tagline: isAr ? "رؤية القيادة · رسالة مجلس الإدارة" : "CHAIRMAN’S VISION · LEADERSHIP MESSAGE",
+      quote: t("mohammed_quote"),
+      bio: t("mohammed_bio"),
+      image: "/assets/chairman-mohammed-alshaali.webp",
+      colorMode: "object-cover object-top filter grayscale contrast-110",
+    },
+  ];
+
+  const currentLeader = leaders.find((l) => l.id === activeLeaderId) || leaders[0];
 
   return (
     <section id="chairman-vision" className="py-24 sm:py-32 bg-[#082B49] border-b border-[#176B9A]/30 relative overflow-hidden text-[#E8D5B5]">
@@ -48,16 +49,17 @@ export default function ChairmanSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-12 mb-12 border-b border-[#DFCA9E]/20">
           <div>
             <AnimatedTitle
-              tagline="Visionary Leadership & Heritage"
-              title="Words of the Founders & Chairmen."
+              tagline={t("chairman_tagline")}
+              title={t("chairman_title")}
               dark={true}
             />
           </div>
 
           {/* Interactive Persona Selector Buttons with Hover Glow */}
           <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#06182a]/90 backdrop-blur-md rounded-full border border-[#DFCA9E]/30 shadow-inner self-start sm:self-auto">
-            {LEADERS.map((leader) => {
+            {leaders.map((leader) => {
               const isActive = leader.id === activeLeaderId;
+              const firstName = leader.name.split(" ")[0];
               return (
                 <button
                   key={leader.id}
@@ -69,7 +71,7 @@ export default function ChairmanSection() {
                   }`}
                 >
                   <span className={`w-1.5 h-1.5 rounded-full ${isActive ? "bg-[#082B49]" : "bg-transparent border border-[#DFCA9E]/50"}`} />
-                  {leader.name.split(" ")[0]} ({leader.role.includes("FOUNDER") ? "Founder" : "Chairman"})
+                  {firstName} ({leader.role.includes("FOUNDER") || leader.role.includes("المؤسس") ? (isAr ? "المؤسس" : "Founder") : (isAr ? "رئيس المجلس" : "Chairman")})
                 </button>
               );
             })}
@@ -79,7 +81,7 @@ export default function ChairmanSection() {
         {/* Dynamic Leader Card with Framer Motion AnimatePresence & 3D Tilt */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentLeader.id}
+            key={`${currentLeader.id}-${isAr ? 'ar' : 'en'}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -141,14 +143,14 @@ export default function ChairmanSection() {
               </motion.div>
 
               {/* Leader's Bespoke Quote */}
-              <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#E8D5B5] font-light leading-[1.38] tracking-wide mb-8 italic">
+              <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#E8D5B5] font-light leading-[1.4] tracking-wide mb-8 italic">
                 “{currentLeader.quote.replace(/^“|”$/g, "")}”
               </blockquote>
 
               {/* Credentials & Biography */}
               <div className="pt-6 border-t border-[#DFCA9E]/25 flex flex-col gap-1.5">
                 <div className="flex items-center gap-3">
-                  <span className="font-sans text-sm sm:text-base font-bold tracking-[0.3em] uppercase text-[#DFCA9E]">
+                  <span className="font-sans text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-[#DFCA9E]">
                     {currentLeader.name}
                   </span>
                   <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#DFCA9E]/15 text-[#DFCA9E] border border-[#DFCA9E]/30 uppercase tracking-widest font-semibold">

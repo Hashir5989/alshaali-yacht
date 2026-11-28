@@ -5,38 +5,41 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AnimatedTitle from "./AnimatedTitle";
 import InteractiveCard3D from "./InteractiveCard3D";
-
-const brandDivisions = [
-  {
-    id: "asmaraty",
-    name: "Asmaraty",
-    division: "Yachts",
-    tagline: "Life of Superyacht Luxury",
-    logoSvg: "/assets/brand-asmaraty.svg",
-    href: "/#fleet",
-    badge: "Superyachts & Custom Builds",
-  },
-  {
-    id: "glory",
-    name: "Glory",
-    division: "Power Boats",
-    tagline: "Power & Offshore Performance",
-    logoSvg: "/assets/brand-glory.svg",
-    href: "/new-build",
-    badge: "High-Performance Cruisers",
-  },
-  {
-    id: "warrior",
-    name: "Warrior",
-    division: "Center Console",
-    tagline: "Tactical Center Consoles",
-    logoSvg: "/assets/brand-warrior.svg",
-    href: "/projects",
-    badge: "Tournament Center Consoles",
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function BrandDivisionsSection() {
+  const { isAr, t } = useLanguage();
+
+  const brandDivisions = [
+    {
+      id: "asmaraty",
+      name: t("asmaraty_title"),
+      division: isAr ? "يخوت سوبر يخت" : "Yachts",
+      tagline: t("asmaraty_tagline"),
+      logoSvg: "/assets/brand-asmaraty.svg",
+      href: "/#fleet",
+      badge: t("asmaraty_badge"),
+    },
+    {
+      id: "glory",
+      name: t("glory_title"),
+      division: isAr ? "قوارب سريعة" : "Power Boats",
+      tagline: t("glory_tagline"),
+      logoSvg: "/assets/brand-glory.svg",
+      href: "/new-build",
+      badge: t("glory_badge"),
+    },
+    {
+      id: "warrior",
+      name: t("warrior_title"),
+      division: isAr ? "كونسول أوسط" : "Center Console",
+      tagline: t("warrior_tagline"),
+      logoSvg: "/assets/brand-warrior.svg",
+      href: "/projects",
+      badge: t("warrior_badge"),
+    },
+  ];
+
   return (
     <section className="py-20 sm:py-28 bg-white border-b border-[#D9E2EC]/70 relative text-[#102A43] overflow-hidden">
       {/* Ambient background light grid */}
@@ -47,9 +50,10 @@ export default function BrandDivisionsSection() {
         {/* Section Heading with Animated Word Reveal */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <AnimatedTitle
-            tagline="Al Shaali Marine Group Divisions"
-            title="Engineered for Distinction."
-            subtitle="Our fleet encompasses three specialized, world-class brands engineered for every maritime calling — delivering bespoke luxury superyachts, dynamic offshore powerboats, and tactical tournament center consoles."
+            key={isAr ? "ar" : "en"}
+            tagline={t("brands_tagline")}
+            title={t("brands_title")}
+            subtitle={t("brands_subtitle")}
             align="center"
             dark={false}
           />
@@ -76,7 +80,7 @@ export default function BrandDivisionsSection() {
                   <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#176B9A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Division Badge */}
-                  <span className="text-[9.5px] uppercase tracking-[0.25em] text-[#829AB1] group-hover:text-[#176B9A] transition-colors font-mono mb-4 block">
+                  <span className="text-[9.5px] uppercase tracking-[0.2em] text-[#829AB1] group-hover:text-[#176B9A] transition-colors font-mono mb-4 block">
                     {brand.badge}
                   </span>
 

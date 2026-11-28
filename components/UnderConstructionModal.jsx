@@ -5,13 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
   Compass,
-  Anchor,
-  Wrench,
-  Sparkles,
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function UnderConstructionModal({
   isOpen,
@@ -19,6 +17,8 @@ export default function UnderConstructionModal({
   sectionName = "This Section",
   onOpenEnquiry,
 }) {
+  const { isAr, t } = useLanguage();
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") onClose();
@@ -39,7 +39,7 @@ export default function UnderConstructionModal({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto" dir={isAr ? "rtl" : "ltr"}>
         {/* Backdrop with Blur */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -66,7 +66,7 @@ export default function UnderConstructionModal({
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="absolute top-5 right-5 w-10 h-10 rounded-full border border-[#DFCA9E]/30 bg-[#06182a]/80 text-[#E8D5B5] hover:text-[#082B49] hover:bg-[#DFCA9E] hover:border-[#DFCA9E] transition-all flex items-center justify-center group"
+            className={`absolute top-5 ${isAr ? "left-5" : "right-5"} w-10 h-10 rounded-full border border-[#DFCA9E]/30 bg-[#06182a]/80 text-[#E8D5B5] hover:text-[#082B49] hover:bg-[#DFCA9E] hover:border-[#DFCA9E] transition-all flex items-center justify-center group`}
           >
             <X className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           </button>
@@ -74,8 +74,8 @@ export default function UnderConstructionModal({
           {/* Top Insignia Badge */}
           <div className="flex items-center gap-2 mb-4">
             <span className="w-2 h-2 rounded-full bg-[#DFCA9E] animate-ping" />
-            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#DFCA9E] font-bold">
-              Digital Shipyard Atelier · Commissioning Notice
+            <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#DFCA9E] font-bold">
+              {t("modal_badge")}
             </span>
           </div>
 
@@ -86,23 +86,23 @@ export default function UnderConstructionModal({
 
           {/* Headline */}
           <h3 className="font-serif text-3xl sm:text-4xl text-[#E8D5B5] font-light leading-snug mb-3">
-            <span className="text-[#DFCA9E] font-normal">{sectionName}</span> Is Currently Under Construction.
+            <span className="text-[#DFCA9E] font-normal">{sectionName}</span> {t("modal_title_suffix")}
           </h3>
 
           {/* Description */}
           <p className="text-sm text-[#DCEFF7]/80 leading-relaxed font-light mb-8">
-            Our digital shipyard team is currently handcrafting the bespoke <strong className="text-[#DFCA9E] font-medium">{sectionName}</strong> experience to Al Shaali Marine’s exacting architectural standards. This exclusive portal section will premiere shortly.
+            {t("modal_desc_prefix")} <strong className="text-[#DFCA9E] font-medium">{sectionName}</strong> {t("modal_desc_suffix")}
           </p>
 
           {/* Highlights / Status */}
           <div className="p-4 bg-[#06182a]/90 border border-[#DFCA9E]/20 mb-8 space-y-2.5 text-xs text-[#E8D5B5]/90">
             <div className="flex items-center gap-2.5">
               <ShieldCheck className="w-4 h-4 text-[#DFCA9E] flex-shrink-0" />
-              <span>Full 2026 fleet catalog and models are active on the main homepage.</span>
+              <span>{t("modal_check1")}</span>
             </div>
             <div className="flex items-center gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-[#DFCA9E] flex-shrink-0" />
-              <span>Ajman Drydock & refit consultation desks remain fully operational.</span>
+              <span>{t("modal_check2")}</span>
             </div>
           </div>
 
@@ -115,15 +115,15 @@ export default function UnderConstructionModal({
               }}
               className="w-full sm:w-auto flex-1 bg-[#DFCA9E] text-[#082B49] hover:bg-[#E8D5B5] py-3.5 px-6 text-xs font-sans tracking-[0.2em] uppercase font-bold transition-all shadow-md flex items-center justify-center gap-2"
             >
-              <span>Contact Shipyard</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>{t("modal_btn_contact")}</span>
+              <ArrowRight className={`w-4 h-4 ${isAr ? "rotate-180" : ""}`} />
             </button>
 
             <button
               onClick={onClose}
               className="w-full sm:w-auto flex-1 border border-[#DFCA9E]/40 text-[#E8D5B5] hover:bg-[#06182a] py-3.5 px-6 text-xs font-sans tracking-[0.2em] uppercase font-semibold transition-all text-center"
             >
-              Explore Homepage
+              {t("modal_btn_explore")}
             </button>
           </div>
 

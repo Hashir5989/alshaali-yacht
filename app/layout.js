@@ -4,6 +4,7 @@ import CustomCursor from "@/components/CustomCursor";
 import OceanAtmosphereCanvas from "@/components/OceanAtmosphereCanvas";
 import ScrollCompass from "@/components/ScrollCompass";
 import PageTransitionManager from "@/components/PageTransitionManager";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export const viewport = {
   themeColor: "#082B49",
@@ -41,9 +42,11 @@ export default function RootLayout({ children }) {
         <ScrollCompass />
 
         {/* Cinematic Luxury Page-to-Page Transition Manager */}
-        <PageTransitionManager>
-          {children}
-        </PageTransitionManager>
+        <LanguageProvider>
+          <PageTransitionManager>
+            {children}
+          </PageTransitionManager>
+        </LanguageProvider>
       </body>
     </html>
   );

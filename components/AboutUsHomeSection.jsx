@@ -131,8 +131,8 @@ export default function AboutUsHomeSection() {
             <InteractiveCard3D className="w-full">
               <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#DFCA9E]/30 shadow-2xl bg-[#061B2E] group">
                 <Image
-                  src="/media/yachts/an-owner-at-ease-on-the-aft-deck-mediterranean-coast-behind.png"
-                  alt="Al Shaali Marine Superyacht Owner on Aft Deck"
+                  src="/media/yachts/about-crafting-mastery.jpg"
+                  alt={isAr ? "الشعالي مارين - صناعة الريادة البحرية لأربعة عقود" : "Al Shaali Marine - Crafting Arabian Maritime Mastery for Over Four Decades"}
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"

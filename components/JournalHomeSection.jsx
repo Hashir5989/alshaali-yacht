@@ -21,7 +21,7 @@ export default function JournalHomeSection() {
       category: "تدشين وإطلاق",
       date: "١٥ يناير ٢٠٢٦",
       readTime: "٤ دقائق قراءة",
-      image: "/media/yachts/ea4e54_2d4d9ba4d7814b248a3e0b200b21651cf000.jpg",
+      image: "/media/news/news-burj-al-arab.jpg",
     },
     {
       id: "ajman-drydock-expansion",
@@ -31,7 +31,7 @@ export default function JournalHomeSection() {
       category: "أحواض السفن",
       date: "٠٢ ديسمبر ٢٠٢٥",
       readTime: "٦ دقائق قراءة",
-      image: "/media/yachts/sweet-maryi-52m-yacht-refit-athens.png",
+      image: "/media/news/news-cruiser-yacht.jpg",
     },
     {
       id: "dibs-2026-preview",
@@ -41,7 +41,7 @@ export default function JournalHomeSection() {
       category: "معارض دولية",
       date: "١٨ نوفمبر ٢٠٢٥",
       readTime: "٣ دقائق قراءة",
-      image: "/media/yachts/as100-hero.png",
+      image: "/media/news/news-asmaraty-speed.jpg",
     },
   ];
 

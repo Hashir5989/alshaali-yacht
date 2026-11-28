@@ -7,7 +7,7 @@ export const newsArticles = [
     date: "November 2026",
     readTime: "4 Min Read",
     excerpt: "Constructed with advanced resin infusion and boasting transatlantic capability, the new 40-metre flagship sets a new pinnacle for Emirati luxury shipbuilding.",
-    image: "/media/yachts/ciappaira-65-m-superyacht-design.jpg",
+    image: "/media/news/news-burj-al-arab.jpg",
     content: "Al Shaali Marine has officially revealed specifications for its flagship AS 130 Tri-Deck Superyacht at its Ajman headquarters. The 40-metre vessel features accommodations for 12 guests across six staterooms, an expansive beach club with fold-out sea terraces, and twin Caterpillar C32 engines delivering a cruising speed of 17.5 knots.",
   },
   {
@@ -18,7 +18,7 @@ export const newsArticles = [
     date: "October 2026",
     readTime: "3 Min Read",
     excerpt: "Celebrating 45 years of continuous marine craftsmanship, the Ajman yard commands Dubai Harbour with the AS 100 and Warrior 43 express cruisers.",
-    image: "/media/yachts/neon-78-m-superyacht-design.jpg",
+    image: "/media/news/news-cruiser-yacht.jpg",
     content: "The annual Dubai International Boat Show once again highlighted Al Shaali Marine's dominant presence in Middle Eastern yachting. The shipyard showcased its celebrated AS 100 alongside high-speed offshore models.",
   },
   {
@@ -29,7 +29,7 @@ export const newsArticles = [
     date: "September 2026",
     readTime: "5 Min Read",
     excerpt: "Enhanced superyacht refit infrastructure accommodates vessels up to 55 metres for comprehensive structural overhauls and Lloyd's survey renewals.",
-    image: "/media/yachts/sweet-maryi-52m-yacht-refit-athens.png",
+    image: "/media/news/news-asmaraty-speed.jpg",
     content: "To cater to increasing demand for superyacht refits in the Arabian Gulf, Al Shaali Marine has commissioned a brand new climate-controlled paint bay and enhanced haul-out dockage.",
   },
 ];

@@ -5,14 +5,16 @@ import Header from "@/components/Header";
 import CinematicHeroExperience from "@/components/CinematicHeroExperience";
 import BrandDivisionsSection from "@/components/BrandDivisionsSection";
 import AboutUsHomeSection from "@/components/AboutUsHomeSection";
+import ShipyardRefitSection from "@/components/ShipyardRefitSection";
+import ChairmanSection from "@/components/ChairmanSection";
 import StatementSection from "@/components/StatementSection";
 import FleetSection from "@/components/FleetSection";
 import SuperyachtSpotlight from "@/components/SuperyachtSpotlight";
 import YachtHotspotExplorer from "@/components/YachtHotspotExplorer";
 import InteractiveFleetComparator from "@/components/InteractiveFleetComparator";
 import YachtConfigurator from "@/components/YachtConfigurator";
-import ShipyardRefitSection from "@/components/ShipyardRefitSection";
 import HeritageSection from "@/components/HeritageSection";
+
 import JournalHomeSection from "@/components/JournalHomeSection";
 import CtaVideoSection from "@/components/CtaVideoSection";
 import Footer from "@/components/Footer";
@@ -59,7 +61,10 @@ export default function HomePage() {
         {/* 4. Ajman Shipyard & Drydock Atelier Facilities */}
         <ShipyardRefitSection onOpenEnquiry={handleOpenEnquiry} />
 
-        {/* 5. Complete 2026 Fleet Collection with 3D Interactive Perspective Cards */}
+        {/* 5. Chairman's Vision & Leadership Message */}
+        <ChairmanSection />
+
+        {/* 6. Complete 2026 Fleet Collection with 3D Interactive Perspective Cards */}
         <FleetSection
           onSelectYacht={handleOpenYachtDetail}
           onOpenEnquiry={handleOpenEnquiry}

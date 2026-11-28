@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import CinematicHeroExperience from "@/components/CinematicHeroExperience";
+import BrandDivisionsSection from "@/components/BrandDivisionsSection";
 import StatementSection from "@/components/StatementSection";
 import FleetSection from "@/components/FleetSection";
 import SuperyachtSpotlight from "@/components/SuperyachtSpotlight";
@@ -48,7 +49,10 @@ export default function HomePage() {
         {/* 1. Immersive Cinematic Hero with Mouse Depth, Video, Ajman Telemetry & Sound Ambience */}
         <CinematicHeroExperience onOpenEnquiry={handleOpenEnquiry} />
 
-        {/* 2. Complete 2026 Fleet Collection with 3D Interactive Perspective Cards */}
+        {/* 2. Specialized Brand Divisions (Asmaraty, Glory, Warrior, SYSC) */}
+        <BrandDivisionsSection />
+
+        {/* 3. Complete 2026 Fleet Collection with 3D Interactive Perspective Cards */}
         <FleetSection
           onSelectYacht={handleOpenYachtDetail}
           onOpenEnquiry={handleOpenEnquiry}

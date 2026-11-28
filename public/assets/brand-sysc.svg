@@ -1,0 +1,21 @@
+<!-- Official SYSC (Shipyard & Yacht Services / Care) Insignia Logo -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%">
+  <!-- Top Mast / Spire -->
+  <line x1="120" y1="12" x2="120" y2="46" stroke="#082B49" stroke-width="4.5" stroke-linecap="round" />
+  <circle cx="120" cy="12" r="3.5" fill="#082B49" />
+
+  <!-- Deck 3 (Top Navigation Bridge Tier) -->
+  <path d="M 92 56 L 148 56 C 146 51 142 46 138 46 L 102 46 C 98 46 94 51 92 56 Z" fill="#082B49" />
+
+  <!-- Deck 2 (Upper Deck Tier) -->
+  <path d="M 82 72 L 158 72 L 153 62 L 87 62 Z" fill="#082B49" />
+
+  <!-- Deck 1 (Main Superstructure Tier) -->
+  <path d="M 70 90 L 170 90 L 164 78 L 76 78 Z" fill="#082B49" />
+
+  <!-- Hull & Crest Outline (Shield) -->
+  <path d="M 68 110 L 172 110 C 172 110 168 152 120 172 C 72 152 68 110 68 110 Z" fill="#082B49" />
+
+  <!-- SYSC Wordmark (Cutout / Pure White typography inside hull) -->
+  <text x="120" y="104" font-family="'Montserrat', 'Inter', 'Segoe UI', sans-serif" font-weight="900" font-size="28" letter-spacing="4" fill="#082B49" text-anchor="middle">SYSC</text>
+</svg>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { companyInfo } from "@/data/yachts";
-import { ArrowRight, CheckCircle2, Shield } from "lucide-react";
+import { ArrowRight, CheckCircle2, Shield, Anchor } from "lucide-react";
 
 export default function Footer({ onOpenEnquiry }) {
   const [email, setEmail] = useState("");
@@ -22,6 +22,7 @@ export default function Footer({ onOpenEnquiry }) {
   return (
     <footer className="relative bg-[#082B49] border-t border-[#176B9A]/30 text-white pt-20 pb-12 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        
         {/* Newsletter Section */}
         <div className="border-b border-white/15 pb-16 mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -72,6 +73,7 @@ export default function Footer({ onOpenEnquiry }) {
 
         {/* 4-Column Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-16">
+          
           {/* Brand Col (4 cols) */}
           <div className="lg:col-span-4 flex flex-col gap-4">
             <Link href="/" className="inline-block" aria-label="Al Shaali Marine Home">
@@ -93,54 +95,74 @@ export default function Footer({ onOpenEnquiry }) {
             </p>
           </div>
 
-          {/* Navigation Col 1: Explore (2 cols) */}
+          {/* Navigation Col 1: Main Menu (3 cols) */}
           <div className="lg:col-span-3 flex flex-col gap-3">
-            <p className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#C5A880] mb-2 font-medium">
-              Explore
+            <p className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#DFCA9E] mb-2 font-bold">
+              Navigation
             </p>
-            <Link href="/" className="text-sm text-[#F0EBE0]/70 hover:text-[#C5A880] transition-colors">Home</Link>
-            <Link href="/new-build" className="text-sm text-[#F0EBE0]/70 hover:text-[#C5A880] transition-colors">New Build</Link>
-            <Link href="/refit" className="text-sm text-[#F0EBE0]/70 hover:text-[#C5A880] transition-colors">Refit</Link>
-            <Link href="/projects" className="text-sm text-[#F0EBE0]/70 hover:text-[#C5A880] transition-colors">Projects</Link>
+            <Link href="/" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">Home</Link>
+            <Link href="/#about-us" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">About Us</Link>
+            <Link href="/refit" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">Shipyard & Drydocks</Link>
+            <Link href="/careers" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors flex items-center gap-2">
+              <span>Career</span>
+              <span className="text-[9px] uppercase px-1.5 py-0.5 bg-[#DFCA9E]/20 text-[#DFCA9E] font-mono">Hiring</span>
+            </Link>
+            <Link href="/news" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">The Logbook & Dispatches</Link>
           </div>
 
-          {/* Navigation Col 2: Contact (2 cols) */}
+          {/* Navigation Col 2: Brand Divisions (3 cols) */}
           <div className="lg:col-span-3 flex flex-col gap-3">
-            <p className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#C5A880] mb-2 font-medium">
-              Contact
+            <p className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#DFCA9E] mb-2 font-bold">
+              Brand Divisions
             </p>
-            <a href="mailto:sales@alshaalimarine.com" className="text-sm text-[#F0EBE0]/70 hover:text-[#C5A880] transition-colors">
-              sales@alshaalimarine.com
-            </a>
-            <a href="tel:+97167422222" className="text-sm text-[#F0EBE0]/70 hover:text-[#C5A880] transition-colors">
-              +971 6 742 2222
-            </a>
-            <Link href="/contact" className="text-sm text-[#F0EBE0]/70 hover:text-[#C5A880] transition-colors">
-              Write to us
+            <Link href="/#fleet" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">
+              Asmaraty Yachts (Superyachts)
+            </Link>
+            <Link href="/new-build" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">
+              Glory Power Boats
+            </Link>
+            <Link href="/projects" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">
+              Warrior Center Consoles
+            </Link>
+            <Link href="/#chairman-vision" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">
+              Founder & Chairman Vision
+            </Link>
+            <Link href="/#testimonials" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">
+              Owner Testimonials
             </Link>
           </div>
 
-          {/* Navigation Col 3: Legal (2 cols) */}
+          {/* Navigation Col 3: Contact & Legal (2 cols) */}
           <div className="lg:col-span-2 flex flex-col gap-3">
-            <p className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#C5A880] mb-2 font-medium">
-              Legal
+            <p className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#DFCA9E] mb-2 font-bold">
+              Contact & Atelier
             </p>
-            <Link href="/impressum" className="text-sm text-[#F0EBE0]/70 hover:text-[#C5A880] transition-colors">Impressum</Link>
-            <Link href="/disclaimer" className="text-sm text-[#F0EBE0]/70 hover:text-[#C5A880] transition-colors">Disclaimer</Link>
-            <Link href="/privacy" className="text-sm text-[#F0EBE0]/70 hover:text-[#C5A880] transition-colors">Privacy</Link>
+            <a href="mailto:sales@alshaalimarine.com" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">
+              sales@alshaalimarine.com
+            </a>
+            <a href="tel:+97167422222" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">
+              +971 6 742 2222
+            </a>
+            <Link href="/contact" className="text-sm text-[#E8D5B5]/75 hover:text-[#DFCA9E] transition-colors">
+              Write to us
+            </Link>
+            <div className="pt-2 border-t border-white/10 flex flex-col gap-2">
+              <Link href="/impressum" className="text-xs text-[#E8D5B5]/60 hover:text-[#DFCA9E] transition-colors">Impressum</Link>
+              <Link href="/privacy" className="text-xs text-[#E8D5B5]/60 hover:text-[#DFCA9E] transition-colors">Privacy Policy</Link>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar matching Astra Nord */}
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F0EBE0]/50 gap-4">
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#E8D5B5]/50 gap-4">
           <p>© {new Date().getFullYear()} Al Shaali Marine. All rights reserved.</p>
-          <p className="tracking-widest uppercase text-[10px] text-[#C5A880]">
+          <p className="tracking-widest uppercase text-[10px] text-[#DFCA9E]">
             Ajman &nbsp;—&nbsp; Dubai &nbsp;—&nbsp; Abu Dhabi
           </p>
         </div>
 
-        {/* Dark Note matching Astra Nord's exact footer quote */}
-        <p className="text-[11px] text-[#F0EBE0]/35 mt-6 max-w-2xl leading-relaxed italic">
+        {/* Environmental Statement Note */}
+        <p className="text-[11px] text-[#E8D5B5]/35 mt-6 max-w-2xl leading-relaxed italic">
           Dark by intention: our website is designed in deep maritime tones, so your display draws less energy, reflecting the calm waters of the Arabian Gulf. The same environmental respect and marine stewardship guides every vessel we construct.
         </p>
       </div>

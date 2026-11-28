@@ -208,3 +208,46 @@ body {
 .btn-outline-gold {
   @apply btn-white-outline;
 }
+
+/* Luxury Interactive Animations & Dynamic Life */
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes gold-breathe {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(223, 202, 158, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(223, 202, 158, 0.35);
+  }
+}
+
+.animate-subtle-float {
+  animation: subtle-float 5s ease-in-out infinite;
+}
+
+.gold-breathe {
+  animation: gold-breathe 4s ease-in-out infinite;
+}
+
+/* Card 3D perspective enhancements */
+.perspective-container {
+  perspective: 1200px;
+}
+
+.card-luxury {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.card-luxury:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -15px rgba(8, 43, 73, 0.18);
+}
+

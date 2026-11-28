@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, Sparkles } from "lucide-react";
+import AnimatedTitle from "./AnimatedTitle";
+import InteractiveCard3D from "./InteractiveCard3D";
 
 const LEADERS = [
   {
@@ -42,22 +44,18 @@ export default function ChairmanSection() {
 
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
         
-        {/* Executive Leadership Switcher / Persona Tabs */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-12 mb-12 border-b border-[#DFCA9E]/20">
+        {/* Executive Leadership Switcher / Persona Tabs with Animated Title */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-12 mb-12 border-b border-[#DFCA9E]/20">
           <div>
-            <div className="inline-flex items-center gap-2 mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#DFCA9E] animate-pulse" />
-              <span className="font-sans text-[11px] tracking-[0.35em] uppercase font-bold text-[#DFCA9E]">
-                Visionary Leadership & Heritage
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-serif text-[#E8D5B5] tracking-wide">
-              Words of the Founders & Chairmen
-            </h2>
+            <AnimatedTitle
+              tagline="Visionary Leadership & Heritage"
+              title="Words of the Founders & Chairmen."
+              dark={true}
+            />
           </div>
 
-          {/* Interactive Persona Selector Buttons */}
-          <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#06182a]/90 backdrop-blur-md rounded-full border border-[#DFCA9E]/30 shadow-inner">
+          {/* Interactive Persona Selector Buttons with Hover Glow */}
+          <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#06182a]/90 backdrop-blur-md rounded-full border border-[#DFCA9E]/30 shadow-inner self-start sm:self-auto">
             {LEADERS.map((leader) => {
               const isActive = leader.id === activeLeaderId;
               return (
@@ -66,7 +64,7 @@ export default function ChairmanSection() {
                   onClick={() => setActiveLeaderId(leader.id)}
                   className={`px-5 py-2.5 rounded-full text-xs font-sans tracking-[0.2em] uppercase transition-all duration-300 flex items-center gap-2 ${
                     isActive
-                      ? "bg-[#DFCA9E] text-[#082B49] font-bold shadow-lg shadow-[#DFCA9E]/20"
+                      ? "bg-[#DFCA9E] text-[#082B49] font-bold shadow-lg shadow-[#DFCA9E]/20 scale-[1.02]"
                       : "text-[#E8D5B5]/70 hover:text-[#DFCA9E] hover:bg-[#176B9A]/20"
                   }`}
                 >
@@ -78,44 +76,46 @@ export default function ChairmanSection() {
           </div>
         </div>
 
-        {/* Dynamic Leader Card with Framer Motion AnimatePresence */}
+        {/* Dynamic Leader Card with Framer Motion AnimatePresence & 3D Tilt */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentLeader.id}
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
           >
-            {/* Left Column: Portrait with Architectural Frame & Nameplate */}
+            {/* Left Column: Portrait with 3D Tilt, Architectural Frame & Nameplate */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/5] w-full max-w-md mx-auto overflow-hidden border border-[#DFCA9E]/40 bg-[#06182a] shadow-2xl group">
-                <Image
-                  src={currentLeader.image}
-                  alt={`${currentLeader.name} - ${currentLeader.role}`}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 42vw"
-                  className={`${currentLeader.colorMode} transition-transform duration-700 group-hover:scale-105`}
-                />
-                
-                {/* Subtle Luxury Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#082B49]/95 via-transparent to-transparent pointer-events-none" />
+              <InteractiveCard3D className="w-full max-w-md mx-auto">
+                <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#DFCA9E]/40 bg-[#06182a] shadow-2xl group">
+                  <Image
+                    src={currentLeader.image}
+                    alt={`${currentLeader.name} - ${currentLeader.role}`}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className={`${currentLeader.colorMode} transition-transform duration-700 group-hover:scale-106`}
+                  />
+                  
+                  {/* Subtle Luxury Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#082B49]/95 via-transparent to-transparent pointer-events-none" />
 
-                {/* Inset Name Plate at Bottom of Frame */}
-                <div className="absolute bottom-5 left-5 right-5 bg-[#082B49]/95 backdrop-blur-md border border-[#DFCA9E]/40 py-3.5 px-4 flex items-center justify-between shadow-lg">
-                  <div>
-                    <span className="font-sans text-[12px] tracking-[0.25em] uppercase font-bold text-[#E8D5B5] block">
-                      {currentLeader.name}
-                    </span>
-                    <span className="font-sans text-[9px] tracking-[0.32em] uppercase text-[#DFCA9E] block mt-0.5 font-semibold">
-                      {currentLeader.role}
-                    </span>
+                  {/* Inset Name Plate at Bottom of Frame */}
+                  <div className="absolute bottom-5 left-5 right-5 bg-[#082B49]/95 backdrop-blur-md border border-[#DFCA9E]/40 py-3.5 px-4 flex items-center justify-between shadow-lg group-hover:border-[#DFCA9E] transition-colors">
+                    <div>
+                      <span className="font-sans text-[12px] tracking-[0.25em] uppercase font-bold text-[#E8D5B5] block">
+                        {currentLeader.name}
+                      </span>
+                      <span className="font-sans text-[9px] tracking-[0.32em] uppercase text-[#DFCA9E] block mt-0.5 font-semibold">
+                        {currentLeader.role}
+                      </span>
+                    </div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#DFCA9E] animate-pulse" />
                   </div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#DFCA9E] animate-pulse" />
                 </div>
-              </div>
+              </InteractiveCard3D>
 
               {/* Offset Gold Accent Frame */}
               <div className="absolute -bottom-4 -left-4 w-full max-w-md h-full border border-[#DFCA9E]/25 -z-10 pointer-events-none hidden sm:block" />
@@ -125,16 +125,20 @@ export default function ChairmanSection() {
             <div className="lg:col-span-7 flex flex-col justify-center">
               {/* Header Eyebrow */}
               <div className="inline-flex items-center gap-2.5 mb-6">
-                <Sparkles className="w-4 h-4 text-[#DFCA9E]" />
+                <Sparkles className="w-4 h-4 text-[#DFCA9E] animate-pulse" />
                 <span className="font-sans text-[11px] tracking-[0.35em] uppercase font-bold text-[#DFCA9E]">
                   {currentLeader.tagline}
                 </span>
               </div>
 
-              {/* Decorative Quote Icon */}
-              <div className="mb-6">
+              {/* Decorative Quote Icon with Subtle Float Motion */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="mb-6"
+              >
                 <Quote className="w-12 h-12 text-[#DFCA9E]/40 rotate-180" />
-              </div>
+              </motion.div>
 
               {/* Leader's Bespoke Quote */}
               <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#E8D5B5] font-light leading-[1.38] tracking-wide mb-8 italic">

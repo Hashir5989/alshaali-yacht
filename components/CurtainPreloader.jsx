@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function CurtainPreloader() {
@@ -45,18 +46,21 @@ export default function CurtainPreloader() {
 
           {/* Central Logo & Emblem */}
           <div className="relative z-10 flex flex-col items-center text-center px-6">
-            {/* Animated 8-Point Nautical Star / Falcon Crest */}
+            {/* Official Al Shaali Marine Crest & Logo */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0, rotate: -20 }}
-              animate={{ scale: 1, opacity: 1, rotate: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative w-24 h-24 mb-6"
+              initial={{ scale: 0.85, opacity: 0, y: 15 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, ease: "easeOut" }}
+              className="relative w-64 sm:w-80 h-20 sm:h-24 mb-6"
             >
-              <svg viewBox="0 0 432 432" className="w-full h-full fill-[#C5A880] drop-shadow-[0_0_20px_rgba(197,168,128,0.4)]">
-                <path d="M216 0 L234 162 L396 180 L234 198 L216 360 L198 198 L36 180 L198 162 Z" opacity="0.9" />
-                <path d="M216 54 L228 174 L348 186 L228 198 L216 318 L204 198 L84 186 L204 174 Z" fill="#E2C896" opacity="0.6" />
-                <circle cx="216" cy="180" r="14" fill="#071429" stroke="#C5A880" strokeWidth="3" />
-              </svg>
+              <Image
+                src="/assets/al-shaali-logo-gold.png"
+                alt="Al Shaali Marine"
+                fill
+                priority
+                sizes="(max-width: 640px) 256px, 320px"
+                className="object-contain drop-shadow-[0_0_30px_rgba(223,202,158,0.4)]"
+              />
             </motion.div>
 
             {/* Typography */}

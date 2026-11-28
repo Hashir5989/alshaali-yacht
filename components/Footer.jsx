@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { companyInfo } from "@/data/yachts";
 import { ArrowRight, CheckCircle2, Shield } from "lucide-react";
 
@@ -73,13 +74,16 @@ export default function Footer({ onOpenEnquiry }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-16">
           {/* Brand Col (4 cols) */}
           <div className="lg:col-span-4 flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-3">
-              <svg viewBox="0 0 24 24" className="w-6 h-6 fill-[#DFCA9E]">
-                <path d="M12 0 L14 9 L23 11 L14 13 L12 22 L10 13 L1 11 L10 9 Z" />
-              </svg>
-              <span className="font-serif text-xl tracking-wider text-[#E8D5B5]">
-                AL SHAALI MARINE
-              </span>
+            <Link href="/" className="inline-block" aria-label="Al Shaali Marine Home">
+              <div className="relative h-11 w-52 sm:w-56">
+                <Image
+                  src="/assets/al-shaali-logo-gold.png"
+                  alt="Al Shaali Marine"
+                  fill
+                  sizes="220px"
+                  className="object-contain object-left"
+                />
+              </div>
             </Link>
             <p className="text-sm text-[#E8D5B5]/85 leading-relaxed max-w-sm font-light">
               Pioneers of Arabian marine mastery since 1979. Over four decades of continuous shipbuilding excellence in Ajman, United Arab Emirates.

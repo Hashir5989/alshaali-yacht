@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -112,22 +113,22 @@ export default function PageTransitionManager({ children }) {
                 transition={{ duration: 0.35, delay: 0.1 }}
                 className="relative z-10 flex flex-col items-center gap-4 text-center px-6"
               >
-                <div className="w-12 h-12 relative">
-                  <svg viewBox="0 0 24 24" className="w-full h-full fill-[#DFCA9E] drop-shadow-[0_0_20px_rgba(223,202,158,0.4)]">
-                    <path d="M12 0 L14 9 L23 11 L14 13 L12 22 L10 13 L1 11 L10 9 Z" />
-                  </svg>
+                <div className="relative w-52 sm:w-64 h-16 sm:h-20">
+                  <Image
+                    src="/assets/al-shaali-logo-gold.png"
+                    alt="Al Shaali Marine"
+                    fill
+                    priority
+                    sizes="260px"
+                    className="object-contain drop-shadow-[0_0_25px_rgba(223,202,158,0.4)]"
+                  />
                 </div>
-                <div className="flex flex-col items-center">
-                  <span className="font-serif text-lg tracking-[0.25em] text-[#E8D5B5] font-light">
-                    AL SHAALI MARINE
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="w-6 h-[1px] bg-[#DFCA9E]/40" />
+                  <span className="font-sans text-[8.5px] tracking-[0.35em] uppercase text-[#DFCA9E] font-semibold">
+                    SHIPYARD GROUP · AJMAN · EST. 1979
                   </span>
-                  <div className="flex items-center gap-2 mt-1">
-                    <span className="w-6 h-[1px] bg-[#DFCA9E]/40" />
-                    <span className="font-sans text-[8.5px] tracking-[0.35em] uppercase text-[#DFCA9E] font-semibold">
-                      AJMAN · EST. 1979
-                    </span>
-                    <span className="w-6 h-[1px] bg-[#DFCA9E]/40" />
-                  </div>
+                  <span className="w-6 h-[1px] bg-[#DFCA9E]/40" />
                 </div>
               </motion.div>
             </motion.div>

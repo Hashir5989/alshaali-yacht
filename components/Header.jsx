@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import SoundAmbience from "./SoundAmbience";
@@ -28,31 +29,29 @@ export default function Header({ onOpenEnquiry }) {
     { name: "Contact", href: "/contact" },
   ];
 
+  const isLightHeader = scrolled || pathname !== "/";
+
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled || pathname !== "/"
+          isLightHeader
             ? "bg-white/95 backdrop-blur-md border-b border-[#D9E2EC] py-3.5 shadow-lg text-[#102A43]"
             : "bg-gradient-to-b from-[#082B49]/90 via-[#082B49]/40 to-transparent py-5 text-white"
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between">
-          {/* Brand Logo - Deep Navy & Ocean Blue */}
-          <Link href="/" className="flex items-center gap-3.5 group">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 relative flex-shrink-0">
-              <svg viewBox="0 0 24 24" className={`w-full h-full ${scrolled || pathname !== "/" ? "fill-[#082B49]" : "fill-[#DCEFF7]"} group-hover:fill-[#176B9A] transition-colors duration-300`}>
-                <path d="M12 0 L14 9 L23 11 L14 13 L12 22 L10 13 L1 11 L10 9 Z" />
-              </svg>
-            </div>
-
-            <div className="flex flex-col">
-              <span className={`font-serif text-lg sm:text-xl tracking-[0.08em] font-normal leading-none ${scrolled || pathname !== "/" ? "text-[#082B49]" : "text-white"} group-hover:text-[#176B9A] transition-colors`}>
-                AL SHAALI MARINE
-              </span>
-              <span className={`font-sans text-[8.5px] tracking-[0.34em] uppercase mt-1 font-semibold ${scrolled || pathname !== "/" ? "text-[#176B9A]" : "text-[#DCEFF7]"}`}>
-                SHIPYARD GROUP · AJMAN · EST. 1979
-              </span>
+          {/* Brand Logo - Official Al Shaali Marine Insignia Lockup */}
+          <Link href="/" className="flex items-center group py-0.5" aria-label="Al Shaali Marine Home">
+            <div className="relative h-10 sm:h-11 md:h-12 w-48 sm:w-56 md:w-60 transition-transform duration-300 group-hover:scale-[1.02]">
+              <Image
+                src={isLightHeader ? "/assets/al-shaali-logo-dark.png" : "/assets/al-shaali-logo.png"}
+                alt="Al Shaali Marine"
+                fill
+                priority
+                sizes="(max-width: 640px) 192px, 240px"
+                className="object-contain object-left"
+              />
             </div>
           </Link>
 

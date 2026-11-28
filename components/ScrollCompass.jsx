@@ -46,28 +46,28 @@ export default function ScrollCompass() {
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={scrollToTop}
           title="Return to Helm"
-          className="w-10 h-10 rounded-full bg-[#071429]/90 border border-[#C5A880]/30 hover:border-[#C5A880] text-[#C5A880] flex items-center justify-center backdrop-blur-md transition-all shadow-xl hover:scale-110"
+          className="w-10 h-10 rounded-full bg-[#0A211B]/95 border border-[#C6A66B]/30 hover:border-[#C6A66B] text-[#C6A66B] flex items-center justify-center backdrop-blur-md transition-all shadow-xl hover:scale-110"
         >
           <ArrowUp className="w-4 h-4" />
         </motion.button>
       )}
 
       {/* Nautical Compass Rose Widget */}
-      <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#071429]/80 border border-white/10 backdrop-blur-md shadow-2xl">
+      <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#0A211B]/90 border border-[#C6A66B]/25 backdrop-blur-md shadow-2xl">
         {/* Rotating Compass SVG */}
         <motion.div style={{ rotate }} className="w-5 h-5 flex-shrink-0">
-          <svg viewBox="0 0 24 24" className="w-full h-full fill-[#C5A880]">
+          <svg viewBox="0 0 24 24" className="w-full h-full fill-[#C6A66B]">
             <polygon points="12,1 15,10 23,12 15,14 12,23 9,14 1,12 9,10" />
-            <circle cx="12" cy="12" r="2.5" fill="#071429" stroke="#C5A880" strokeWidth="1" />
+            <circle cx="12" cy="12" r="2.5" fill="#0A211B" stroke="#C6A66B" strokeWidth="1" />
           </svg>
         </motion.div>
 
         {/* Heading & Coordinates */}
         <div className="flex flex-col text-left">
-          <span className="font-mono text-[9px] text-[#C5A880] tracking-wider font-semibold">
+          <span className="font-mono text-[9px] text-[#C6A66B] tracking-wider font-semibold">
             {String(heading).padStart(3, "0")}° {getCardinal(heading)}
           </span>
-          <span className="text-[7.5px] font-mono tracking-widest text-[#F0EBE0]/40 uppercase">
+          <span className="text-[7.5px] font-mono tracking-widest text-[#F5F0E5]/50 uppercase">
             AJMAN 25.4°N
           </span>
         </div>

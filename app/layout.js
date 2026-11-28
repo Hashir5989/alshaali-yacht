@@ -7,7 +7,7 @@ import PageTransitionManager from "@/components/PageTransitionManager";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 export const viewport = {
-  themeColor: "#082B49",
+  themeColor: "#12352D",
   width: "device-width",
   initialScale: 1,
 };
@@ -30,7 +30,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-white text-[#102A43] antialiased selection:bg-[#176B9A] selection:text-white flex flex-col min-h-screen relative font-sans">
+      <body className="bg-[#F5F0E5] text-[#12352D] antialiased selection:bg-[#C6A66B] selection:text-[#12352D] flex flex-col min-h-screen relative font-sans">
         {/* Preloader & Reticle Cursor */}
         <CurtainPreloader />
         <CustomCursor />

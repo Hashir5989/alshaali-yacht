@@ -45,7 +45,7 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-[#071429]/85 backdrop-blur-xl"
+            className="fixed inset-0 bg-[#0A211B]/85 backdrop-blur-xl"
           />
 
           {/* Modal Card */}
@@ -54,12 +54,12 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 w-full max-w-2xl bg-[#091A36] border border-white/15 rounded-sm p-6 sm:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.7)] text-[#F0EBE0] my-8"
+            className="relative z-10 w-full max-w-2xl bg-[#0A211B] border border-[#C6A66B]/30 rounded-none p-6 sm:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.7)] text-[#F5F0E5] my-8"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className={`absolute top-6 ${isAr ? "left-6" : "right-6"} text-white/50 hover:text-[#C5A880] transition-colors p-2`}
+              className={`absolute top-6 ${isAr ? "left-6" : "right-6"} text-white/50 hover:text-[#C6A66B] transition-colors p-2`}
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -67,16 +67,16 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
 
             {submitted ? (
               <div className="text-center py-10 px-4">
-                <div className="w-16 h-16 rounded-full border border-[#C5A880] flex items-center justify-center mx-auto mb-6 text-[#C5A880]">
+                <div className="w-16 h-16 rounded-full border border-[#C6A66B] flex items-center justify-center mx-auto mb-6 text-[#C6A66B]">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C5A880] mb-2 font-bold">
+                <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C6A66B] mb-2 font-bold">
                   {t("enquiry_badge")}
                 </p>
-                <h3 className="font-serif text-3xl sm:text-4xl text-[#F0EBE0] mb-4">
+                <h3 className="font-serif text-3xl sm:text-4xl text-[#F5F0E5] mb-4">
                   {isAr ? "شكراً لكم، ضيفنا الكريم" : (formData.name ? `Thank You, ${formData.name}` : "Thank You, Esteemed Guest")}
                 </h3>
-                <p className="text-[#F0EBE0]/70 max-w-md mx-auto text-sm leading-relaxed mb-8">
+                <p className="text-[#F5F0E5]/75 max-w-md mx-auto text-sm leading-relaxed mb-8">
                   {t("enquiry_success_desc")}
                 </p>
 
@@ -87,12 +87,12 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                       e.preventDefault();
                       alert(isAr ? "جارٍ تحميل كتالوج أسطول الشعالي مارين 2026 (PDF)..." : "Downloading Al Shaali Marine 2026 Fleet Compendium (PDF)...");
                     }}
-                    className="btn-gold w-full sm:w-auto flex items-center justify-center gap-2"
+                    className="bg-[#C6A66B] text-[#12352D] hover:bg-[#D4B87E] px-7 py-3.5 uppercase text-xs tracking-wider font-bold transition-all w-full sm:w-auto flex items-center justify-center gap-2"
                   >
                     <FileDown className="w-4 h-4" />
                     <span>{t("enquiry_btn_brochure")}</span>
                   </a>
-                  <button onClick={handleReset} className="btn-outline-gold w-full sm:w-auto">
+                  <button onClick={handleReset} className="border border-[#C6A66B]/50 text-[#F5F0E5] hover:bg-[#12352D] px-7 py-3.5 uppercase text-xs tracking-wider font-semibold transition-all w-full sm:w-auto">
                     {t("enquiry_btn_close")}
                   </button>
                 </div>
@@ -101,15 +101,15 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
               <>
                 <div className="mb-8">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C5A880]" />
-                    <p className="font-sans text-[10.5px] tracking-[0.3em] uppercase text-[#C5A880] font-bold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B]" />
+                    <p className="font-sans text-[10.5px] tracking-[0.3em] uppercase text-[#C6A66B] font-bold">
                       {t("enquiry_badge")}
                     </p>
                   </div>
-                  <h3 className="font-serif text-3xl sm:text-4xl text-[#F0EBE0]">
+                  <h3 className="font-serif text-3xl sm:text-4xl text-[#F5F0E5]">
                     {t("enquiry_title")}
                   </h3>
-                  <p className="text-[#F0EBE0]/60 text-xs sm:text-sm mt-2">
+                  <p className="text-[#F5F0E5]/60 text-xs sm:text-sm mt-2">
                     {t("enquiry_subtitle")}
                   </p>
                 </div>
@@ -117,7 +117,7 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/60 mb-1.5">
+                      <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F5F0E5]/70 mb-1.5">
                         {t("enquiry_name_label")} *
                       </label>
                       <input
@@ -126,11 +126,11 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder={t("enquiry_name_placeholder")}
-                        className="w-full bg-[#071429] border border-white/10 px-4 py-3 text-sm text-[#F0EBE0] placeholder:text-white/20 focus:border-[#C5A880] focus:outline-none transition-colors"
+                        className="w-full bg-[#0D2721] border border-[#C6A66B]/25 px-4 py-3 text-sm text-[#F5F0E5] placeholder:text-white/20 focus:border-[#C6A66B] focus:outline-none transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/60 mb-1.5">
+                      <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F5F0E5]/70 mb-1.5">
                         {t("enquiry_email_label")} *
                       </label>
                       <input
@@ -139,14 +139,14 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder={t("enquiry_email_placeholder")}
-                        className="w-full bg-[#071429] border border-white/10 px-4 py-3 text-sm text-[#F0EBE0] placeholder:text-white/20 focus:border-[#C5A880] focus:outline-none transition-colors"
+                        className="w-full bg-[#0D2721] border border-[#C6A66B]/25 px-4 py-3 text-sm text-[#F5F0E5] placeholder:text-white/20 focus:border-[#C6A66B] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/60 mb-1.5">
+                      <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F5F0E5]/70 mb-1.5">
                         {t("enquiry_phone_label")} *
                       </label>
                       <input
@@ -155,18 +155,18 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder={t("enquiry_phone_placeholder")}
-                        className="w-full bg-[#071429] border border-white/10 px-4 py-3 text-sm text-[#F0EBE0] placeholder:text-white/20 focus:border-[#C5A880] focus:outline-none transition-colors"
+                        className="w-full bg-[#0D2721] border border-[#C6A66B]/25 px-4 py-3 text-sm text-[#F5F0E5] placeholder:text-white/20 focus:border-[#C6A66B] focus:outline-none transition-colors"
                         dir="ltr"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/60 mb-1.5">
+                      <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F5F0E5]/70 mb-1.5">
                         {t("enquiry_interest_label")}
                       </label>
                       <select
                         value={formData.yachtInterest}
                         onChange={(e) => setFormData({ ...formData, yachtInterest: e.target.value })}
-                        className="w-full bg-[#071429] border border-white/10 px-4 py-3 text-sm text-[#F0EBE0] focus:border-[#C5A880] focus:outline-none transition-colors"
+                        className="w-full bg-[#0D2721] border border-[#C6A66B]/25 px-4 py-3 text-sm text-[#F5F0E5] focus:border-[#C6A66B] focus:outline-none transition-colors"
                       >
                         <option value="AS 130 Superyacht">{isAr ? "يخت سوبر يخت AS 130 ثلاثي الطوابق (40 متراً)" : "AS 130 Tri-Deck Superyacht (40m / 130ft)"}</option>
                         <option value="AS 100 Superyacht">{isAr ? "يخت ميجا يخت AS 100 فخم (30 متراً)" : "AS 100 Mega Yacht (30m / 100ft)"}</option>
@@ -181,7 +181,7 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                   </div>
 
                   <div>
-                    <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/60 mb-1.5">
+                    <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F5F0E5]/70 mb-1.5">
                       {t("enquiry_message_label")}
                     </label>
                     <textarea
@@ -189,20 +189,20 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder={t("enquiry_message_placeholder")}
-                      className="w-full bg-[#071429] border border-white/10 px-4 py-3 text-sm text-[#F0EBE0] placeholder:text-white/20 focus:border-[#C5A880] focus:outline-none transition-colors resize-none"
+                      className="w-full bg-[#0D2721] border border-[#C6A66B]/25 px-4 py-3 text-sm text-[#F5F0E5] placeholder:text-white/20 focus:border-[#C6A66B] focus:outline-none transition-colors resize-none"
                     />
                   </div>
 
                   <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div className="flex items-center gap-2 text-[10px] text-[#F0EBE0]/40">
-                      <Shield className="w-3.5 h-3.5 text-[#C5A880]" />
+                    <div className="flex items-center gap-2 text-[10px] text-[#F5F0E5]/60">
+                      <Shield className="w-3.5 h-3.5 text-[#C6A66B]" />
                       <span>{isAr ? "اتفاقيات السرية وعدم الإفصاح مضمونة ومحترمة تماماً" : "NDAs & Non-Disclosure Strictly Respected"}</span>
                     </div>
 
                     <button
                       type="submit"
                       disabled={loading}
-                      className="btn-gold w-full sm:w-auto flex items-center justify-center gap-2"
+                      className="bg-[#C6A66B] text-[#12352D] hover:bg-[#D4B87E] px-7 py-3 uppercase text-xs tracking-wider font-bold transition-all w-full sm:w-auto flex items-center justify-center gap-2 shadow-md"
                     >
                       {loading ? (
                         <span>{t("enquiry_submitting")}</span>

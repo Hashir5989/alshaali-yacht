@@ -80,9 +80,9 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
   const [activeAngle, setActiveAngle] = useState(angles[0]);
 
   return (
-    <section id="hotspots" className="py-24 sm:py-32 bg-[#082B49] border-b border-[#176B9A]/30 relative overflow-hidden text-white">
+    <section id="hotspots" className="py-24 sm:py-32 bg-[#12352D] border-b border-[#C6A66B]/30 relative overflow-hidden text-white">
       {/* Background Ambience */}
-      <div className="absolute -top-40 left-1/3 w-[700px] h-[700px] bg-[#176B9A]/20 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute -top-40 left-1/3 w-[700px] h-[700px] bg-[#C6A66B]/20 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
@@ -102,8 +102,8 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
                 onClick={() => setActiveAngle(ang)}
                 className={`px-4 py-2 text-[10.5px] tracking-[0.2em] uppercase transition-all font-semibold rounded-none ${
                   activeAngle.id === ang.id
-                    ? "bg-[#176B9A] text-white shadow-md"
-                    : "text-[#DCEFF7] hover:text-white"
+                    ? "bg-[#C6A66B] text-white shadow-md"
+                    : "text-[#F5F0E5] hover:text-white"
                 }`}
               >
                 {ang.name}
@@ -115,7 +115,7 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
         {/* Main Interactive Stage Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Interactive Vessel Hotspot Viewport (8 cols) */}
-          <div className="lg:col-span-8 relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#091A36] border border-white/15 rounded-sm overflow-hidden shadow-2xl group">
+          <div className="lg:col-span-8 relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#0A211B] border border-white/15 rounded-sm overflow-hidden shadow-2xl group">
             {/* Base Yacht Visual */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -134,7 +134,7 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071429]/90 via-transparent to-black/20 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A211B]/90 via-transparent to-black/20 pointer-events-none" />
               </motion.div>
             </AnimatePresence>
 
@@ -158,8 +158,8 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
                         <span
                           className={`absolute inset-0 rounded-full transition-transform duration-500 ${
                             isSelected
-                              ? "bg-[#C5A880]/30 animate-ping scale-150"
-                              : "bg-[#C5A880]/15 group-hover/btn:scale-125"
+                              ? "bg-[#C6A66B]/30 animate-ping scale-150"
+                              : "bg-[#C6A66B]/15 group-hover/btn:scale-125"
                           }`}
                         />
 
@@ -167,8 +167,8 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
                         <span
                           className={`relative flex items-center justify-center w-6 h-6 rounded-full border transition-all duration-300 ${
                             isSelected
-                              ? "border-[#E2C896] bg-[#C5A880] text-[#071429] shadow-[0_0_15px_#C5A880]"
-                              : "border-[#C5A880]/70 bg-[#071429]/90 text-[#C5A880] group-hover/btn:border-[#C5A880]"
+                              ? "border-[#E2C896] bg-[#C6A66B] text-[#0A211B] shadow-[0_0_15px_#C6A66B]"
+                              : "border-[#C6A66B]/70 bg-[#0A211B]/90 text-[#C6A66B] group-hover/btn:border-[#C6A66B]"
                           }`}
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-current" />
@@ -176,9 +176,9 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
 
                         {/* Floating Hotspot Micro-Label */}
                         <span
-                          className={`hidden md:block absolute left-1/2 -translate-x-1/2 top-7 whitespace-nowrap px-2 py-0.5 rounded-sm bg-[#071429]/90 border border-white/10 text-[9px] font-mono tracking-wider transition-all duration-200 pointer-events-none ${
+                          className={`hidden md:block absolute left-1/2 -translate-x-1/2 top-7 whitespace-nowrap px-2 py-0.5 rounded-sm bg-[#0A211B]/90 border border-white/10 text-[9px] font-mono tracking-wider transition-all duration-200 pointer-events-none ${
                             isSelected
-                              ? "text-[#C5A880] border-[#C5A880]/40 opacity-100"
+                              ? "text-[#C6A66B] border-[#C6A66B]/40 opacity-100"
                               : "text-[#F0EBE0]/60 opacity-0 group-hover/btn:opacity-100"
                           }`}
                         >
@@ -192,10 +192,10 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
             )}
 
             {/* Bottom HUD Bar on image */}
-            <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-wrap items-center justify-between gap-2 p-3 bg-[#071429]/85 backdrop-blur-md border border-white/10 rounded-sm">
+            <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-wrap items-center justify-between gap-2 p-3 bg-[#0A211B]/85 backdrop-blur-md border border-white/10 rounded-sm">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#C5A880] animate-pulse" />
-                <span className="text-[10px] tracking-[0.25em] text-[#C5A880] uppercase font-mono">
+                <span className="w-2 h-2 rounded-full bg-[#C6A66B] animate-pulse" />
+                <span className="text-[10px] tracking-[0.25em] text-[#C6A66B] uppercase font-mono">
                   ACTIVE DECK: {activeHotspot.deck}
                 </span>
               </div>
@@ -206,7 +206,7 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
           </div>
 
           {/* Active Hotspot Architectural Spec Card (4 cols) */}
-          <div className="lg:col-span-4 bg-[#091A36] border border-white/10 p-6 rounded-sm shadow-2xl flex flex-col justify-between min-h-[440px]">
+          <div className="lg:col-span-4 bg-[#0A211B] border border-white/10 p-6 rounded-sm shadow-2xl flex flex-col justify-between min-h-[440px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeHotspot.id}
@@ -217,7 +217,7 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
                 className="space-y-4"
               >
                 {/* Hotspot Image Thumbnail */}
-                <div className="relative aspect-[16/10] w-full rounded-sm overflow-hidden border border-white/10 bg-[#071429]">
+                <div className="relative aspect-[16/10] w-full rounded-sm overflow-hidden border border-white/10 bg-[#0A211B]">
                   <Image
                     src={activeHotspot.image}
                     alt={activeHotspot.name}
@@ -225,11 +225,11 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
                     sizes="(max-width: 1024px) 100vw, 30vw"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#091A36] via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A211B] via-transparent to-transparent opacity-60" />
                 </div>
 
                 <div>
-                  <span className="font-sans text-[10px] tracking-[0.28em] uppercase text-[#C5A880] block mb-1 font-medium">
+                  <span className="font-sans text-[10px] tracking-[0.28em] uppercase text-[#C6A66B] block mb-1 font-medium">
                     {activeHotspot.deck}
                   </span>
                   <h3 className="font-serif text-2xl text-[#F0EBE0] font-light leading-snug">
@@ -237,8 +237,8 @@ export default function YachtHotspotExplorer({ onOpenEnquiry }) {
                   </h3>
                 </div>
 
-                <div className="p-3 bg-[#071429]/80 border border-white/5 rounded-sm">
-                  <span className="text-[9.5px] uppercase tracking-widest text-[#C5A880] block mb-0.5 font-mono">
+                <div className="p-3 bg-[#0A211B]/80 border border-white/5 rounded-sm">
+                  <span className="text-[9.5px] uppercase tracking-widest text-[#C6A66B] block mb-0.5 font-mono">
                     Key Telemetry & Capacity
                   </span>
                   <span className="text-xs text-[#F0EBE0] font-mono font-medium block">

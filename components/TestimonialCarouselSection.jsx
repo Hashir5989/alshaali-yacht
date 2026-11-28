@@ -179,11 +179,11 @@ export default function TestimonialCarouselSection() {
   return (
     <section
       id="testimonials"
-      className="py-24 sm:py-32 bg-[#082B49] border-b border-[#176B9A]/30 relative overflow-hidden text-[#E8D5B5]"
+      className="py-24 sm:py-32 bg-[#12352D] border-b border-[#C6A66B]/20 relative overflow-hidden text-[#F5F0E5]"
     >
       {/* Decorative ambient radial lighting */}
-      <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-[#176B9A]/20 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-0 -right-32 w-[600px] h-[600px] bg-[#DFCA9E]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-[#C6A66B]/15 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 -right-32 w-[600px] h-[600px] bg-[#0A211B]/80 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Subtle compass nautical watermark with slow continuous rotation */}
       <motion.div
@@ -210,23 +210,23 @@ export default function TestimonialCarouselSection() {
 
           {/* Navigation Controls (Desktop) & Automatic Slide Indicator */}
           <div className="flex items-center gap-3 self-start md:self-end">
-            <div className="flex items-center gap-2 mr-3 px-3 py-1.5 rounded-full bg-[#06182a] border border-[#DFCA9E]/20 text-[10px] font-mono tracking-widest text-[#DFCA9E]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#DFCA9E] animate-ping" />
+            <div className="flex items-center gap-2 mr-3 px-3 py-1.5 rounded-full bg-[#0A211B] border border-[#C6A66B]/25 text-[10px] font-mono tracking-widest text-[#C6A66B]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B] animate-ping" />
               <span>{t("testimonials_autoplay")}</span>
-              <span className="text-[#E8D5B5]/60 ml-1">0{currentIndex + 1} / 0{testimonials.length}</span>
+              <span className="text-[#F5F0E5]/60 ml-1">0{currentIndex + 1} / 0{testimonials.length}</span>
             </div>
 
             <button
               onClick={prevSlide}
               aria-label="Previous Testimonial"
-              className="w-11 h-11 rounded-full border border-[#DFCA9E]/30 bg-[#06182a]/80 backdrop-blur-sm text-[#E8D5B5] hover:text-[#082B49] hover:bg-[#DFCA9E] hover:border-[#DFCA9E] transition-all flex items-center justify-center group shadow-md"
+              className="w-11 h-11 rounded-full border border-[#C6A66B]/30 bg-[#0A211B]/80 backdrop-blur-sm text-[#F5F0E5] hover:text-[#12352D] hover:bg-[#C6A66B] hover:border-[#C6A66B] transition-all flex items-center justify-center group shadow-md"
             >
               <ChevronLeft className={`w-4 h-4 transition-transform ${isAr ? "rotate-180 group-hover:translate-x-0.5" : "group-hover:-translate-x-0.5"}`} />
             </button>
             <button
               onClick={nextSlide}
               aria-label="Next Testimonial"
-              className="w-11 h-11 rounded-full border border-[#DFCA9E]/30 bg-[#06182a]/80 backdrop-blur-sm text-[#E8D5B5] hover:text-[#082B49] hover:bg-[#DFCA9E] hover:border-[#DFCA9E] transition-all flex items-center justify-center group shadow-md"
+              className="w-11 h-11 rounded-full border border-[#C6A66B]/30 bg-[#0A211B]/80 backdrop-blur-sm text-[#F5F0E5] hover:text-[#12352D] hover:bg-[#C6A66B] hover:border-[#C6A66B] transition-all flex items-center justify-center group shadow-md"
             >
               <ChevronRight className={`w-4 h-4 transition-transform ${isAr ? "rotate-180 group-hover:-translate-x-0.5" : "group-hover:translate-x-0.5"}`} />
             </button>
@@ -235,7 +235,7 @@ export default function TestimonialCarouselSection() {
 
         {/* Carousel Card Presentation with 3D Tilt */}
         <InteractiveCard3D className="w-full">
-          <div className="relative min-h-[400px] sm:min-h-[360px] bg-[#06182a]/90 backdrop-blur-md border border-[#DFCA9E]/30 p-8 sm:p-12 lg:p-16 shadow-2xl overflow-hidden group">
+          <div className="relative min-h-[400px] sm:min-h-[360px] bg-[#0A211B]/95 backdrop-blur-md border border-[#C6A66B]/30 p-8 sm:p-12 lg:p-16 shadow-2xl overflow-hidden group">
             
             {/* Automatic Slide Countdown Progress Bar at Top */}
             <motion.div
@@ -243,12 +243,12 @@ export default function TestimonialCarouselSection() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: AUTOPLAY_DURATION_MS / 1000, ease: "linear" }}
-              className={`absolute top-0 ${isAr ? "right-0 origin-right" : "left-0 origin-left"} w-full h-[3px] bg-gradient-to-r from-[#176B9A] via-[#DFCA9E] to-[#176B9A] z-20`}
+              className={`absolute top-0 ${isAr ? "right-0 origin-right" : "left-0 origin-left"} w-full h-[3px] bg-gradient-to-r from-[#C6A66B]/40 via-[#C6A66B] to-[#C6A66B]/40 z-20`}
             />
 
             {/* Large Quote Backdrop */}
             <div className={`absolute top-6 ${isAr ? "left-8" : "right-8"} opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity`}>
-              <Quote className="w-32 h-32 text-[#DFCA9E]" />
+              <Quote className="w-32 h-32 text-[#C6A66B]" />
             </div>
 
             <AnimatePresence custom={direction} mode="wait">
@@ -269,55 +269,55 @@ export default function TestimonialCarouselSection() {
                       {[...Array(current.rating)].map((_, i) => (
                         <Star
                           key={i}
-                          className="w-4 h-4 fill-[#DFCA9E] text-[#DFCA9E]"
+                          className="w-4 h-4 fill-[#C6A66B] text-[#C6A66B]"
                         />
                       ))}
-                      <span className="mx-2 text-xs font-mono tracking-widest text-[#DFCA9E] font-semibold">
+                      <span className="mx-2 text-xs font-mono tracking-widest text-[#C6A66B] font-semibold">
                         {t("testimonials_verified")}
                       </span>
                     </div>
 
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#176B9A]/30 border border-[#176B9A]/50 text-xs text-[#DCEFF7] font-sans">
-                      <Anchor className="w-3.5 h-3.5 text-[#DFCA9E]" />
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#12352D] border border-[#C6A66B]/40 text-xs text-[#F5F0E5] font-sans">
+                      <Anchor className="w-3.5 h-3.5 text-[#C6A66B]" />
                       <span className="font-medium">{current.vessel}</span>
                     </div>
                   </div>
 
                   {/* Testimonial Quote Message */}
-                  <blockquote className="font-serif text-xl sm:text-2xl lg:text-3xl text-[#E8D5B5] font-light leading-relaxed sm:leading-[1.45] tracking-wide mb-10 italic">
+                  <blockquote className="font-serif text-xl sm:text-2xl lg:text-3xl text-[#F5F0E5] font-light leading-relaxed sm:leading-[1.45] tracking-wide mb-10 italic">
                     “{current.message}”
                   </blockquote>
                 </div>
 
                 {/* Bottom Row: Vessel Attribution & Role (No personal names) */}
-                <div className="pt-8 border-t border-[#DFCA9E]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                <div className="pt-8 border-t border-[#C6A66B]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                   <div className="flex items-center gap-4">
                     {/* Shipyard Maritime Emblem */}
-                    <div className="w-13 h-13 rounded-full border border-[#DFCA9E]/50 bg-gradient-to-br from-[#082B49] to-[#04111d] flex items-center justify-center text-[#DFCA9E] shadow-inner p-3 group-hover:scale-105 transition-transform">
-                      <IconComponent className="w-6 h-6 text-[#DFCA9E]" />
+                    <div className="w-13 h-13 rounded-full border border-[#C6A66B]/50 bg-gradient-to-br from-[#12352D] to-[#0A211B] flex items-center justify-center text-[#C6A66B] shadow-inner p-3 group-hover:scale-105 transition-transform">
+                      <IconComponent className="w-6 h-6 text-[#C6A66B]" />
                     </div>
 
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-sans text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-[#DFCA9E]">
+                        <span className="font-sans text-sm sm:text-base font-bold tracking-[0.2em] uppercase text-[#C6A66B]">
                           {current.clientType}
                         </span>
-                        <ShieldCheck className="w-4 h-4 text-[#DFCA9E]" />
+                        <ShieldCheck className="w-4 h-4 text-[#C6A66B]" />
                       </div>
-                      <div className="flex flex-wrap items-center gap-2 text-xs text-[#DCEFF7]/80 font-sans mt-0.5">
-                        <span className="text-[#E8D5B5] font-semibold">{current.vessel}</span>
+                      <div className="flex flex-wrap items-center gap-2 text-xs text-[#F5F0E5]/80 font-sans mt-0.5">
+                        <span className="text-[#F5F0E5] font-semibold">{current.vessel}</span>
                         <span>·</span>
-                        <span className="text-[#DFCA9E]/90">{current.location}</span>
+                        <span className="text-[#C6A66B]/90">{current.location}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Highlight Badge */}
                   <div className={`hidden lg:block ${isAr ? "text-left" : "text-right"}`}>
-                    <span className="text-[10px] uppercase tracking-[0.25em] text-[#DFCA9E]/80 block font-mono">
+                    <span className="text-[10px] uppercase tracking-[0.25em] text-[#C6A66B]/80 block font-mono">
                       {isAr ? "المحطة المميزة لليخت" : "Vessel Milestone"}
                     </span>
-                    <span className="text-sm font-serif text-[#E8D5B5] italic">
+                    <span className="text-sm font-serif text-[#F5F0E5] italic">
                       {current.highlight}
                     </span>
                   </div>
@@ -326,7 +326,7 @@ export default function TestimonialCarouselSection() {
             </AnimatePresence>
 
             {/* Offset Outer Accent Line */}
-            <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-transparent via-[#DFCA9E] to-transparent w-full opacity-60" />
+            <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-transparent via-[#C6A66B] to-transparent w-full opacity-60" />
           </div>
         </InteractiveCard3D>
 
@@ -342,8 +342,8 @@ export default function TestimonialCarouselSection() {
               aria-label={`Go to slide ${idx + 1}`}
               className={`transition-all duration-300 rounded-full ${
                 idx === currentIndex
-                  ? "w-8 h-2 bg-[#DFCA9E]"
-                  : "w-2 h-2 bg-[#DFCA9E]/30 hover:bg-[#DFCA9E]/60"
+                  ? "w-8 h-2 bg-[#C6A66B]"
+                  : "w-2 h-2 bg-[#C6A66B]/30 hover:bg-[#C6A66B]/60"
               }`}
             />
           ))}

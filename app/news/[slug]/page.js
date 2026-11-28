@@ -19,23 +19,23 @@ export default function NewsDetailPage({ params }) {
     <>
       <Header />
 
-      <main className="flex-grow pt-28 pb-24 bg-[#082B49] text-[#E8D5B5]">
+      <main className="flex-grow pt-28 pb-24 bg-[#12352D] text-[#F5F0E5]">
         <div className="max-w-4xl mx-auto px-6 py-12">
           <Link
             href="/news"
-            className="inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-[#DFCA9E] mb-8 hover:text-[#E2C896] transition-colors"
+            className="inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-[#C6A66B] mb-8 hover:text-[#E2C896] transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Journal</span>
           </Link>
 
-          <div className="flex items-center gap-3 text-[11px] tracking-[0.25em] uppercase text-[#DFCA9E] mb-3">
+          <div className="flex items-center gap-3 text-[11px] tracking-[0.25em] uppercase text-[#C6A66B] mb-3">
             <span>{article.category}</span>
             <span>·</span>
             <span>{article.date}</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl text-[#E8D5B5] font-light mb-8 leading-[1.1]">
+          <h1 className="font-serif text-3xl sm:text-5xl text-[#F5F0E5] font-light mb-8 leading-[1.1]">
             {article.title}
           </h1>
 
@@ -43,8 +43,8 @@ export default function NewsDetailPage({ params }) {
             <Image src={article.image} alt={article.title} fill className="object-cover" />
           </div>
 
-          <div className="space-y-6 text-base sm:text-lg text-[#E8D5B5]/85 font-light leading-relaxed">
-            <p className="text-xl sm:text-2xl text-[#DFCA9E] font-serif leading-relaxed">
+          <div className="space-y-6 text-base sm:text-lg text-[#F5F0E5]/85 font-light leading-relaxed">
+            <p className="text-xl sm:text-2xl text-[#C6A66B] font-serif leading-relaxed">
               {article.excerpt}
             </p>
             <p>{article.content}</p>

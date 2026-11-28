@@ -48,9 +48,9 @@ export default function JournalHomeSection() {
   const articles = isAr ? arabicArticles : newsArticles.slice(0, 3);
 
   return (
-    <section id="latest-news" className="py-24 sm:py-32 bg-white border-b border-[#D9E2EC] relative overflow-hidden text-[#102A43]">
+    <section id="latest-news" className="py-24 sm:py-32 bg-[#F5F0E5] border-b border-[#E2DDD1] relative overflow-hidden text-[#12352D]">
       {/* Subtle architectural background grid line */}
-      <div className="absolute inset-0 bg-[radial-gradient(#176B9A_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#12352D_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.035] pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
         
@@ -68,10 +68,10 @@ export default function JournalHomeSection() {
 
           <Link
             href="/news"
-            className="text-[11px] tracking-[0.25em] uppercase text-[#082B49] hover:text-[#176B9A] inline-flex items-center gap-2 transition-colors self-start md:self-end font-bold group pb-2 border-b-2 border-transparent hover:border-[#176B9A]"
+            className="text-[11px] tracking-[0.25em] uppercase text-[#12352D] hover:text-[#C6A66B] inline-flex items-center gap-2 transition-colors self-start md:self-end font-bold group pb-2 border-b-2 border-transparent hover:border-[#C6A66B]"
           >
             <span>{t("news_view_all")}</span>
-            <ArrowUpRight className={`w-4 h-4 text-[#176B9A] transition-transform ${isAr ? "rotate-90 group-hover:-translate-x-1" : "group-hover:translate-x-1 group-hover:-translate-y-1"}`} />
+            <ArrowUpRight className={`w-4 h-4 text-[#C6A66B] transition-transform ${isAr ? "rotate-90 group-hover:-translate-x-1" : "group-hover:translate-x-1 group-hover:-translate-y-1"}`} />
           </Link>
         </div>
 
@@ -87,10 +87,10 @@ export default function JournalHomeSection() {
               className="h-full"
             >
               <InteractiveCard3D className="h-full">
-                <article className="bg-white border border-[#D9E2EC] hover:border-[#176B9A]/80 flex flex-col justify-between h-full group transition-all duration-300 shadow-sm hover:shadow-2xl">
+                <article className="bg-white border border-[#E2DDD1] hover:border-[#C6A66B] flex flex-col justify-between h-full group transition-all duration-300 shadow-sm hover:shadow-2xl">
                   <div>
                     {/* News Image with Category Tag */}
-                    <Link href={`/news/${article.slug}`} className="relative aspect-[16/10] w-full block overflow-hidden bg-[#082B49]">
+                    <Link href={`/news/${article.slug}`} className="relative aspect-[16/10] w-full block overflow-hidden bg-[#0A211B]">
                       <Image
                         src={article.image}
                         alt={article.title}
@@ -98,10 +98,10 @@ export default function JournalHomeSection() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#082B49]/70 via-[#082B49]/20 to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A211B]/80 via-[#0A211B]/20 to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
 
                       {/* Category Badge */}
-                      <span className={`absolute top-4 ${isAr ? "right-4" : "left-4"} text-[9px] tracking-[0.25em] uppercase font-sans px-3 py-1 bg-white/95 backdrop-blur-sm text-[#082B49] font-bold shadow-md border border-[#D9E2EC]`}>
+                      <span className={`absolute top-4 ${isAr ? "right-4" : "left-4"} text-[9px] tracking-[0.25em] uppercase font-sans px-3 py-1 bg-white/95 backdrop-blur-sm text-[#12352D] font-bold shadow-md border border-[#E2DDD1]`}>
                         {article.category}
                       </span>
                     </Link>
@@ -109,42 +109,42 @@ export default function JournalHomeSection() {
                     {/* Content Box */}
                     <div className="p-6 sm:p-7">
                       {/* Metadata Row */}
-                      <div className="flex items-center gap-3 text-[11px] text-[#829AB1] uppercase tracking-wider mb-3 font-sans">
+                      <div className="flex items-center gap-3 text-[11px] text-[#5D665F] uppercase tracking-wider mb-3 font-sans">
                         <span className="inline-flex items-center gap-1">
-                          <Calendar className="w-3.5 h-3.5 text-[#176B9A]" />
+                          <Calendar className="w-3.5 h-3.5 text-[#C6A66B]" />
                           {article.date}
                         </span>
                         <span>·</span>
                         <span className="inline-flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-[#829AB1]" />
+                          <Clock className="w-3.5 h-3.5 text-[#5D665F]" />
                           {article.readTime}
                         </span>
                       </div>
 
                       {/* Title */}
                       <Link href={`/news/${article.slug}`}>
-                        <h3 className="font-serif text-xl sm:text-2xl text-[#082B49] group-hover:text-[#176B9A] transition-colors font-normal leading-snug mb-3 line-clamp-2">
+                        <h3 className="font-serif text-xl sm:text-2xl text-[#12352D] group-hover:text-[#C6A66B] transition-colors font-normal leading-snug mb-3 line-clamp-2">
                           {article.title}
                         </h3>
                       </Link>
 
                       {/* Excerpt */}
-                      <p className="text-xs sm:text-sm text-[#486581] leading-relaxed line-clamp-3 font-light">
+                      <p className="text-xs sm:text-sm text-[#5D665F] leading-relaxed line-clamp-3 font-light">
                         {article.excerpt}
                       </p>
                     </div>
                   </div>
 
                   {/* Card Footer / CTA */}
-                  <div className="p-6 sm:p-7 pt-0 border-t border-[#F0F4F8] mt-4 flex items-center justify-between">
+                  <div className="p-6 sm:p-7 pt-0 border-t border-[#FAF7F0] mt-4 flex items-center justify-between">
                     <Link
                       href={`/news/${article.slug}`}
-                      className="text-[11px] tracking-[0.25em] uppercase text-[#082B49] group-hover:text-[#176B9A] inline-flex items-center gap-2 transition-colors font-bold"
+                      className="text-[11px] tracking-[0.25em] uppercase text-[#12352D] group-hover:text-[#C6A66B] inline-flex items-center gap-2 transition-colors font-bold"
                     >
                       <span>{t("news_read_article")}</span>
-                      <ArrowUpRight className={`w-3.5 h-3.5 text-[#176B9A] transition-transform ${isAr ? "rotate-90 group-hover:-translate-x-1" : "group-hover:translate-x-1 group-hover:-translate-y-1"}`} />
+                      <ArrowUpRight className={`w-3.5 h-3.5 text-[#C6A66B] transition-transform ${isAr ? "rotate-90 group-hover:-translate-x-1" : "group-hover:translate-x-1 group-hover:-translate-y-1"}`} />
                     </Link>
-                    <ChevronRight className={`w-4 h-4 text-[#BCCCDC] group-hover:text-[#176B9A] transition-colors ${isAr ? "rotate-180" : ""}`} />
+                    <ChevronRight className={`w-4 h-4 text-[#5D665F]/60 group-hover:text-[#C6A66B] transition-colors ${isAr ? "rotate-180" : ""}`} />
                   </div>
                 </article>
               </InteractiveCard3D>

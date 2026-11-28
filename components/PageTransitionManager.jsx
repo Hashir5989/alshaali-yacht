@@ -94,16 +94,16 @@ export default function PageTransitionManager({ children }) {
       <AnimatePresence>
         {isTransitioning && (
           <div className="fixed inset-0 z-[99990] pointer-events-none overflow-hidden">
-            {/* Primary Deep Navy Layer (#082B49) - Slides down to cover, slides down to exit */}
+            {/* Primary Forest Green Layer (#12352D) - Slides down to cover, slides down to exit */}
             <motion.div
               initial={{ y: "-100%" }}
               animate={{ y: "0%" }}
               exit={{ y: "100%" }}
               transition={{ duration: 0.45, ease: [0.77, 0, 0.175, 1] }}
-              className="absolute inset-0 bg-[#082B49] flex flex-col items-center justify-center"
+              className="absolute inset-0 bg-[#12352D] flex flex-col items-center justify-center"
             >
-              {/* Subtle Ocean Blue Atmospheric Radial Beam */}
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(23,107,154,0.3)_0%,transparent_75%)] pointer-events-none" />
+              {/* Subtle Champagne Gold Atmospheric Radial Beam */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(198,166,107,0.25)_0%,transparent_75%)] pointer-events-none" />
 
               {/* Watermark Crest Emblem */}
               <motion.div
@@ -124,11 +124,11 @@ export default function PageTransitionManager({ children }) {
                   />
                 </div>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="w-6 h-[1px] bg-[#DFCA9E]/40" />
-                  <span className="font-sans text-[8.5px] tracking-[0.35em] uppercase text-[#DFCA9E] font-semibold">
+                  <span className="w-6 h-[1px] bg-[#C6A66B]/40" />
+                  <span className="font-sans text-[8.5px] tracking-[0.35em] uppercase text-[#C6A66B] font-semibold">
                     SHIPYARD GROUP · AJMAN · EST. 1979
                   </span>
-                  <span className="w-6 h-[1px] bg-[#DFCA9E]/40" />
+                  <span className="w-6 h-[1px] bg-[#C6A66B]/40" />
                 </div>
               </motion.div>
             </motion.div>
@@ -139,7 +139,7 @@ export default function PageTransitionManager({ children }) {
               animate={{ scaleX: 1 }}
               exit={{ scaleX: 0 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#DFCA9E] to-transparent z-20"
+              className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C6A66B] to-transparent z-20"
             />
           </div>
         )}

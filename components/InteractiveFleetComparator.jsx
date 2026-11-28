@@ -51,7 +51,7 @@ export default function InteractiveFleetComparator({ onOpenEnquiry }) {
   ];
 
   return (
-    <section id="comparator" className="py-24 sm:py-32 bg-white border-b border-[#D9E2EC] relative overflow-hidden text-[#102A43]">
+    <section id="comparator" className="py-24 sm:py-32 bg-white border-b border-[#E2DDD1] relative overflow-hidden text-[#12352D]">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -66,14 +66,14 @@ export default function InteractiveFleetComparator({ onOpenEnquiry }) {
         {/* Vessel Selector Dropdowns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Vessel A Selector */}
-          <div className="bg-[#F5F8FA] border border-[#D9E2EC] p-5 rounded-none">
-            <span className="text-[10px] tracking-[0.25em] uppercase text-[#176B9A] block mb-2 font-mono font-bold">
+          <div className="bg-[#F5F8FA] border border-[#E2DDD1] p-5 rounded-none">
+            <span className="text-[10px] tracking-[0.25em] uppercase text-[#C6A66B] block mb-2 font-mono font-bold">
               VESSEL ATELIER 01
             </span>
             <select
               value={vesselA.id}
               onChange={(e) => setVesselA(yachts.find((y) => y.id === e.target.value) || yachts[0])}
-              className="w-full bg-white border border-[#D9E2EC] px-4 py-3 text-base font-serif text-[#082B49] focus:border-[#176B9A] focus:outline-none transition-colors rounded-none shadow-sm"
+              className="w-full bg-white border border-[#E2DDD1] px-4 py-3 text-base font-serif text-[#12352D] focus:border-[#C6A66B] focus:outline-none transition-colors rounded-none shadow-sm"
             >
               {yachts.map((y) => (
                 <option key={y.id} value={y.id}>
@@ -84,14 +84,14 @@ export default function InteractiveFleetComparator({ onOpenEnquiry }) {
           </div>
 
           {/* Vessel B Selector */}
-          <div className="bg-[#091A36] border border-white/15 p-5 rounded-sm">
-            <span className="text-[10px] tracking-[0.25em] uppercase text-[#C5A880] block mb-2 font-mono">
+          <div className="bg-[#0A211B] border border-white/15 p-5 rounded-sm">
+            <span className="text-[10px] tracking-[0.25em] uppercase text-[#C6A66B] block mb-2 font-mono">
               VESSEL ATELIER 02
             </span>
             <select
               value={vesselB.id}
               onChange={(e) => setVesselB(yachts.find((y) => y.id === e.target.value) || yachts[1])}
-              className="w-full bg-[#071429] border border-white/10 px-4 py-3 text-base font-serif text-[#F0EBE0] focus:border-[#C5A880] focus:outline-none transition-colors rounded-sm"
+              className="w-full bg-[#0A211B] border border-white/10 px-4 py-3 text-base font-serif text-[#F0EBE0] focus:border-[#C6A66B] focus:outline-none transition-colors rounded-sm"
             >
               {yachts.map((y) => (
                 <option key={y.id} value={y.id}>
@@ -105,43 +105,43 @@ export default function InteractiveFleetComparator({ onOpenEnquiry }) {
         {/* Visual Cards Comparison */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Card A */}
-          <div className="bg-[#091A36] border border-white/10 rounded-sm overflow-hidden shadow-2xl">
-            <div className="relative aspect-[16/10] w-full bg-[#071429]">
+          <div className="bg-[#0A211B] border border-white/10 rounded-sm overflow-hidden shadow-2xl">
+            <div className="relative aspect-[16/10] w-full bg-[#0A211B]">
               <Image src={vesselA.heroImage} alt={vesselA.name} fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#091A36] via-transparent to-transparent" />
-              <span className="absolute bottom-4 left-4 text-xs font-mono tracking-wider text-[#C5A880] uppercase">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A211B] via-transparent to-transparent" />
+              <span className="absolute bottom-4 left-4 text-xs font-mono tracking-wider text-[#C6A66B] uppercase">
                 {vesselA.category} · {vesselA.deliveryYear}
               </span>
             </div>
             <div className="p-6">
               <h3 className="font-serif text-3xl text-[#F0EBE0] font-light">{vesselA.name}</h3>
               <p className="text-xs text-[#F0EBE0]/65 mt-1 font-light leading-relaxed">{vesselA.tagline}</p>
-              <p className="text-xs font-mono text-[#C5A880] mt-3">Engines: {vesselA.engines}</p>
+              <p className="text-xs font-mono text-[#C6A66B] mt-3">Engines: {vesselA.engines}</p>
             </div>
           </div>
 
           {/* Card B */}
-          <div className="bg-[#091A36] border border-white/10 rounded-sm overflow-hidden shadow-2xl">
-            <div className="relative aspect-[16/10] w-full bg-[#071429]">
+          <div className="bg-[#0A211B] border border-white/10 rounded-sm overflow-hidden shadow-2xl">
+            <div className="relative aspect-[16/10] w-full bg-[#0A211B]">
               <Image src={vesselB.heroImage} alt={vesselB.name} fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#091A36] via-transparent to-transparent" />
-              <span className="absolute bottom-4 left-4 text-xs font-mono tracking-wider text-[#C5A880] uppercase">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A211B] via-transparent to-transparent" />
+              <span className="absolute bottom-4 left-4 text-xs font-mono tracking-wider text-[#C6A66B] uppercase">
                 {vesselB.category} · {vesselB.deliveryYear}
               </span>
             </div>
             <div className="p-6">
               <h3 className="font-serif text-3xl text-[#F0EBE0] font-light">{vesselB.name}</h3>
               <p className="text-xs text-[#F0EBE0]/65 mt-1 font-light leading-relaxed">{vesselB.tagline}</p>
-              <p className="text-xs font-mono text-[#C5A880] mt-3">Engines: {vesselB.engines}</p>
+              <p className="text-xs font-mono text-[#C6A66B] mt-3">Engines: {vesselB.engines}</p>
             </div>
           </div>
         </div>
 
         {/* Comparative Metrics Interactive Bar Graph */}
-        <div className="bg-[#091A36] border border-white/10 p-6 sm:p-10 rounded-sm shadow-2xl">
+        <div className="bg-[#0A211B] border border-white/10 p-6 sm:p-10 rounded-sm shadow-2xl">
           <h4 className="font-serif text-2xl text-[#F0EBE0] font-light mb-8 flex items-center justify-between">
             <span>Comparative Naval Dimensions</span>
-            <span className="text-xs font-mono text-[#C5A880] tracking-wider uppercase">
+            <span className="text-xs font-mono text-[#C6A66B] tracking-wider uppercase">
               {vesselA.name} vs {vesselB.name}
             </span>
           </h4>
@@ -156,7 +156,7 @@ export default function InteractiveFleetComparator({ onOpenEnquiry }) {
               return (
                 <div key={idx} className="space-y-2">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-mono text-[#C5A880] font-semibold">{m.displayA(vesselA)}</span>
+                    <span className="font-mono text-[#C6A66B] font-semibold">{m.displayA(vesselA)}</span>
                     <span className="text-[10px] tracking-[0.2em] uppercase text-[#F0EBE0]/50 font-medium">
                       {m.label}
                     </span>
@@ -166,17 +166,17 @@ export default function InteractiveFleetComparator({ onOpenEnquiry }) {
                   {/* Dual Bar */}
                   <div className="grid grid-cols-2 gap-2 h-2.5">
                     {/* Left bar (Vessel A) aligned to right */}
-                    <div className="bg-[#071429] rounded-sm overflow-hidden flex justify-end">
+                    <div className="bg-[#0A211B] rounded-sm overflow-hidden flex justify-end">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${pctA}%` }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="h-full bg-gradient-to-l from-[#C5A880] to-[#E2C896] rounded-sm"
+                        className="h-full bg-gradient-to-l from-[#C6A66B] to-[#E2C896] rounded-sm"
                       />
                     </div>
 
                     {/* Right bar (Vessel B) aligned to left */}
-                    <div className="bg-[#071429] rounded-sm overflow-hidden flex justify-start">
+                    <div className="bg-[#0A211B] rounded-sm overflow-hidden flex justify-start">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${pctB}%` }}

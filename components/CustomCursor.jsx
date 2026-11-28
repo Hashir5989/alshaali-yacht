@@ -53,8 +53,8 @@ export default function CustomCursor() {
           viewBox="0 0 32 32"
           className={`transition-all duration-300 ${
             isHovered
-              ? "w-8 h-8 drop-shadow-[0_0_8px_rgba(223,202,158,0.7)]"
-              : "w-5 h-5 drop-shadow-[0_0_4px_rgba(8,43,73,0.35)]"
+              ? "w-8 h-8 drop-shadow-[0_0_8px_rgba(198,166,107,0.7)]"
+              : "w-5 h-5 drop-shadow-[0_0_4px_rgba(18,53,45,0.35)]"
           }`}
           fill="none"
         >
@@ -63,32 +63,32 @@ export default function CustomCursor() {
             cx="16"
             cy="16"
             r="13"
-            stroke={isHovered ? "#DFCA9E" : "#176B9A"}
+            stroke={isHovered ? "#C6A66B" : "#12352D"}
             strokeWidth={isHovered ? "1.5" : "1.2"}
             strokeDasharray={isHovered ? "none" : "2 2"}
             className="transition-colors duration-300"
           />
 
           {/* Cardinal Navigation Ticks */}
-          <line x1="16" y1="1" x2="16" y2="4" stroke={isHovered ? "#DFCA9E" : "#082B49"} strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="16" y1="28" x2="16" y2="31" stroke={isHovered ? "#DFCA9E" : "#082B49"} strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="1" y1="16" x2="4" y2="16" stroke={isHovered ? "#DFCA9E" : "#082B49"} strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="28" y1="16" x2="31" y2="16" stroke={isHovered ? "#DFCA9E" : "#082B49"} strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="16" y1="1" x2="16" y2="4" stroke={isHovered ? "#C6A66B" : "#12352D"} strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="16" y1="28" x2="16" y2="31" stroke={isHovered ? "#C6A66B" : "#12352D"} strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="1" y1="16" x2="4" y2="16" stroke={isHovered ? "#C6A66B" : "#12352D"} strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="28" y1="16" x2="31" y2="16" stroke={isHovered ? "#C6A66B" : "#12352D"} strokeWidth="1.5" strokeLinecap="round" />
 
           {/* Navigational Needle (N-S Diamond) */}
           <polygon
             points="16,6 18.5,16 16,14.5 13.5,16"
-            fill={isHovered ? "#DFCA9E" : "#176B9A"}
+            fill={isHovered ? "#C6A66B" : "#1A493E"}
             className="transition-colors duration-300"
           />
           <polygon
             points="16,26 18.5,16 16,17.5 13.5,16"
-            fill={isHovered ? "#E8D5B5" : "#082B49"}
+            fill={isHovered ? "#F5F0E5" : "#12352D"}
             className="transition-colors duration-300"
           />
 
           {/* Pivot Jewel */}
-          <circle cx="16" cy="16" r="2" fill={isHovered ? "#FFFFFF" : "#DFCA9E"} />
+          <circle cx="16" cy="16" r="2" fill={isHovered ? "#FFFFFF" : "#C6A66B"} />
         </svg>
       </motion.div>
 
@@ -99,8 +99,8 @@ export default function CustomCursor() {
           x: mousePosition.x - 22,
           y: mousePosition.y - 22,
           scale: isHovered ? 1.4 : 1,
-          borderColor: isHovered ? "rgba(223, 202, 158, 0.55)" : "rgba(23, 107, 154, 0.28)",
-          backgroundColor: isHovered ? "rgba(223, 202, 158, 0.08)" : "transparent",
+          borderColor: isHovered ? "rgba(198, 166, 107, 0.55)" : "rgba(18, 53, 45, 0.28)",
+          backgroundColor: isHovered ? "rgba(198, 166, 107, 0.08)" : "transparent",
         }}
         transition={{ type: "spring", damping: 24, stiffness: 200, mass: 0.35 }}
         style={{ width: 44, height: 44 }}

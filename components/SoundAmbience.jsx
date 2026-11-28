@@ -95,23 +95,23 @@ export default function SoundAmbience() {
     <button
       onClick={toggleSound}
       title={isPlaying ? t("sound_title_mute") : t("sound_title_enable")}
-      className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-white/10 bg-[#091A36]/70 backdrop-blur-md text-[10px] tracking-[0.22em] text-[#C5A880] hover:border-[#C5A880]/50 hover:text-[#E2C896] transition-all group shadow-lg"
+      className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-[#C6A66B]/30 bg-[#12352D]/80 backdrop-blur-md text-[10px] tracking-[0.22em] text-[#C6A66B] hover:border-[#C6A66B] hover:text-[#D4B87E] transition-all group shadow-lg"
     >
       {isPlaying ? (
         <>
           {/* Active Animated Sound Wave Bars */}
           <div className="flex items-center gap-0.5 h-3">
-            <span className="w-0.5 bg-[#C5A880] h-3 animate-[pulse_0.8s_ease-in-out_infinite]" />
-            <span className="w-0.5 bg-[#E2C896] h-2 animate-[pulse_1.2s_ease-in-out_infinite_0.2s]" />
-            <span className="w-0.5 bg-[#C5A880] h-3.5 animate-[pulse_0.9s_ease-in-out_infinite_0.4s]" />
-            <span className="w-0.5 bg-[#E2C896] h-1.5 animate-[pulse_1.1s_ease-in-out_infinite_0.1s]" />
+            <span className="w-0.5 bg-[#C6A66B] h-3 animate-[pulse_0.8s_ease-in-out_infinite]" />
+            <span className="w-0.5 bg-[#D4B87E] h-2 animate-[pulse_1.2s_ease-in-out_infinite_0.2s]" />
+            <span className="w-0.5 bg-[#C6A66B] h-3.5 animate-[pulse_0.9s_ease-in-out_infinite_0.4s]" />
+            <span className="w-0.5 bg-[#D4B87E] h-1.5 animate-[pulse_1.1s_ease-in-out_infinite_0.1s]" />
           </div>
-          <span className="hidden sm:inline font-mono font-medium text-[#E2C896]">{t("sound_on")}</span>
+          <span className="hidden sm:inline font-mono font-medium text-[#D4B87E]">{t("sound_on")}</span>
         </>
       ) : (
         <>
-          <VolumeX className="w-3.5 h-3.5 text-[#F0EBE0]/40 group-hover:text-[#C5A880] transition-colors" />
-          <span className="hidden sm:inline text-[#F0EBE0]/60 font-mono">{t("sound_off")}</span>
+          <VolumeX className="w-3.5 h-3.5 text-[#F5F0E5]/50 group-hover:text-[#C6A66B] transition-colors" />
+          <span className="hidden sm:inline text-[#F5F0E5]/70 font-mono">{t("sound_off")}</span>
         </>
       )}
     </button>

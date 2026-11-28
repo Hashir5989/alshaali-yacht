@@ -39,10 +39,10 @@ export default function CurtainPreloader() {
         <motion.div
           initial={{ y: 0 }}
           exit={{ y: "-100%", transition: { duration: 0.85, ease: [0.77, 0, 0.175, 1] } }}
-          className="fixed inset-0 z-[99999] bg-[#071429] flex flex-col items-center justify-center select-none"
+          className="fixed inset-0 z-[99999] bg-[#0A211B] flex flex-col items-center justify-center select-none"
         >
           {/* Subtle background radial glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(27,58,107,0.35)_0%,transparent_70%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(18,53,45,0.6)_0%,transparent_70%)]" />
 
           {/* Central Logo & Emblem */}
           <div className="relative z-10 flex flex-col items-center text-center px-6">
@@ -68,7 +68,7 @@ export default function CurtainPreloader() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="font-sans text-[11px] tracking-[0.35em] uppercase text-[#C5A880] mb-2 font-medium"
+              className="font-sans text-[11px] tracking-[0.35em] uppercase text-[#C6A66B] mb-2 font-medium"
             >
               Al Shaali Marine · Est. 1979 · Ajman, UAE
             </motion.p>
@@ -77,7 +77,7 @@ export default function CurtainPreloader() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="font-serif text-3xl md:text-4xl text-[#F0EBE0] font-light tracking-wide mb-8"
+              className="font-serif text-3xl md:text-4xl text-[#F5F0E5] font-light tracking-wide mb-8"
             >
               الشعالي مارين
             </motion.h2>
@@ -86,18 +86,18 @@ export default function CurtainPreloader() {
             <div className="w-56 flex flex-col items-center">
               <div className="w-full h-[1px] bg-white/10 relative overflow-hidden mb-3">
                 <motion.div
-                  className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-[#C5A880] to-[#E2C896]"
+                  className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-[#C6A66B] to-[#D4B87E]"
                   style={{ width: `${progress}%` }}
                 />
               </div>
-              <span className="font-sans text-[10px] tracking-[0.25em] text-[#F0EBE0]/50 uppercase">
+              <span className="font-sans text-[10px] tracking-[0.25em] text-[#F5F0E5]/60 uppercase">
                 Preparing Shipyard · {progress}%
               </span>
             </div>
           </div>
 
           {/* Bottom Coordinates */}
-          <div className="absolute bottom-10 font-sans text-[10px] tracking-[0.3em] text-[#F0EBE0]/30 uppercase">
+          <div className="absolute bottom-10 font-sans text-[10px] tracking-[0.3em] text-[#F5F0E5]/40 uppercase">
             25.4052° N, 55.4418° E &nbsp;·&nbsp; Arabian Gulf
           </div>
         </motion.div>

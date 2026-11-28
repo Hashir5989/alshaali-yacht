@@ -7,15 +7,15 @@ export default function DisclaimerPage() {
   return (
     <>
       <Header />
-      <main className="flex-grow pt-32 pb-24 bg-[#082B49] text-[#E8D5B5]">
+      <main className="flex-grow pt-32 pb-24 bg-[#12352D] text-[#F5F0E5]">
         <div className="max-w-3xl mx-auto px-6 py-12">
-          <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#DFCA9E] mb-2 font-medium">
+          <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C6A66B] mb-2 font-medium">
             Al Shaali Marine &nbsp;·&nbsp; Legal Disclaimer
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl text-[#E8D5B5] font-light mb-8">
+          <h1 className="font-serif text-4xl sm:text-5xl text-[#F5F0E5] font-light mb-8">
             Disclaimer
           </h1>
-          <div className="space-y-6 text-sm text-[#E8D5B5]/80 leading-relaxed font-light">
+          <div className="space-y-6 text-sm text-[#F5F0E5]/80 leading-relaxed font-light">
             <p>
               The technical data, computer-generated visual renderings, speeds, range figures, and interior specifications presented on this website are for conceptual and illustrative purposes only.
             </p>

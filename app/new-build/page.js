@@ -63,9 +63,9 @@ export default function NewBuildPage() {
     <>
       <Header onOpenEnquiry={() => setEnquiryOpen(true)} />
 
-      <main className="flex-grow pt-24 pb-0 bg-white text-[#102A43]">
-        {/* 1. Hero Section (Deep Navy Blue #082B49) */}
-        <section className="relative min-h-[75vh] flex items-stretch bg-[#082B49] overflow-hidden border-b border-[#176B9A]/30 text-white">
+      <main className="flex-grow pt-24 pb-0 bg-white text-[#12352D]">
+        {/* 1. Hero Section (Deep Navy Blue #12352D) */}
+        <section className="relative min-h-[75vh] flex items-stretch bg-[#12352D] overflow-hidden border-b border-[#C6A66B]/30 text-white">
           <div className="absolute inset-0 left-0 md:left-[26%] z-0">
             <Image
               src="/media/yachts/stardom-bow.jpg"
@@ -75,37 +75,37 @@ export default function NewBuildPage() {
               sizes="100vw"
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#082B49] via-[#082B49]/85 to-transparent w-full md:w-3/4" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#082B49] via-transparent to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#12352D] via-[#12352D]/85 to-transparent w-full md:w-3/4" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#12352D] via-transparent to-black/30" />
           </div>
 
           <div className="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-12 py-20 flex flex-col justify-between w-full">
             <div className="my-auto max-w-xl">
-              <p className="font-sans text-[11px] tracking-[0.35em] uppercase text-[#DCEFF7] mb-3 font-bold">
+              <p className="font-sans text-[11px] tracking-[0.35em] uppercase text-[#F5F0E5] mb-3 font-bold">
                 Al Shaali Marine &nbsp;·&nbsp; New Build Atelier
               </p>
               <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-white font-light leading-[1.05] mb-6">
                 Bring your vision.<br />We build the vessel.
               </h1>
-              <p className="text-sm sm:text-base text-[#DCEFF7]/90 leading-relaxed font-light">
+              <p className="text-sm sm:text-base text-[#F5F0E5]/90 leading-relaxed font-light">
                 For each build we bring together the naval team, the Ajman shipyard facility, and world-class marine suppliers, answering for all of them as one.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-white/20 max-w-2xl">
               <div>
-                <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#DCEFF7] block mb-1 font-bold">
+                <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#F5F0E5] block mb-1 font-bold">
                   Measure Three Times
                 </span>
-                <p className="text-xs text-[#DCEFF7]/80 leading-relaxed">
+                <p className="text-xs text-[#F5F0E5]/80 leading-relaxed">
                   One transparent master plan and build schedule, agreed before lamination begins.
                 </p>
               </div>
               <div>
-                <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#DCEFF7] block mb-1 font-bold">
+                <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#F5F0E5] block mb-1 font-bold">
                   Cut Once
                 </span>
-                <p className="text-xs text-[#DCEFF7]/80 leading-relaxed">
+                <p className="text-xs text-[#F5F0E5]/80 leading-relaxed">
                   What we agree with the owner is what we build. No compromises.
                 </p>
               </div>
@@ -114,20 +114,20 @@ export default function NewBuildPage() {
         </section>
 
         {/* 2. Three-Step Process (Pure White Section #FFFFFF) */}
-        <section className="py-24 border-b border-[#D9E2EC] bg-white text-[#102A43]">
+        <section className="py-24 border-b border-[#E2DDD1] bg-white text-[#12352D]">
           <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {steps.map((step) => (
-                <div key={step.num} className="bg-[#F5F8FA] border border-[#D9E2EC] p-7 rounded-none flex flex-col justify-between shadow-sm hover:border-[#176B9A] transition-colors">
+                <div key={step.num} className="bg-[#F5F8FA] border border-[#E2DDD1] p-7 rounded-none flex flex-col justify-between shadow-sm hover:border-[#C6A66B] transition-colors">
                   <div>
-                    <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#176B9A] mb-4 font-bold">
+                    <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#C6A66B] mb-4 font-bold">
                       <b>{step.num}</b> &nbsp;·&nbsp; {step.title}
                     </p>
-                    <div className="relative aspect-[4/3] w-full rounded-none overflow-hidden mb-5 border border-[#D9E2EC]">
+                    <div className="relative aspect-[4/3] w-full rounded-none overflow-hidden mb-5 border border-[#E2DDD1]">
                       <Image src={step.image} alt={step.title} fill className="object-cover" />
                     </div>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#486581] leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-[#5D665F] leading-relaxed font-normal">
                     {step.desc}
                   </p>
                 </div>
@@ -137,23 +137,23 @@ export default function NewBuildPage() {
         </section>
 
         {/* 3. FAQ Section (Ice-Blue Tint Background #EEF7FB) */}
-        <section className="py-24 border-b border-[#D9E2EC] bg-[#EEF7FB] text-[#102A43]">
+        <section className="py-24 border-b border-[#E2DDD1] bg-[#EEF7FB] text-[#12352D]">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
-            <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#176B9A] mb-2 font-bold">
+            <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C6A66B] mb-2 font-bold">
               Questions Owners Ask
             </p>
-            <h2 className="font-serif text-3xl sm:text-5xl text-[#082B49] font-light mb-12">
+            <h2 className="font-serif text-3xl sm:text-5xl text-[#12352D] font-light mb-12">
               Superyacht New Build, Answered.
             </h2>
 
-            <div className="divide-y divide-[#D9E2EC]">
+            <div className="divide-y divide-[#E2DDD1]">
               {faqs.map((faq, i) => (
                 <details key={i} className="py-6 group cursor-pointer">
-                  <summary className="flex items-center justify-between text-lg sm:text-xl font-serif text-[#082B49] group-hover:text-[#176B9A] transition-colors list-none font-normal">
+                  <summary className="flex items-center justify-between text-lg sm:text-xl font-serif text-[#12352D] group-hover:text-[#C6A66B] transition-colors list-none font-normal">
                     <span>{faq.q}</span>
-                    <ChevronDown className="w-5 h-5 text-[#176B9A] transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ml-4" />
+                    <ChevronDown className="w-5 h-5 text-[#C6A66B] transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ml-4" />
                   </summary>
-                  <p className="text-xs sm:text-sm text-[#486581] mt-4 leading-relaxed font-normal pr-8">
+                  <p className="text-xs sm:text-sm text-[#5D665F] mt-4 leading-relaxed font-normal pr-8">
                     {faq.a}
                   </p>
                 </details>
@@ -162,13 +162,13 @@ export default function NewBuildPage() {
           </div>
         </section>
 
-        {/* 4. Action Banner (Deep Navy Blue #082B49) */}
-        <section className="relative py-20 bg-[#082B49] text-center border-t border-[#176B9A]/30 text-white">
+        {/* 4. Action Banner (Deep Navy Blue #12352D) */}
+        <section className="relative py-20 bg-[#12352D] text-center border-t border-[#C6A66B]/30 text-white">
           <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
             <h2 className="font-serif text-3xl sm:text-5xl text-white font-light mb-6">
               Let&apos;s talk about your build.
             </h2>
-            <button onClick={() => setEnquiryOpen(true)} className="bg-white text-[#082B49] hover:bg-[#DCEFF7] font-semibold uppercase tracking-wider py-3.5 px-8 text-xs transition-all shadow-lg rounded-none">
+            <button onClick={() => setEnquiryOpen(true)} className="bg-white text-[#12352D] hover:bg-[#F5F0E5] font-semibold uppercase tracking-wider py-3.5 px-8 text-xs transition-all shadow-lg rounded-none">
               Enquire About New Build
             </button>
           </div>

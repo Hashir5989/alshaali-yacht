@@ -23,7 +23,7 @@ export default function YachtDetailPage({ params }) {
     <>
       <Header onOpenEnquiry={() => setEnquiryOpen(true)} />
 
-      <main className="flex-grow pt-28 pb-24 bg-[#082B49] text-[#E8D5B5]">
+      <main className="flex-grow pt-28 pb-24 bg-[#12352D] text-[#F5F0E5]">
         {/* Hero Section matching Astra Nord Project Page */}
         <div className="relative min-h-[70vh] flex items-end overflow-hidden border-b border-white/10">
           <Image
@@ -34,24 +34,24 @@ export default function YachtDetailPage({ params }) {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#082B49] via-[#082B49]/40 to-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#12352D] via-[#12352D]/40 to-black/30 pointer-events-none" />
 
           <div className="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-12 pb-16 w-full">
             <Link
               href="/#fleet"
-              className="inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-[#DFCA9E] mb-6 hover:text-[#E2C896] transition-colors"
+              className="inline-flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-[#C6A66B] mb-6 hover:text-[#E2C896] transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to Fleet</span>
             </Link>
 
-            <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#DFCA9E] mb-2 font-medium">
+            <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C6A66B] mb-2 font-medium">
               Al Shaali Marine &nbsp;·&nbsp; {yacht.category} &nbsp;·&nbsp; {yacht.lengthMeters} m ({yacht.lengthFeet} ft)
             </p>
-            <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#E8D5B5] font-light">
+            <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#F5F0E5] font-light">
               {yacht.name}
             </h1>
-            <p className="text-base sm:text-lg text-[#E8D5B5]/80 mt-3 max-w-xl font-light">
+            <p className="text-base sm:text-lg text-[#F5F0E5]/80 mt-3 max-w-xl font-light">
               {yacht.tagline}
             </p>
           </div>
@@ -66,7 +66,7 @@ export default function YachtDetailPage({ params }) {
                   key={i}
                   onClick={() => setActiveImage(img.url)}
                   className={`relative w-28 h-16 rounded-sm overflow-hidden border transition-all flex-shrink-0 ${
-                    activeImage === img.url ? "border-[#DFCA9E] scale-105" : "border-white/10 opacity-60 hover:opacity-100"
+                    activeImage === img.url ? "border-[#C6A66B] scale-105" : "border-white/10 opacity-60 hover:opacity-100"
                   }`}
                 >
                   <Image src={img.url} alt={img.title} fill className="object-cover" />
@@ -81,26 +81,26 @@ export default function YachtDetailPage({ params }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Story & Description */}
             <div className="lg:col-span-7 space-y-6">
-              <h2 className="font-serif text-3xl sm:text-4xl text-[#E8D5B5] font-light">
+              <h2 className="font-serif text-3xl sm:text-4xl text-[#F5F0E5] font-light">
                 Architectural Concept
               </h2>
-              <p className="text-base sm:text-lg text-[#E8D5B5]/90 leading-relaxed font-light">
+              <p className="text-base sm:text-lg text-[#F5F0E5]/90 leading-relaxed font-light">
                 {yacht.overview}
               </p>
-              <p className="text-sm text-[#E8D5B5]/70 leading-relaxed">
+              <p className="text-sm text-[#F5F0E5]/70 leading-relaxed">
                 {yacht.description}
               </p>
 
               {/* Master Features */}
               {yacht.features && (
                 <div className="pt-6 border-t border-white/10">
-                  <h3 className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#DFCA9E] mb-4 font-medium">
+                  <h3 className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#C6A66B] mb-4 font-medium">
                     Master Specifications & Appointments
                   </h3>
                   <ul className="space-y-3">
                     {yacht.features.map((feat, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#E8D5B5]/80">
-                        <Check className="w-4 h-4 text-[#DFCA9E] flex-shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#F5F0E5]/80">
+                        <Check className="w-4 h-4 text-[#C6A66B] flex-shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -124,25 +124,25 @@ export default function YachtDetailPage({ params }) {
 
             {/* Specifications Card */}
             <div className="lg:col-span-5 bg-[#062138] border border-white/10 p-6 sm:p-8 rounded-sm">
-              <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#DFCA9E] mb-6 font-medium">
+              <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C6A66B] mb-6 font-medium">
                 Vessel Dossier
               </p>
 
               <dl className="divide-y divide-white/10 text-xs sm:text-sm">
                 {yacht.specifications?.map((spec, i) => (
                   <div key={i} className="py-3 flex justify-between gap-4">
-                    <dt className="text-[#E8D5B5]/50 tracking-wider uppercase text-[10.5px]">{spec.label}</dt>
-                    <dd className="font-mono text-[#E8D5B5] text-right font-medium">{spec.value}</dd>
+                    <dt className="text-[#F5F0E5]/50 tracking-wider uppercase text-[10.5px]">{spec.label}</dt>
+                    <dd className="font-mono text-[#F5F0E5] text-right font-medium">{spec.value}</dd>
                   </div>
                 ))}
               </dl>
 
-              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-[#E8D5B5]/50">
+              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-[#F5F0E5]/50">
                 <span className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-[#DFCA9E]" />
+                  <ShieldCheck className="w-4 h-4 text-[#C6A66B]" />
                   <span>Lloyd&apos;s & TASNEEF Ready</span>
                 </span>
-                <span className="text-[#DFCA9E] font-mono">Ajman Shipyard</span>
+                <span className="text-[#C6A66B] font-mono">Ajman Shipyard</span>
               </div>
             </div>
           </div>

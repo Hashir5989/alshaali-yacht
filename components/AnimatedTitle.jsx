@@ -47,8 +47,8 @@ export default function AnimatedTitle({
           transition={{ duration: 0.6 }}
           className="flex items-center gap-2 mb-3"
         >
-          <span className={`w-1.5 h-1.5 rounded-full ${dark ? "bg-[#DFCA9E]" : "bg-[#176B9A]"} animate-pulse`} />
-          <span className={`font-sans text-[11px] tracking-[0.32em] uppercase font-bold ${dark ? "text-[#DFCA9E]" : "text-[#176B9A]"}`}>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B] animate-pulse" />
+          <span className="font-sans text-[11px] tracking-[0.32em] uppercase font-bold text-[#C6A66B]">
             {tagline}
           </span>
         </motion.div>
@@ -61,7 +61,7 @@ export default function AnimatedTitle({
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
         className={`font-serif text-3xl sm:text-5xl md:text-6xl font-light leading-[1.08] flex flex-wrap gap-x-[0.28em] gap-y-1 ${
-          dark ? "text-[#E8D5B5]" : "text-[#082B49]"
+          dark ? "text-[#F5F0E5]" : "text-[#12352D]"
         }`}
       >
         {words.map((word, index) => (
@@ -81,7 +81,7 @@ export default function AnimatedTitle({
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.7, delay: 0.3 }}
           className={`text-xs sm:text-sm mt-4 max-w-xl leading-relaxed font-normal ${
-            dark ? "text-[#E8D5B5]/85" : "text-[#486581]"
+            dark ? "text-[#F5F0E5]/85" : "text-[#5D665F]"
           }`}
         >
           {subtitle}

@@ -87,9 +87,9 @@ export default function RefitPage() {
     <>
       <Header onOpenEnquiry={() => setEnquiryOpen(true)} />
 
-      <main className="flex-grow pt-28 pb-24 bg-[#082B49] text-[#E8D5B5]">
+      <main className="flex-grow pt-28 pb-24 bg-[#12352D] text-[#F5F0E5]">
         {/* Hero Section matching Astra Nord refit.html */}
-        <section className="relative min-h-[75vh] flex items-stretch bg-[#082B49] overflow-hidden border-b border-white/10">
+        <section className="relative min-h-[75vh] flex items-stretch bg-[#12352D] overflow-hidden border-b border-white/10">
           <div className="absolute inset-0 left-0 md:left-[26%] z-0">
             <Image
               src="/media/yachts/sweet-maryi-52m-refit.jpeg"
@@ -99,37 +99,37 @@ export default function RefitPage() {
               sizes="100vw"
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#082B49] via-[#082B49]/80 to-transparent w-full md:w-3/4" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#082B49] via-transparent to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#12352D] via-[#12352D]/80 to-transparent w-full md:w-3/4" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#12352D] via-transparent to-black/30" />
           </div>
 
           <div className="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-12 py-20 flex flex-col justify-between w-full">
             <div className="my-auto max-w-xl">
-              <p className="font-sans text-[11px] tracking-[0.35em] uppercase text-[#DFCA9E] mb-3 font-medium">
+              <p className="font-sans text-[11px] tracking-[0.35em] uppercase text-[#C6A66B] mb-3 font-medium">
                 Al Shaali Marine &nbsp;·&nbsp; Shipyard Refit & Modernization
               </p>
-              <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#E8D5B5] font-light leading-[1.05] mb-6">
+              <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#F5F0E5] font-light leading-[1.05] mb-6">
                 The yacht you know,<br />ready for what comes next.
               </h1>
-              <p className="text-sm sm:text-base text-[#E8D5B5]/80 leading-relaxed font-light">
+              <p className="text-sm sm:text-base text-[#F5F0E5]/80 leading-relaxed font-light">
                 Superyacht refits up to 55 metres at our Ajman Drydocks, serving the Arabian Gulf, Red Sea, and Mediterranean.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-white/10 max-w-2xl">
               <div>
-                <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#DFCA9E] block mb-1">
+                <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#C6A66B] block mb-1">
                   One Point of Responsibility
                 </span>
-                <p className="text-xs text-[#E8D5B5]/70">
+                <p className="text-xs text-[#F5F0E5]/70">
                   From initial underwater survey to final sea trial and handover.
                 </p>
               </div>
               <div>
-                <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#DFCA9E] block mb-1">
+                <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#C6A66B] block mb-1">
                   In-House Marine Trades
                 </span>
-                <p className="text-xs text-[#E8D5B5]/70">
+                <p className="text-xs text-[#F5F0E5]/70">
                   Certified mechanics, Awlgrip painters, composite laminators, and master teak carpenters.
                 </p>
               </div>
@@ -140,24 +140,24 @@ export default function RefitPage() {
         {/* 3 Step Process matching Astra Nord */}
         <section className="py-24 border-b border-white/10 bg-[#062138]">
           <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
-            <p className="text-base sm:text-lg text-[#E8D5B5]/90 max-w-2xl font-light mb-12">
+            <p className="text-base sm:text-lg text-[#F5F0E5]/90 max-w-2xl font-light mb-12">
               We work directly for the owner, with the captain at the table from the first survey to the last sea trial.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {steps.map((step) => (
-                <div key={step.num} className="bg-[#082B49] border border-white/10 p-6 rounded-sm flex flex-col justify-between">
+                <div key={step.num} className="bg-[#12352D] border border-white/10 p-6 rounded-sm flex flex-col justify-between">
                   <div>
-                    <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#DFCA9E] mb-2 font-medium">
+                    <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#C6A66B] mb-2 font-medium">
                       <b>{step.num}</b> &nbsp;·&nbsp; {step.title}
                     </p>
-                    <p className="text-xs text-[#E8D5B5]/75 mb-6 font-light leading-relaxed">
+                    <p className="text-xs text-[#F5F0E5]/75 mb-6 font-light leading-relaxed">
                       {step.desc}
                     </p>
-                    <ul className="space-y-2.5 border-t border-white/10 pt-4 text-xs text-[#E8D5B5]/65">
+                    <ul className="space-y-2.5 border-t border-white/10 pt-4 text-xs text-[#F5F0E5]/65">
                       {step.items.map((it, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <span className="text-[#DFCA9E] font-bold">·</span>
+                          <span className="text-[#C6A66B] font-bold">·</span>
                           <span>{it}</span>
                         </li>
                       ))}
@@ -170,13 +170,13 @@ export default function RefitPage() {
         </section>
 
         {/* Delivered Refits Showcase matching Astra Nord */}
-        <section className="py-24 border-b border-white/10 bg-[#082B49]">
+        <section className="py-24 border-b border-white/10 bg-[#12352D]">
           <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
             <div className="mb-10">
-              <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#DFCA9E] mb-2 font-medium">
+              <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C6A66B] mb-2 font-medium">
                 Proven Track Record
               </p>
-              <h2 className="font-serif text-3xl sm:text-5xl text-[#E8D5B5] font-light">
+              <h2 className="font-serif text-3xl sm:text-5xl text-[#F5F0E5] font-light">
                 Delivered Refit Projects
               </h2>
             </div>
@@ -189,8 +189,8 @@ export default function RefitPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#062138] via-transparent to-transparent" />
                   </div>
                   <div className="p-6">
-                    <h3 className="font-serif text-2xl text-[#E8D5B5] font-light">{rf.name}</h3>
-                    <p className="text-xs text-[#DFCA9E] uppercase tracking-wider mt-1">{rf.meta}</p>
+                    <h3 className="font-serif text-2xl text-[#F5F0E5] font-light">{rf.name}</h3>
+                    <p className="text-xs text-[#C6A66B] uppercase tracking-wider mt-1">{rf.meta}</p>
                   </div>
                 </div>
               ))}
@@ -201,21 +201,21 @@ export default function RefitPage() {
         {/* Refit FAQs */}
         <section className="py-24 border-b border-white/10 bg-[#062138]">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
-            <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#DFCA9E] mb-2 font-medium">
+            <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C6A66B] mb-2 font-medium">
               Refit Governance
             </p>
-            <h2 className="font-serif text-3xl sm:text-5xl text-[#E8D5B5] font-light mb-12">
+            <h2 className="font-serif text-3xl sm:text-5xl text-[#F5F0E5] font-light mb-12">
               Superyacht Refit, Answered.
             </h2>
 
             <div className="divide-y divide-white/10">
               {faqs.map((faq, i) => (
                 <details key={i} className="py-6 group cursor-pointer">
-                  <summary className="flex items-center justify-between text-lg sm:text-xl font-serif text-[#E8D5B5] group-hover:text-[#DFCA9E] transition-colors list-none">
+                  <summary className="flex items-center justify-between text-lg sm:text-xl font-serif text-[#F5F0E5] group-hover:text-[#C6A66B] transition-colors list-none">
                     <span>{faq.q}</span>
-                    <ChevronDown className="w-5 h-5 text-[#DFCA9E] transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ml-4" />
+                    <ChevronDown className="w-5 h-5 text-[#C6A66B] transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ml-4" />
                   </summary>
-                  <p className="text-xs sm:text-sm text-[#E8D5B5]/70 mt-4 leading-relaxed font-light pr-8">
+                  <p className="text-xs sm:text-sm text-[#F5F0E5]/70 mt-4 leading-relaxed font-light pr-8">
                     {faq.a}
                   </p>
                 </details>
@@ -225,9 +225,9 @@ export default function RefitPage() {
         </section>
 
         {/* CTA */}
-        <section className="relative py-20 bg-[#082B49] text-center">
+        <section className="relative py-20 bg-[#12352D] text-center">
           <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
-            <h2 className="font-serif text-3xl sm:text-5xl text-[#E8D5B5] font-light mb-6">
+            <h2 className="font-serif text-3xl sm:text-5xl text-[#F5F0E5] font-light mb-6">
               Reserve your upcoming drydock slot.
             </h2>
             <button onClick={() => setEnquiryOpen(true)} className="btn-gold !py-3.5 !px-8 text-xs">

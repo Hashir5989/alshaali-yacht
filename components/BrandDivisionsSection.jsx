@@ -41,9 +41,9 @@ export default function BrandDivisionsSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-white border-b border-[#D9E2EC]/70 relative text-[#102A43] overflow-hidden">
+    <section className="py-20 sm:py-28 bg-[#F5F0E5] border-b border-[#E2DDD1] relative text-[#12352D] overflow-hidden">
       {/* Ambient background light grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#176B9A_1px,transparent_1px)] [background-size:36px_36px] opacity-[0.025] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#C6A66B_1px,transparent_1px)] [background-size:36px_36px] opacity-[0.035] pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
         
@@ -73,14 +73,14 @@ export default function BrandDivisionsSection() {
               <InteractiveCard3D className="h-full rounded-none">
                 <Link
                   href={brand.href}
-                  className="group flex flex-col items-center justify-between text-center cursor-pointer p-8 sm:p-10 h-full bg-white border border-[#D9E2EC]/80 hover:border-[#176B9A] transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-[#176B9A]/10 relative overflow-hidden"
+                  className="group flex flex-col items-center justify-between text-center cursor-pointer p-8 sm:p-10 h-full bg-white border border-[#E2DDD1] hover:border-[#C6A66B] transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-[#C6A66B]/15 relative overflow-hidden"
                   aria-label={isAr ? `استكشف ${brand.name}` : `Explore ${brand.name}`}
                 >
                   {/* Subtle top indicator bar on hover */}
-                  <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#176B9A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#C6A66B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Division Badge */}
-                  <span className="text-[9.5px] uppercase tracking-[0.2em] text-[#829AB1] group-hover:text-[#176B9A] transition-colors font-mono mb-4 block">
+                  <span className="text-[9.5px] uppercase tracking-[0.2em] text-[#5D665F] group-hover:text-[#C6A66B] transition-colors font-mono mb-4 block">
                     {brand.badge}
                   </span>
 
@@ -92,19 +92,19 @@ export default function BrandDivisionsSection() {
                         alt={`${brand.name} ${brand.division}`}
                         fill
                         sizes="(max-width: 640px) 200px, 240px"
-                        className="object-contain transition-transform duration-500 drop-shadow-[0_2px_8px_rgba(8,43,73,0.06)] group-hover:drop-shadow-[0_12px_24px_rgba(23,107,154,0.25)]"
+                        className="object-contain transition-transform duration-500 drop-shadow-[0_2px_8px_rgba(18,53,45,0.06)] group-hover:drop-shadow-[0_12px_24px_rgba(198,166,107,0.3)]"
                       />
                     </div>
                   </div>
 
                   {/* Slogan / Name below logo */}
                   <div className="flex flex-col items-center mt-4">
-                    <span className="font-sans text-xs sm:text-[13.5px] tracking-wide text-[#486581] group-hover:text-[#082B49] transition-colors duration-300 font-medium">
+                    <span className="font-sans text-xs sm:text-[13.5px] tracking-wide text-[#5D665F] group-hover:text-[#12352D] transition-colors duration-300 font-medium">
                       {brand.tagline}
                     </span>
                     
                     {/* Animated Underline Expansion */}
-                    <span className="w-6 group-hover:w-16 h-[2px] bg-[#176B9A]/30 group-hover:bg-[#176B9A] mt-3 transition-all duration-500 ease-out" />
+                    <span className="w-6 group-hover:w-16 h-[2px] bg-[#C6A66B]/30 group-hover:bg-[#C6A66B] mt-3 transition-all duration-500 ease-out" />
                   </div>
                 </Link>
               </InteractiveCard3D>

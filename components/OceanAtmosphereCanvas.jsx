@@ -39,7 +39,7 @@ export default function OceanAtmosphereCanvas() {
         x: Math.random() * width,
         y: Math.random() * height,
         radius: Math.random() * 2 + 0.8,
-        color: Math.random() > 0.4 ? "rgba(197, 168, 128, " : "rgba(138, 154, 181, ",
+        color: Math.random() > 0.4 ? "rgba(198, 166, 107, " : "rgba(18, 53, 45, ",
         baseAlpha: Math.random() * 0.35 + 0.1,
         alpha: 0.1,
         vx: (Math.random() - 0.5) * 0.35,

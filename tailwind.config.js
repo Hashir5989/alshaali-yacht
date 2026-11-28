@@ -8,30 +8,52 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        navy: {
-          DEFAULT: "#0D2347",
-          deep: "#091A36",
-          ink: "#071429",
-          sapphire: "#1B3A6B",
-          dark: "#050C17",
-          card: "rgba(13, 35, 71, 0.45)",
-          cardHover: "rgba(27, 58, 107, 0.55)",
+        forest: {
+          DEFAULT: "#12352D",
+          deep: "#0A211B",
+          dark: "#0D2721",
+          light: "#1A493E",
+          card: "rgba(18, 53, 45, 0.45)",
+          cardHover: "rgba(26, 73, 62, 0.55)",
         },
-        stone: {
-          DEFAULT: "#F0EBE0",
-          muted: "rgba(240, 235, 224, 0.62)",
-          faint: "rgba(240, 235, 224, 0.16)",
-          fainter: "rgba(240, 235, 224, 0.08)",
+        ivory: {
+          DEFAULT: "#F5F0E5",
+          light: "#FAF7F0",
+          dark: "#EAE4D5",
+          muted: "rgba(245, 240, 229, 0.62)",
+          faint: "rgba(245, 240, 229, 0.16)",
+          fainter: "rgba(245, 240, 229, 0.08)",
         },
         gold: {
-          DEFAULT: "#C5A880",
-          light: "#E2C896",
-          dark: "#A68658",
+          DEFAULT: "#C6A66B",
+          light: "#D4B87E",
+          dark: "#A8884C",
           bronze: "#8F7246",
-          soft: "rgba(197, 168, 128, 0.15)",
+          soft: "rgba(198, 166, 107, 0.15)",
         },
-        silver: "#8A9AB5",
-        steel: "#5A6B85",
+        sage: {
+          DEFAULT: "#5D665F",
+          light: "#7D877F",
+          dark: "#454D47",
+        },
+        // Aliases to guarantee no blue is ever rendered
+        navy: {
+          DEFAULT: "#12352D",
+          deep: "#0A211B",
+          ink: "#0D2721",
+          sapphire: "#1A493E",
+          dark: "#081C17",
+          card: "rgba(18, 53, 45, 0.45)",
+          cardHover: "rgba(26, 73, 62, 0.55)",
+        },
+        stone: {
+          DEFAULT: "#F5F0E5",
+          muted: "rgba(245, 240, 229, 0.62)",
+          faint: "rgba(245, 240, 229, 0.16)",
+          fainter: "rgba(245, 240, 229, 0.08)",
+        },
+        silver: "#5D665F",
+        steel: "#5D665F",
       },
       fontFamily: {
         serif: ["var(--font-cormorant)", "Cormorant Garamond", "Georgia", "serif"],

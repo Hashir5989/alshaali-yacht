@@ -1,40 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Al Shaali Marine Custom Blue & White Luxury Yacht Palette */
-  --navy: #082B49;            /* Deep navy blue */
-  --ocean: #176B9A;           /* Ocean blue */
-  --ocean-light: #2087C2;     /* Bright maritime ocean */
-  --ice: #DCEFF7;             /* Ice blue */
-  --ice-tint: #EEF7FB;        /* Ultra soft ice tint */
-  --white: #FFFFFF;           /* Crisp luxury white */
-  --soft-gray: #F5F8FA;       /* Soft architectural gray */
-  --dark-text: #102A43;       /* Premium navy-charcoal text */
-  --muted-text: #486581;      /* Refined slate body text */
-  --border-light: #D9E2EC;    /* Hairline border */
+  /* Luxury Marine Forest Green, Champagne Gold & Ivory Palette */
+  --forest: #12352D;          /* Primary background */
+  --forest-deep: #0A211B;     /* Footer background & deepest dark */
+  --forest-dark: #0D2721;     /* Surface layer on dark */
+  --forest-light: #1A493E;    /* Elevated forest green */
+  --ivory: #F5F0E5;           /* Secondary background & primary text on dark */
+  --ivory-light: #FAF7F0;     /* Ultra soft ivory */
+  --ivory-dark: #EAE4D5;      /* Border / subtle accent on light */
+  --gold: #C6A66B;            /* Champagne Gold accent */
+  --gold-light: #D4B87E;      /* Light Champagne Gold */
+  --gold-dark: #A8884C;       /* Darker gold for active states */
+  --white: #FFFFFF;           /* Yacht cards, clean content */
+  --dark-text: #12352D;       /* Primary text on light backgrounds */
+  --muted-text: #5D665F;      /* Secondary text: Muted Sage Grey */
+  --border-light: #E2DDD1;    /* Refined border on light */
+  --border-dark: rgba(198, 166, 107, 0.25); /* Champagne border on dark */
 
-  /* Luxury Light Golden Palette for all Blue Background Sections */
-  --gold-light: #E8D5B5;      /* Primary soft light golden */
-  --gold-champagne: #DFCA9E;  /* Champagne golden */
-  --gold-pale: #F3EBDD;       /* Pale luminous gold */
-  --gold-muted: rgba(232, 213, 181, 0.82); /* Subtitle & body light gold */
+  /* Aliases to completely replace any old blue variables */
+  --navy: #12352D;
+  --navy-deep: #0A211B;
+  --navy-ink: #0D2721;
+  --ocean: #C6A66B;
+  --ocean-light: #D4B87E;
+  --ice: #F5F0E5;
+  --ice-tint: #FAF7F0;
+  --soft-gray: #F5F0E5;
+  --silver: #5D665F;
+  --steel: #5D665F;
+  --sapphire: #1A493E;
+  --gold-light-old: #D4B87E;
+  --gold-champagne: #C6A66B;
+  --gold-pale: #F5F0E5;
+  --gold-muted: rgba(245, 240, 229, 0.85);
 
-  /* Legacy references mapped gracefully */
-  --navy-deep: #062138;
-  --navy-ink: #082B49;
-  --sapphire: #176B9A;
-  --stone: #F5F8FA;
-  --silver: #829AB1;
-  --steel: #486581;
-  --gold: #176B9A;
-  --gold-light: #2087C2;
-  --line: rgba(8, 43, 73, 0.12);
-
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -44,12 +49,12 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--white);
+  background-color: var(--ivory);
   color: var(--dark-text);
 }
 
 body {
-  background-color: var(--white);
+  background-color: var(--ivory);
   color: var(--dark-text);
   font-family: var(--font-sans), sans-serif;
   font-weight: 300;
@@ -60,59 +65,59 @@ body {
 }
 
 ::selection {
-  background-color: #176B9A;
-  color: #FFFFFF;
+  background-color: #C6A66B;
+  color: #12352D;
 }
 
-/* Luxury minimal maritime scrollbar */
+/* Luxury minimal marine scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F8FA;
+  background: #F5F0E5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(23, 107, 154, 0.35);
+  background: rgba(198, 166, 107, 0.45);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #176B9A;
+  background: #C6A66B;
 }
 
 /* Typography Helpers */
 .label-luxury {
   font-family: var(--font-sans), sans-serif;
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--ocean);
+  color: var(--gold);
 }
 
 .heading-serif {
   font-family: var(--font-serif), Georgia, serif;
   font-weight: 300;
   letter-spacing: -0.015em;
-  color: var(--navy);
+  color: var(--dark-text);
 }
 
 /* Glass & Surface Effects */
 .glass-panel-light {
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(8, 43, 73, 0.1);
+  border: 1px solid rgba(198, 166, 107, 0.2);
 }
 
 .glass-panel-navy {
-  background: rgba(8, 43, 73, 0.92);
+  background: rgba(18, 53, 45, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(198, 166, 107, 0.25);
 }
 
 .yacht-card-white {
@@ -122,12 +127,12 @@ body {
 }
 
 .yacht-card-white:hover {
-  border-color: var(--ocean);
-  box-shadow: 0 20px 40px rgba(8, 43, 73, 0.08), 0 0 20px rgba(23, 107, 154, 0.06);
+  border-color: var(--gold);
+  box-shadow: 0 20px 40px rgba(18, 53, 45, 0.08), 0 0 20px rgba(198, 166, 107, 0.12);
   transform: translateY(-4px);
 }
 
-/* Deep Ocean Blue Primary CTA Button */
+/* Champagne Gold Primary CTA Button */
 .btn-ocean {
   position: relative;
   display: inline-flex;
@@ -137,18 +142,20 @@ body {
   font-size: 11px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #FFFFFF;
-  background: #082B49;
-  border: 1px solid #082B49;
-  font-weight: 600;
+  color: #12352D;
+  background: #C6A66B;
+  border: 1px solid #C6A66B;
+  font-weight: 700;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(198, 166, 107, 0.25);
 }
 
 .btn-ocean:hover {
-  background: #176B9A;
-  border-color: #176B9A;
-  box-shadow: 0 10px 25px rgba(23, 107, 154, 0.25);
+  background: #D4B87E;
+  border-color: #D4B87E;
+  color: #0A211B;
+  box-shadow: 0 10px 25px rgba(198, 166, 107, 0.35);
   transform: translateY(-2px);
 }
 
@@ -161,18 +168,18 @@ body {
   font-size: 11px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #082B49;
-  border: 1.5px solid #082B49;
+  color: #12352D;
+  border: 1.5px solid #12352D;
   background: transparent;
   font-weight: 600;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-ocean-outline:hover {
-  background: #082B49;
-  color: #FFFFFF;
+  background: #12352D;
+  color: #F5F0E5;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(8, 43, 73, 0.15);
+  box-shadow: 0 8px 20px rgba(18, 53, 45, 0.2);
 }
 
 .btn-white-outline {
@@ -184,20 +191,20 @@ body {
   font-size: 11px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #FFFFFF;
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
-  background: rgba(8, 43, 73, 0.35);
+  color: #F5F0E5;
+  border: 1.5px solid rgba(198, 166, 107, 0.55);
+  background: rgba(18, 53, 45, 0.45);
   backdrop-filter: blur(8px);
   font-weight: 600;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-white-outline:hover {
-  border-color: #FFFFFF;
-  background: #FFFFFF;
-  color: #082B49;
+  border-color: #C6A66B;
+  background: #C6A66B;
+  color: #12352D;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(198, 166, 107, 0.3);
 }
 
 /* Backward compatibility aliases */
@@ -221,10 +228,10 @@ body {
 
 @keyframes gold-breathe {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(223, 202, 158, 0.15);
+    box-shadow: 0 0 15px rgba(198, 166, 107, 0.18);
   }
   50% {
-    box-shadow: 0 0 30px rgba(223, 202, 158, 0.35);
+    box-shadow: 0 0 30px rgba(198, 166, 107, 0.4);
   }
 }
 
@@ -248,7 +255,7 @@ body {
 
 .card-luxury:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px -15px rgba(8, 43, 73, 0.18);
+  box-shadow: 0 20px 40px -15px rgba(18, 53, 45, 0.2);
 }
 
 /* Arabic Luxury Typography & RTL Support */
@@ -268,5 +275,3 @@ body {
 [dir="rtl"] .object-left {
   object-position: right !important;
 }
-
-

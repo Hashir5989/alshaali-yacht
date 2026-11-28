@@ -50,7 +50,7 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
   const ctaY = useTransform(smoothProgress, [0.5, 0.65], [20, 0]);
 
   return (
-    <div ref={containerRef} className="relative h-[240vh] bg-[#082B49]">
+    <div ref={containerRef} className="relative h-[240vh] bg-[#12352D]">
       {/* Sticky Fullscreen Viewport pinned during scroll */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between">
         
@@ -76,7 +76,7 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
               <source src="/media/hero-yacht.mp4" type="video/mp4" />
             </video>
 
-            {/* Smooth Deep Navy Gradient Mask — blends seamlessly with #082B49 */}
+            {/* Smooth Forest Green Gradient Mask — blends seamlessly with #12352D */}
             <motion.div
               style={{ opacity: maskOpacity }}
               className="absolute inset-0 pointer-events-none"
@@ -85,14 +85,14 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(90deg, #082B49 0%, rgba(8,43,73,0.95) 16%, rgba(8,43,73,0.6) 38%, rgba(8,43,73,0) 64%)",
+                    "linear-gradient(90deg, #12352D 0%, rgba(18,53,45,0.95) 16%, rgba(18,53,45,0.65) 38%, rgba(18,53,45,0) 64%)",
                 }}
               />
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(180deg, rgba(8,43,73,0.55) 0%, transparent 22%, transparent 75%, rgba(8,43,73,0.75) 100%)",
+                    "linear-gradient(180deg, rgba(18,53,45,0.55) 0%, transparent 22%, transparent 75%, rgba(18,53,45,0.85) 100%)",
                 }}
               />
             </motion.div>
@@ -104,31 +104,31 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
           style={{ opacity: cueOpacity, y: cueY }}
           className="absolute left-1/2 -translate-x-1/2 bottom-8 z-20 flex flex-col items-center gap-3 pointer-events-none text-center"
         >
-          <span className="font-sans text-[10px] tracking-[0.35em] uppercase text-[#E8D5B5] font-medium">
+          <span className="font-sans text-[10px] tracking-[0.35em] uppercase text-[#F5F0E5] font-medium">
             {t("hero_scroll_cue")}
           </span>
-          <div className="w-[1.5px] h-11 bg-gradient-to-b from-[#DFCA9E] via-[#E8D5B5] to-transparent animate-pulse" />
+          <div className="w-[1.5px] h-11 bg-gradient-to-b from-[#C6A66B] via-[#F5F0E5] to-transparent animate-pulse" />
         </motion.div>
 
         {/* Storytelling Text Content — pinned in view and reveals cleanly as user scrolls */}
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-12 pt-32 pb-14 h-full flex flex-col justify-between">
           
-          {/* Eyebrow Label - Light Golden */}
+          {/* Eyebrow Label - Champagne Gold */}
           <motion.div
             style={{ opacity: labelOpacity, y: labelY }}
             className="flex items-center gap-3"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#DFCA9E]" />
-            <p className="font-sans text-[11px] sm:text-xs tracking-[0.38em] uppercase text-[#DFCA9E] font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B]" />
+            <p className="font-sans text-[11px] sm:text-xs tracking-[0.38em] uppercase text-[#C6A66B] font-semibold">
               {t("hero_eyebrow")}
             </p>
           </motion.div>
 
-          {/* Lead Headline & Body - Light Golden Typography on Blue */}
+          {/* Lead Headline & Body - Ivory & Champagne Gold on Forest Green */}
           <div className="my-auto max-w-3xl py-6">
             {/* Staggered Sliced Headline */}
             <div className="overflow-hidden mb-4">
-              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[88px] text-[#E8D5B5] font-light leading-[1.02] tracking-[-0.015em]">
+              <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[88px] text-[#F5F0E5] font-light leading-[1.02] tracking-[-0.015em]">
                 <span className="inline-block overflow-hidden pb-1">
                   <motion.span
                     style={{ y: headlineLine1Y }}
@@ -141,7 +141,7 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
                 <span className="inline-block overflow-hidden pb-2">
                   <motion.span
                     style={{ y: headlineLine2Y }}
-                    className="inline-block italic text-[#DFCA9E] font-normal"
+                    className="inline-block italic text-[#C6A66B] font-normal"
                   >
                     {t("hero_title_line2")}
                   </motion.span>
@@ -151,7 +151,7 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
 
             <motion.p
               style={{ opacity: bodyOpacity, y: bodyY }}
-              className="font-sans text-sm sm:text-base md:text-[17px] text-[#E8D5B5]/90 leading-relaxed max-w-2xl mb-8 font-light"
+              className="font-sans text-sm sm:text-base md:text-[17px] text-[#F5F0E5]/90 leading-relaxed max-w-2xl mb-8 font-light"
             >
               {t("hero_body")}
             </motion.p>
@@ -161,17 +161,17 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
               style={{ opacity: ctaOpacity, y: ctaY }}
               className="flex flex-wrap items-center gap-4"
             >
-              <a href="#fleet" className="btn-ocean group flex items-center gap-2 !bg-[#E8D5B5] !text-[#082B49] !border-[#E8D5B5] hover:!bg-[#DFCA9E]">
+              <a href="#fleet" className="btn-ocean group flex items-center gap-2 !bg-[#C6A66B] !text-[#12352D] !border-[#C6A66B] hover:!bg-[#D4B87E]">
                 <span>{t("hero_btn_fleet")}</span>
-                <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform text-[#082B49]" />
+                <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform text-[#12352D]" />
               </a>
               <button
                 type="button"
                 onClick={() => onOpenEnquiry && onOpenEnquiry(isAr ? "استشارة اليخوت الرائدة" : "Flagship Consultation")}
-                className="btn-white-outline flex items-center gap-2 group !border-[#E8D5B5]/60 !text-[#E8D5B5] hover:!bg-[#E8D5B5] hover:!text-[#082B49]"
+                className="btn-white-outline flex items-center gap-2 group !border-[#C6A66B]/60 !text-[#F5F0E5] hover:!bg-[#C6A66B] hover:!text-[#12352D]"
               >
                 <span>{t("hero_btn_inquiry")}</span>
-                <ArrowUpRight className="w-4 h-4 text-[#E8D5B5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="w-4 h-4 text-[#C6A66B] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </motion.div>
           </div>

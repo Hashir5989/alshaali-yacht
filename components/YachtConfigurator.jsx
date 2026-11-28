@@ -25,7 +25,7 @@ const hullOptions = [
   {
     id: "champagne",
     name: "Dubai Champagne Gold",
-    colorHex: "#C5A880",
+    colorHex: "#C6A66B",
     overlayGradient: "linear-gradient(135deg, rgba(197,168,128,0.4) 0%, rgba(143,114,70,0.5) 100%)",
     accent: "#E2C896",
     description: "Warm champagne bronze celebrating the gilded maritime heritage of the Emirates.",
@@ -88,17 +88,17 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
   const [selectedView, setSelectedView] = useState(perspectives[0]);
 
   return (
-    <section id="configurator" className="relative py-24 sm:py-32 bg-[#082B49] border-t border-[#176B9A]/30 overflow-hidden text-white">
+    <section id="configurator" className="relative py-24 sm:py-32 bg-[#12352D] border-t border-[#C6A66B]/30 overflow-hidden text-white">
       {/* Background radial atmosphere */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#176B9A]/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#C6A66B]/20 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#176B9A]" />
-              <p className="font-sans text-[11px] tracking-[0.32em] uppercase text-[#DCEFF7] font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B]" />
+              <p className="font-sans text-[11px] tracking-[0.32em] uppercase text-[#F5F0E5] font-bold">
                 Atelier · Interactive Specification
               </p>
             </div>
@@ -106,7 +106,7 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
               Tailor Your Flagship AS 130
             </h2>
           </div>
-          <p className="font-sans text-xs sm:text-sm text-[#DCEFF7]/80 max-w-md leading-relaxed font-normal">
+          <p className="font-sans text-xs sm:text-sm text-[#F5F0E5]/80 max-w-md leading-relaxed font-normal">
             Every yacht leaving our Ajman drydocks is an individual masterpiece. Explore bespoke hull finishes, deck materials, and salon interior atmospheres below.
           </p>
         </div>
@@ -116,7 +116,7 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
           {/* Visual Showcase (7 cols) */}
           <div className="lg:col-span-8 flex flex-col gap-4">
             {/* Main Interactive Yacht Visualizer Frame */}
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#091A36] border border-white/15 overflow-hidden rounded-sm group shadow-2xl">
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#0A211B] border border-white/15 overflow-hidden rounded-sm group shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedView.id}
@@ -142,7 +142,7 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
                   />
 
                   {/* Gradient shadow edges */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#071429] via-transparent to-black/30 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A211B] via-transparent to-black/30 pointer-events-none" />
 
                   {/* Waterline Glow Accent */}
                   <div
@@ -160,8 +160,8 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
                     onClick={() => setSelectedView(view)}
                     className={`px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase transition-all rounded-sm backdrop-blur-md ${
                       selectedView.id === view.id
-                        ? "bg-[#C5A880] text-[#071429] font-semibold shadow-lg"
-                        : "bg-[#071429]/70 text-[#F0EBE0]/80 border border-white/10 hover:border-white/30"
+                        ? "bg-[#C6A66B] text-[#0A211B] font-semibold shadow-lg"
+                        : "bg-[#0A211B]/70 text-[#F0EBE0]/80 border border-white/10 hover:border-white/30"
                     }`}
                   >
                     {view.name}
@@ -170,9 +170,9 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
               </div>
 
               {/* Active Selection Badge */}
-              <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 bg-[#071429]/80 backdrop-blur-md border border-white/10 rounded-sm">
+              <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 bg-[#0A211B]/80 backdrop-blur-md border border-white/10 rounded-sm">
                 <div>
-                  <span className="text-[9px] tracking-[0.25em] text-[#C5A880] uppercase block">Selected Livery</span>
+                  <span className="text-[9px] tracking-[0.25em] text-[#C6A66B] uppercase block">Selected Livery</span>
                   <span className="font-serif text-lg text-[#F0EBE0]">{selectedHull.name}</span>
                 </div>
                 <div className="flex items-center gap-4 text-xs text-[#F0EBE0]/70">
@@ -184,14 +184,14 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
             </div>
 
             {/* Quick Specs Readout Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#091A36]/60 border border-white/10 p-4 rounded-sm text-center">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#0A211B]/60 border border-white/10 p-4 rounded-sm text-center">
               <div>
                 <span className="text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/50 block">LOA / Beam</span>
                 <span className="font-serif text-lg text-[#F0EBE0]">39.8m · 8.2m</span>
               </div>
               <div>
                 <span className="text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/50 block">Cruising Speed</span>
-                <span className="font-serif text-lg text-[#C5A880]">17.5 Knots</span>
+                <span className="font-serif text-lg text-[#C6A66B]">17.5 Knots</span>
               </div>
               <div>
                 <span className="text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/50 block">Guest Staterooms</span>
@@ -199,18 +199,18 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
               </div>
               <div>
                 <span className="text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/50 block">Shipyard Slot</span>
-                <span className="font-serif text-lg text-[#C5A880]">Late 2026 Ready</span>
+                <span className="font-serif text-lg text-[#C6A66B]">Late 2026 Ready</span>
               </div>
             </div>
           </div>
 
           {/* Controls & Configuration Options (4 cols) */}
-          <div className="lg:col-span-4 flex flex-col gap-6 bg-[#091A36] border border-white/10 p-6 rounded-sm">
+          <div className="lg:col-span-4 flex flex-col gap-6 bg-[#0A211B] border border-white/10 p-6 rounded-sm">
             {/* Control 1: Exterior Hull Color */}
             <div>
               <div className="flex items-center justify-between mb-3">
-                <label className="text-[10.5px] tracking-[0.25em] uppercase text-[#C5A880] font-medium flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C5A880]" />
+                <label className="text-[10.5px] tracking-[0.25em] uppercase text-[#C6A66B] font-medium flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B]" />
                   01. Exterior Hull Livery
                 </label>
                 <span className="text-[11px] text-[#F0EBE0]/60">{selectedHull.name}</span>
@@ -224,13 +224,13 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
                     title={hull.name}
                     className={`relative aspect-square rounded-full transition-all flex items-center justify-center ${
                       selectedHull.id === hull.id
-                        ? "ring-2 ring-[#C5A880] ring-offset-2 ring-offset-[#091A36] scale-110"
+                        ? "ring-2 ring-[#C6A66B] ring-offset-2 ring-offset-[#0A211B] scale-110"
                         : "opacity-75 hover:opacity-100 hover:scale-105"
                     }`}
                     style={{ backgroundColor: hull.colorHex }}
                   >
                     {selectedHull.id === hull.id && (
-                      <Check className={`w-3.5 h-3.5 ${hull.id === "pearl" ? "text-black" : "text-[#C5A880]"}`} />
+                      <Check className={`w-3.5 h-3.5 ${hull.id === "pearl" ? "text-black" : "text-[#C6A66B]"}`} />
                     )}
                   </button>
                 ))}
@@ -244,8 +244,8 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
 
             {/* Control 2: Decking Finishes */}
             <div>
-              <label className="text-[10.5px] tracking-[0.25em] uppercase text-[#C5A880] font-medium flex items-center gap-2 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C5A880]" />
+              <label className="text-[10.5px] tracking-[0.25em] uppercase text-[#C6A66B] font-medium flex items-center gap-2 mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B]" />
                 02. Decking & Walkways
               </label>
 
@@ -256,13 +256,13 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
                     onClick={() => setSelectedDeck(deck)}
                     className={`w-full text-left p-3 rounded-sm transition-all border ${
                       selectedDeck.id === deck.id
-                        ? "bg-[#0D2347] border-[#C5A880] text-[#F0EBE0]"
-                        : "bg-[#071429]/60 border-white/5 text-[#F0EBE0]/60 hover:border-white/20"
+                        ? "bg-[#0D2347] border-[#C6A66B] text-[#F0EBE0]"
+                        : "bg-[#0A211B]/60 border-white/5 text-[#F0EBE0]/60 hover:border-white/20"
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-medium">{deck.name}</span>
-                      {selectedDeck.id === deck.id && <span className="w-1.5 h-1.5 rounded-full bg-[#C5A880]" />}
+                      {selectedDeck.id === deck.id && <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B]" />}
                     </div>
                     <span className="text-[10.5px] text-[#F0EBE0]/40 block mt-0.5">{deck.desc}</span>
                   </button>
@@ -274,8 +274,8 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
 
             {/* Control 3: Interior Mood */}
             <div>
-              <label className="text-[10.5px] tracking-[0.25em] uppercase text-[#C5A880] font-medium flex items-center gap-2 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C5A880]" />
+              <label className="text-[10.5px] tracking-[0.25em] uppercase text-[#C6A66B] font-medium flex items-center gap-2 mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B]" />
                 03. Salon & Suite Ambiance
               </label>
 
@@ -286,15 +286,15 @@ export default function YachtConfigurator({ onOpenEnquiry }) {
                     onClick={() => setSelectedInterior(mood)}
                     className={`w-full text-left p-3 rounded-sm transition-all border ${
                       selectedInterior.id === mood.id
-                        ? "bg-[#0D2347] border-[#C5A880] text-[#F0EBE0]"
-                        : "bg-[#071429]/60 border-white/5 text-[#F0EBE0]/60 hover:border-white/20"
+                        ? "bg-[#0D2347] border-[#C6A66B] text-[#F0EBE0]"
+                        : "bg-[#0A211B]/60 border-white/5 text-[#F0EBE0]/60 hover:border-white/20"
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-medium">{mood.name}</span>
-                      {selectedInterior.id === mood.id && <span className="w-1.5 h-1.5 rounded-full bg-[#C5A880]" />}
+                      {selectedInterior.id === mood.id && <span className="w-1.5 h-1.5 rounded-full bg-[#C6A66B]" />}
                     </div>
-                    <span className="text-[10px] text-[#C5A880]/80 block font-mono mt-0.5">{mood.woods}</span>
+                    <span className="text-[10px] text-[#C6A66B]/80 block font-mono mt-0.5">{mood.woods}</span>
                     <span className="text-[10.5px] text-[#F0EBE0]/40 block mt-0.5 leading-snug">{mood.desc}</span>
                   </button>
                 ))}

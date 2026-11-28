@@ -19,7 +19,7 @@ export default function YachtDetailModal({ yacht, isOpen, onClose, onOpenEnquiry
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-[#071429]/90 backdrop-blur-2xl"
+          className="fixed inset-0 bg-[#0A211B]/90 backdrop-blur-2xl"
         />
 
         {/* Modal Window */}
@@ -28,12 +28,12 @@ export default function YachtDetailModal({ yacht, isOpen, onClose, onOpenEnquiry
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 w-full max-w-5xl bg-[#091A36] border border-white/15 rounded-sm shadow-2xl text-[#F0EBE0] max-h-[92vh] flex flex-col overflow-hidden my-auto"
+          className="relative z-10 w-full max-w-5xl bg-[#0A211B] border border-white/15 rounded-sm shadow-2xl text-[#F0EBE0] max-h-[92vh] flex flex-col overflow-hidden my-auto"
         >
           {/* Header Bar */}
-          <div className="p-6 border-b border-white/10 flex items-center justify-between bg-[#071429]">
+          <div className="p-6 border-b border-white/10 flex items-center justify-between bg-[#0A211B]">
             <div>
-              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C5A880]">
+              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C6A66B]">
                 {yacht.category} &nbsp;·&nbsp; {yacht.lengthMeters}m ({yacht.lengthFeet}ft)
               </p>
               <h2 className="font-serif text-2xl sm:text-3xl text-[#F0EBE0] font-light">
@@ -43,7 +43,7 @@ export default function YachtDetailModal({ yacht, isOpen, onClose, onOpenEnquiry
 
             <button
               onClick={onClose}
-              className="p-2 text-white/50 hover:text-[#C5A880] transition-colors"
+              className="p-2 text-white/50 hover:text-[#C6A66B] transition-colors"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
@@ -54,7 +54,7 @@ export default function YachtDetailModal({ yacht, isOpen, onClose, onOpenEnquiry
           <div className="p-6 sm:p-8 overflow-y-auto space-y-8">
             {/* Main Visual Display */}
             <div className="space-y-3">
-              <div className="relative aspect-[16/9] w-full rounded-sm overflow-hidden bg-[#071429] border border-white/10">
+              <div className="relative aspect-[16/9] w-full rounded-sm overflow-hidden bg-[#0A211B] border border-white/10">
                 <Image
                   src={activeImage}
                   alt={yacht.name}
@@ -72,7 +72,7 @@ export default function YachtDetailModal({ yacht, isOpen, onClose, onOpenEnquiry
                       key={i}
                       onClick={() => setActiveImage(img.url)}
                       className={`relative w-20 h-14 flex-shrink-0 rounded-sm overflow-hidden border transition-all ${
-                        activeImage === img.url ? "border-[#C5A880] scale-105" : "border-white/10 opacity-60 hover:opacity-100"
+                        activeImage === img.url ? "border-[#C6A66B] scale-105" : "border-white/10 opacity-60 hover:opacity-100"
                       }`}
                     >
                       <Image src={img.url} alt={img.title} fill className="object-cover" />
@@ -97,13 +97,13 @@ export default function YachtDetailModal({ yacht, isOpen, onClose, onOpenEnquiry
 
                 {yacht.features && (
                   <div className="pt-4 border-t border-white/10">
-                    <h4 className="text-[11px] tracking-[0.25em] uppercase text-[#C5A880] mb-3">
+                    <h4 className="text-[11px] tracking-[0.25em] uppercase text-[#C6A66B] mb-3">
                       Master Key Features
                     </h4>
                     <ul className="space-y-2">
                       {yacht.features.map((feat, idx) => (
                         <li key={idx} className="flex items-start gap-2.5 text-xs text-[#F0EBE0]/75">
-                          <Check className="w-3.5 h-3.5 text-[#C5A880] flex-shrink-0 mt-0.5" />
+                          <Check className="w-3.5 h-3.5 text-[#C6A66B] flex-shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
                       ))}
@@ -113,8 +113,8 @@ export default function YachtDetailModal({ yacht, isOpen, onClose, onOpenEnquiry
               </div>
 
               {/* Complete Blueprint Specifications */}
-              <div className="lg:col-span-5 bg-[#071429] border border-white/10 p-5 rounded-sm">
-                <h4 className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#C5A880] mb-4 font-medium">
+              <div className="lg:col-span-5 bg-[#0A211B] border border-white/10 p-5 rounded-sm">
+                <h4 className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#C6A66B] mb-4 font-medium">
                   Technical Specifications
                 </h4>
 
@@ -131,9 +131,9 @@ export default function YachtDetailModal({ yacht, isOpen, onClose, onOpenEnquiry
           </div>
 
           {/* Footer Bar */}
-          <div className="p-4 sm:p-6 border-t border-white/10 bg-[#071429] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="p-4 sm:p-6 border-t border-white/10 bg-[#0A211B] flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs text-[#F0EBE0]/50">
-              <ShieldCheck className="w-4 h-4 text-[#C5A880]" />
+              <ShieldCheck className="w-4 h-4 text-[#C6A66B]" />
               <span>Full Lloyd&apos;s / TASNEEF Certification</span>
             </div>
 

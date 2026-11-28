@@ -22,17 +22,17 @@ export default function ProjectsPage() {
     <>
       <Header onOpenEnquiry={() => handleEnquire("General Project Inquiry")} />
 
-      <main className="flex-grow pt-28 pb-24 bg-[#082B49] text-[#E8D5B5]">
+      <main className="flex-grow pt-28 pb-24 bg-[#12352D] text-[#F5F0E5]">
         <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
           {/* Header matching Astra Nord projects.html */}
           <div className="py-12 border-b border-white/10 mb-16">
-            <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#DFCA9E] mb-2 font-medium">
+            <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C6A66B] mb-2 font-medium">
               Al Shaali Marine &nbsp;·&nbsp; Projects
             </p>
-            <h1 className="font-serif text-4xl sm:text-6xl text-[#E8D5B5] font-light max-w-3xl leading-[1.08]">
+            <h1 className="font-serif text-4xl sm:text-6xl text-[#F5F0E5] font-light max-w-3xl leading-[1.08]">
               Designs Ready to be Built at Al Shaali Marine.
             </h1>
-            <p className="text-sm sm:text-base text-[#E8D5B5]/70 max-w-2xl mt-4 leading-relaxed font-light">
+            <p className="text-sm sm:text-base text-[#F5F0E5]/70 max-w-2xl mt-4 leading-relaxed font-light">
               Al Shaali Marine Class designs, engineered by our Ajman naval architecture studio and international partners, each waiting for an owner to make it their own.
             </p>
           </div>
@@ -56,21 +56,21 @@ export default function ProjectsPage() {
                     sizes="(max-width: 1024px) 100vw, 58vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#082B49] via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#12352D] via-transparent to-transparent opacity-60" />
                 </Link>
 
                 {/* Details (5 cols) */}
                 <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
                   <div>
-                    <span className="font-sans text-[10.5px] tracking-[0.25em] uppercase text-[#DFCA9E] block mb-1">
+                    <span className="font-sans text-[10.5px] tracking-[0.25em] uppercase text-[#C6A66B] block mb-1">
                       {yacht.category} &nbsp;·&nbsp; {yacht.lengthMeters} m ({yacht.lengthFeet} ft)
                     </span>
                     <Link href={`/yachts/${yacht.slug}`}>
-                      <h2 className="font-serif text-3xl sm:text-4xl text-[#E8D5B5] group-hover:text-[#DFCA9E] transition-colors font-light">
+                      <h2 className="font-serif text-3xl sm:text-4xl text-[#F5F0E5] group-hover:text-[#C6A66B] transition-colors font-light">
                         {yacht.name}
                       </h2>
                     </Link>
-                    <p className="text-sm text-[#E8D5B5]/70 mt-3 leading-relaxed font-light">
+                    <p className="text-sm text-[#F5F0E5]/70 mt-3 leading-relaxed font-light">
                       {yacht.tagline}
                     </p>
                   </div>
@@ -78,27 +78,27 @@ export default function ProjectsPage() {
                   {/* Specs DL */}
                   <dl className="grid grid-cols-2 gap-3 py-4 border-y border-white/10 text-xs">
                     <div>
-                      <dt className="text-[#E8D5B5]/40 uppercase tracking-widest text-[9.5px]">Length</dt>
-                      <dd className="font-mono text-[#E8D5B5] mt-0.5">{yacht.lengthMeters} m</dd>
+                      <dt className="text-[#F5F0E5]/40 uppercase tracking-widest text-[9.5px]">Length</dt>
+                      <dd className="font-mono text-[#F5F0E5] mt-0.5">{yacht.lengthMeters} m</dd>
                     </div>
                     <div>
-                      <dt className="text-[#E8D5B5]/40 uppercase tracking-widest text-[9.5px]">Beam</dt>
-                      <dd className="font-mono text-[#E8D5B5] mt-0.5">{yacht.beam.split("/")[0]}</dd>
+                      <dt className="text-[#F5F0E5]/40 uppercase tracking-widest text-[9.5px]">Beam</dt>
+                      <dd className="font-mono text-[#F5F0E5] mt-0.5">{yacht.beam.split("/")[0]}</dd>
                     </div>
                     <div>
-                      <dt className="text-[#E8D5B5]/40 uppercase tracking-widest text-[9.5px]">Guests</dt>
-                      <dd className="font-mono text-[#E8D5B5] mt-0.5">{yacht.guestCapacity}</dd>
+                      <dt className="text-[#F5F0E5]/40 uppercase tracking-widest text-[9.5px]">Guests</dt>
+                      <dd className="font-mono text-[#F5F0E5] mt-0.5">{yacht.guestCapacity}</dd>
                     </div>
                     <div>
-                      <dt className="text-[#E8D5B5]/40 uppercase tracking-widest text-[9.5px]">Top Speed</dt>
-                      <dd className="font-mono text-[#DFCA9E] mt-0.5">{yacht.maxSpeed}</dd>
+                      <dt className="text-[#F5F0E5]/40 uppercase tracking-widest text-[9.5px]">Top Speed</dt>
+                      <dd className="font-mono text-[#C6A66B] mt-0.5">{yacht.maxSpeed}</dd>
                     </div>
                   </dl>
 
                   <div className="flex items-center gap-6">
                     <Link
                       href={`/yachts/${yacht.slug}`}
-                      className="text-[11px] tracking-[0.22em] uppercase text-[#DFCA9E] hover:text-[#E2C896] inline-flex items-center gap-1.5 transition-colors font-medium"
+                      className="text-[11px] tracking-[0.22em] uppercase text-[#C6A66B] hover:text-[#E2C896] inline-flex items-center gap-1.5 transition-colors font-medium"
                     >
                       <span>View Project</span>
                       <ArrowUpRight className="w-4 h-4" />
@@ -106,7 +106,7 @@ export default function ProjectsPage() {
 
                     <button
                       onClick={() => handleEnquire(yacht.name)}
-                      className="px-4 py-2 text-[10.5px] tracking-[0.2em] uppercase border border-white/15 text-[#E8D5B5]/80 hover:border-[#DFCA9E] hover:text-[#DFCA9E] transition-all rounded-sm"
+                      className="px-4 py-2 text-[10.5px] tracking-[0.2em] uppercase border border-white/15 text-[#F5F0E5]/80 hover:border-[#C6A66B] hover:text-[#C6A66B] transition-all rounded-sm"
                     >
                       Enquire
                     </button>

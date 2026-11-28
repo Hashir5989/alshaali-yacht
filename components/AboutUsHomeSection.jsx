@@ -30,10 +30,10 @@ export default function AboutUsHomeSection() {
   ];
 
   return (
-    <section id="about-us" className="py-24 sm:py-32 bg-[#082B49] border-b border-[#176B9A]/30 relative overflow-hidden text-[#E8D5B5]">
+    <section id="about-us" className="py-24 sm:py-32 bg-[#12352D] border-b border-[#C6A66B]/20 relative overflow-hidden text-[#F5F0E5]">
       {/* Decorative ambient maritime glow */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#176B9A]/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#DFCA9E]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#C6A66B]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#0A211B]/80 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -57,7 +57,7 @@ export default function AboutUsHomeSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="text-sm sm:text-base text-[#E8D5B5]/90 leading-relaxed font-light mb-5"
+              className="text-sm sm:text-base text-[#F5F0E5]/90 leading-relaxed font-light mb-5"
             >
               {t("about_p1")}
             </motion.p>
@@ -68,7 +68,7 @@ export default function AboutUsHomeSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.7, delay: 0.25 }}
-              className="text-xs sm:text-sm text-[#DCEFF7]/80 leading-relaxed font-normal mb-8"
+              className="text-xs sm:text-sm text-[#F5F0E5]/80 leading-relaxed font-normal mb-8"
             >
               {t("about_p2")}
             </motion.p>
@@ -79,23 +79,23 @@ export default function AboutUsHomeSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.7, delay: 0.35 }}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 pt-6 border-t border-[#176B9A]/30"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 pt-6 border-t border-[#C6A66B]/20"
             >
               {pillars.map((pillar) => (
                 <motion.div
                   key={pillar.title}
                   whileHover={{ y: -4, scale: 1.02 }}
                   transition={{ duration: 0.2 }}
-                  className="flex items-start gap-3 p-3 rounded-none bg-[#06182a]/50 border border-[#DFCA9E]/15 hover:border-[#DFCA9E]/50 transition-all cursor-default"
+                  className="flex items-start gap-3 p-3 rounded-none bg-[#0A211B]/60 border border-[#C6A66B]/25 hover:border-[#C6A66B] transition-all cursor-default"
                 >
-                  <div className="w-8 h-8 rounded-none bg-[#176B9A]/20 border border-[#DFCA9E]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <pillar.icon className="w-4 h-4 text-[#DFCA9E]" />
+                  <div className="w-8 h-8 rounded-none bg-[#12352D] border border-[#C6A66B]/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <pillar.icon className="w-4 h-4 text-[#C6A66B]" />
                   </div>
                   <div>
-                    <h4 className="font-sans text-[11px] uppercase tracking-wider text-[#DFCA9E] font-bold">
+                    <h4 className="font-sans text-[11px] uppercase tracking-wider text-[#C6A66B] font-bold">
                       {pillar.title}
                     </h4>
-                    <p className="text-[11px] text-[#E8D5B5]/70 mt-0.5 leading-snug">
+                    <p className="text-[11px] text-[#F5F0E5]/75 mt-0.5 leading-snug">
                       {pillar.desc}
                     </p>
                   </div>
@@ -112,7 +112,7 @@ export default function AboutUsHomeSection() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 bg-[#DFCA9E] text-[#082B49] hover:bg-[#E8D5B5] px-7 py-3.5 font-sans text-xs tracking-[0.2em] uppercase font-bold transition-all duration-300 shadow-md group hover:shadow-xl hover:shadow-[#DFCA9E]/20"
+                className="inline-flex items-center gap-3 bg-[#C6A66B] text-[#12352D] hover:bg-[#D4B87E] px-7 py-3.5 font-sans text-xs tracking-[0.2em] uppercase font-bold transition-all duration-300 shadow-md group hover:shadow-xl hover:shadow-[#C6A66B]/20"
               >
                 <span>{t("about_cta")}</span>
                 <ArrowRight className={`w-4 h-4 transition-transform duration-300 ${isAr ? "rotate-180 group-hover:-translate-x-1.5" : "group-hover:translate-x-1.5"}`} />
@@ -129,7 +129,7 @@ export default function AboutUsHomeSection() {
             className="lg:col-span-5 relative"
           >
             <InteractiveCard3D className="w-full">
-              <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#DFCA9E]/30 shadow-2xl bg-[#061B2E] group">
+              <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#C6A66B]/30 shadow-2xl bg-[#0A211B] group">
                 <Image
                   src="/media/yachts/about-crafting-mastery.jpg"
                   alt={isAr ? "الشعالي مارين - صناعة الريادة البحرية لأربعة عقود" : "Al Shaali Marine - Crafting Arabian Maritime Mastery for Over Four Decades"}
@@ -137,29 +137,29 @@ export default function AboutUsHomeSection() {
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#082B49]/90 via-transparent to-black/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A211B]/95 via-transparent to-black/20" />
 
                 {/* Floating Top Heritage Milestone Badge */}
-                <div className={`absolute top-6 ${isAr ? "right-6" : "left-6"} bg-[#082B49]/95 backdrop-blur-md border border-[#DFCA9E]/40 px-4 py-2.5 shadow-lg group-hover:border-[#DFCA9E] transition-colors`}>
-                  <span className="font-serif text-2xl text-[#DFCA9E] block font-light leading-none">{isAr ? "١٩٧٩" : "1979"}</span>
-                  <span className="font-sans text-[8.5px] tracking-[0.28em] uppercase text-[#DCEFF7] block mt-1 font-bold">
+                <div className={`absolute top-6 ${isAr ? "right-6" : "left-6"} bg-[#0A211B]/95 backdrop-blur-md border border-[#C6A66B]/40 px-4 py-2.5 shadow-lg group-hover:border-[#C6A66B] transition-colors`}>
+                  <span className="font-serif text-2xl text-[#C6A66B] block font-light leading-none">{isAr ? "١٩٧٩" : "1979"}</span>
+                  <span className="font-sans text-[8.5px] tracking-[0.28em] uppercase text-[#F5F0E5] block mt-1 font-bold">
                     {isAr ? "عام التأسيس والريادة" : "Pioneering Est. Date"}
                   </span>
                 </div>
 
                 {/* Bottom Inscription Box */}
-                <div className="absolute bottom-6 left-6 right-6 bg-[#082B49]/95 backdrop-blur-md border border-[#176B9A]/50 p-5 shadow-xl group-hover:border-[#DFCA9E]/50 transition-colors">
+                <div className="absolute bottom-6 left-6 right-6 bg-[#0A211B]/95 backdrop-blur-md border border-[#C6A66B]/30 p-5 shadow-xl group-hover:border-[#C6A66B]/60 transition-colors">
                   <div className="flex items-center justify-between gap-4">
                     <div>
-                      <p className="font-serif text-lg text-[#E8D5B5] font-light leading-tight">
+                      <p className="font-serif text-lg text-[#F5F0E5] font-light leading-tight">
                         {isAr ? "صُنعت يدوياً في عجمان، الإمارات" : "Handcrafted in Ajman, UAE"}
                       </p>
-                      <p className="font-sans text-[9px] tracking-[0.25em] uppercase text-[#DFCA9E] mt-1 font-semibold">
+                      <p className="font-sans text-[9px] tracking-[0.25em] uppercase text-[#C6A66B] mt-1 font-semibold">
                         {isAr ? "يخوت مطابقة لمعايير لويدز ريجستر" : "Lloyd's Register Compliant Superyachts"}
                       </p>
                     </div>
-                    <div className="w-10 h-10 rounded-full border border-[#DFCA9E]/40 flex items-center justify-center flex-shrink-0 bg-[#06182a]">
-                      <span className="text-[#DFCA9E] text-xs font-mono font-bold">{isAr ? "٤٥ عاماً" : "45Y"}</span>
+                    <div className="w-10 h-10 rounded-full border border-[#C6A66B]/40 flex items-center justify-center flex-shrink-0 bg-[#12352D]">
+                      <span className="text-[#C6A66B] text-xs font-mono font-bold">{isAr ? "٤٥ عاماً" : "45Y"}</span>
                     </div>
                   </div>
                 </div>
@@ -167,7 +167,7 @@ export default function AboutUsHomeSection() {
             </InteractiveCard3D>
 
             {/* Decorative Offset Gold Frame Accent */}
-            <div className={`absolute -bottom-4 ${isAr ? "-left-4" : "-right-4"} w-full h-full border border-[#DFCA9E]/20 -z-10 pointer-events-none hidden sm:block`} />
+            <div className={`absolute -bottom-4 ${isAr ? "-left-4" : "-right-4"} w-full h-full border border-[#C6A66B]/25 -z-10 pointer-events-none hidden sm:block`} />
           </motion.div>
 
         </div>

@@ -103,7 +103,7 @@ export default function AboutUsHomeSection() {
               </div>
             </motion.div>
 
-            {/* Read More Button Link */}
+            {/* Contact Button Link */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -111,10 +111,10 @@ export default function AboutUsHomeSection() {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <Link
-                href="/about"
+                href="/contact"
                 className="inline-flex items-center gap-3 bg-[#DFCA9E] text-[#082B49] hover:bg-[#E8D5B5] px-7 py-3.5 font-sans text-xs tracking-[0.2em] uppercase font-bold transition-all duration-300 shadow-md group"
               >
-                <span>Discover Our Heritage & Shipyard</span>
+                <span>Connect With Our Ajman Shipyard</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </motion.div>

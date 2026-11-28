@@ -64,7 +64,10 @@ export default function HomePage() {
         {/* 5. Chairman's Vision & Leadership Message */}
         <ChairmanSection />
 
-        {/* 6. Complete 2026 Fleet Collection with 3D Interactive Perspective Cards */}
+        {/* 6. Latest News & Shipyard Dispatches */}
+        <JournalHomeSection />
+
+        {/* 7. Complete 2026 Fleet Collection with 3D Interactive Perspective Cards */}
         <FleetSection
           onSelectYacht={handleOpenYachtDetail}
           onOpenEnquiry={handleOpenEnquiry}
@@ -91,10 +94,7 @@ export default function HomePage() {
         {/* 8. 45-Year Heritage Milestone Journey (1979 - 2026) */}
         <HeritageSection />
 
-        {/* 10. The Logbook: Latest Dispatches & News from the Yard */}
-        <JournalHomeSection />
-
-        {/* 11. Atmospheric Video CTA & Direct Commission Booking */}
+        {/* 9. Atmospheric Video CTA & Direct Commission Booking */}
         <CtaVideoSection onOpenEnquiry={handleOpenEnquiry} />
       </main>
 

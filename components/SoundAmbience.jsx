@@ -2,8 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Volume2, VolumeX } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function SoundAmbience() {
+  const { t } = useLanguage();
   const [isPlaying, setIsPlaying] = useState(false);
   const audioCtxRef = useRef(null);
   const gainNodeRef = useRef(null);
@@ -92,7 +94,7 @@ export default function SoundAmbience() {
   return (
     <button
       onClick={toggleSound}
-      title={isPlaying ? "Mute Ocean Soundscape" : "Enable Ambient Sea Ambience"}
+      title={isPlaying ? t("sound_title_mute") : t("sound_title_enable")}
       className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-white/10 bg-[#091A36]/70 backdrop-blur-md text-[10px] tracking-[0.22em] text-[#C5A880] hover:border-[#C5A880]/50 hover:text-[#E2C896] transition-all group shadow-lg"
     >
       {isPlaying ? (
@@ -104,12 +106,12 @@ export default function SoundAmbience() {
             <span className="w-0.5 bg-[#C5A880] h-3.5 animate-[pulse_0.9s_ease-in-out_infinite_0.4s]" />
             <span className="w-0.5 bg-[#E2C896] h-1.5 animate-[pulse_1.1s_ease-in-out_infinite_0.1s]" />
           </div>
-          <span className="hidden sm:inline font-mono font-medium text-[#E2C896]">SEA AMBIENCE: ON</span>
+          <span className="hidden sm:inline font-mono font-medium text-[#E2C896]">{t("sound_on")}</span>
         </>
       ) : (
         <>
           <VolumeX className="w-3.5 h-3.5 text-[#F0EBE0]/40 group-hover:text-[#C5A880] transition-colors" />
-          <span className="hidden sm:inline text-[#F0EBE0]/60 font-mono">SEA AMBIENCE: OFF</span>
+          <span className="hidden sm:inline text-[#F0EBE0]/60 font-mono">{t("sound_off")}</span>
         </>
       )}
     </button>

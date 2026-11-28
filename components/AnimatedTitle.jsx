@@ -33,8 +33,8 @@ export default function AnimatedTitle({
     align === "center"
       ? "text-center items-center"
       : align === "right"
-      ? "text-right items-end"
-      : "text-left items-start";
+      ? "text-end items-end"
+      : "text-start items-start";
 
   return (
     <div className={`flex flex-col ${alignmentClass} ${className}`}>

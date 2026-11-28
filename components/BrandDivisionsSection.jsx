@@ -74,7 +74,7 @@ export default function BrandDivisionsSection() {
                 <Link
                   href={brand.href}
                   className="group flex flex-col items-center justify-between text-center cursor-pointer p-8 sm:p-10 h-full bg-white border border-[#D9E2EC]/80 hover:border-[#176B9A] transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-[#176B9A]/10 relative overflow-hidden"
-                  aria-label={`Explore ${brand.name}`}
+                  aria-label={isAr ? `استكشف ${brand.name}` : `Explore ${brand.name}`}
                 >
                   {/* Subtle top indicator bar on hover */}
                   <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#176B9A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

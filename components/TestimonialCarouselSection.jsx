@@ -14,8 +14,9 @@ import {
 } from "lucide-react";
 import AnimatedTitle from "./AnimatedTitle";
 import InteractiveCard3D from "./InteractiveCard3D";
+import { useLanguage } from "@/context/LanguageContext";
 
-const TESTIMONIALS = [
+const TESTIMONIALS_EN = [
   {
     id: 1,
     clientType: "Private Owner Commission",
@@ -73,23 +74,83 @@ const TESTIMONIALS = [
   },
 ];
 
-const AUTOPLAY_DURATION_MS = 4500; // Automatic moving every 4.5 seconds
+const TESTIMONIALS_AR = [
+  {
+    id: 1,
+    clientType: "تكليف خاص من مالك يخت",
+    vessel: "يخت سوبر يخت AS 130 ثلاثي الطوابق",
+    location: "دبي والبحر الأبيض المتوسط",
+    rating: 5,
+    icon: Anchor,
+    message:
+      "كان استلام يختنا المخصص AS 130 محطة لا تُنسى في حياتنا. إن الهندسة المعمارية البحرية، والعزل الصوتي الفائق عند سرعات الإبحار، ومستوى المشغولات الخشبية المصنوعة يدوياً في محترفات عجمان يضاهي أرقى أحواض بناء السفن الأوروبية. لقد أعادت الشعالي مارين تعريف الفخامة البحرية العربية على الساحة العالمية بحق.",
+    highlight: "راحة صوتية لا تضاهى وحرفية خشبية متقنة",
+  },
+  {
+    id: 2,
+    clientType: "ربان أعالي البحار وقائد أسطول",
+    vessel: "يخت AS 100 بكابينة قيادة مرتفعة",
+    location: "موناكو والريفييرا الفرنسية",
+    rating: 5,
+    icon: Compass,
+    message:
+      "بعد قيادتي لليخوت الفاخرة عبر المحيط الأطلسي وبحر إيجه لأكثر من 25 عاماً، أستطيع القول إن الثبات الهيكلي وقدرة هيكل الشعالي على مواجهة الأمواج العاتية استثنائية للغاية. كفاءة استهلاك الوقود عند 18 عقدة وتصميم غرفة القيادة المريح يجعلان الإبحار به متعة خالصة.",
+    highlight: "ثبات هائل وقوة استثنائية في أصعب الظروف البحرية",
+  },
+  {
+    id: 3,
+    clientType: "متسابق وبطل صيد في المياه المفتوحة",
+    vessel: "قارب واريور 43 فائق الأداء",
+    location: "البحر الأحمر والخليج العربي",
+    rating: 5,
+    icon: Award,
+    message:
+      "سلسلة واريور تمنحني إثارة الأداء المستمد من عالم سباقات الزوارق دون التنازل عن ذرة واحدة من الحرفية والفخامة. سواء عند الانطلاق بسرعة 50 عقدة لصيد الأسماك في المياه العميقة أو الترفيه مع العائلة في رحلات الجزر الأسبوعية، فإنه يبحر بأداء لا تشوبه شائبة في كل رحلة.",
+    highlight: "قمة الأدرينالين بلمسات تشطيبات اليخوت الفارهة",
+  },
+  {
+    id: 4,
+    clientType: "إدارة أساطيل التأجير الفاخرة",
+    vessel: "أسطول يخوت جلوري 85 موتور يخت",
+    location: "أثينا وبورتو سيرفو",
+    rating: 5,
+    icon: ShieldCheck,
+    message:
+      "يطلب ضيوفنا من كبار الشخصيات يخوت الشعالي باستمرار بفضل نوادي الشاطئ البانورامية الرائعة والثبات الصامت التام عند الرسو. من التصميم المصمم حسب الطلب إلى دعم الحوض الجاف المباشر، فإن تميزهم استثنائي.",
+    highlight: "اليخوت الأكثر طلباً للاستئجار في البحر المتوسط",
+  },
+  {
+    id: 5,
+    clientType: "تكليف عائلي خاص",
+    vessel: "يخت جلوري 75 فلاي بريدج",
+    location: "أبوظبي والخليج العربي",
+    rating: 5,
+    icon: Anchor,
+    message:
+      "أكثر ما أثار إعجابي هو التجربة الشخصية الراقية في حوض السفن. لقد لبى الفريق الهندسي وكبار الحرفيين كل تفصيلة طلبناها في التصميم الداخلي، ليقدموا لنا تحفة فنية مصنوعة يدوياً تعتز بها عائلتنا في كل رحلة بحرية عند غروب الشمس.",
+    highlight: "تفصيل ملكي أصيل يخلد إرث العائلة",
+  },
+];
+
+const AUTOPLAY_DURATION_MS = 4500;
 
 export default function TestimonialCarouselSection() {
+  const { isAr, t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
+  const testimonials = isAr ? TESTIMONIALS_AR : TESTIMONIALS_EN;
+
   const nextSlide = useCallback(() => {
     setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  }, [testimonials.length]);
 
   const prevSlide = useCallback(() => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
-  }, []);
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  }, [testimonials.length]);
 
-  // Continuous automatic slideshow (automatically moves every 4.5s)
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
@@ -97,7 +158,7 @@ export default function TestimonialCarouselSection() {
     return () => clearInterval(timer);
   }, [nextSlide, currentIndex]);
 
-  const current = TESTIMONIALS[currentIndex];
+  const current = testimonials[currentIndex] || testimonials[0];
   const IconComponent = current.icon;
 
   const slideVariants = {
@@ -139,9 +200,10 @@ export default function TestimonialCarouselSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-3xl">
             <AnimatedTitle
-              tagline="Owner Feedback · Verified Commissions"
-              title="Words from Our Owners & Captains."
-              subtitle="Authentic reflections from discerning yacht owners, master mariners, and charter directors who navigate our vessels across global waters."
+              key={isAr ? "ar" : "en"}
+              tagline={t("testimonials_tagline")}
+              title={t("testimonials_title")}
+              subtitle={t("testimonials_subtitle")}
               dark={true}
             />
           </div>
@@ -150,8 +212,8 @@ export default function TestimonialCarouselSection() {
           <div className="flex items-center gap-3 self-start md:self-end">
             <div className="flex items-center gap-2 mr-3 px-3 py-1.5 rounded-full bg-[#06182a] border border-[#DFCA9E]/20 text-[10px] font-mono tracking-widest text-[#DFCA9E]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#DFCA9E] animate-ping" />
-              <span>AUTO PLAYING</span>
-              <span className="text-[#E8D5B5]/60 ml-1">0{currentIndex + 1} / 0{TESTIMONIALS.length}</span>
+              <span>{t("testimonials_autoplay")}</span>
+              <span className="text-[#E8D5B5]/60 ml-1">0{currentIndex + 1} / 0{testimonials.length}</span>
             </div>
 
             <button
@@ -159,14 +221,14 @@ export default function TestimonialCarouselSection() {
               aria-label="Previous Testimonial"
               className="w-11 h-11 rounded-full border border-[#DFCA9E]/30 bg-[#06182a]/80 backdrop-blur-sm text-[#E8D5B5] hover:text-[#082B49] hover:bg-[#DFCA9E] hover:border-[#DFCA9E] transition-all flex items-center justify-center group shadow-md"
             >
-              <ChevronLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+              <ChevronLeft className={`w-4 h-4 transition-transform ${isAr ? "rotate-180 group-hover:translate-x-0.5" : "group-hover:-translate-x-0.5"}`} />
             </button>
             <button
               onClick={nextSlide}
               aria-label="Next Testimonial"
               className="w-11 h-11 rounded-full border border-[#DFCA9E]/30 bg-[#06182a]/80 backdrop-blur-sm text-[#E8D5B5] hover:text-[#082B49] hover:bg-[#DFCA9E] hover:border-[#DFCA9E] transition-all flex items-center justify-center group shadow-md"
             >
-              <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              <ChevronRight className={`w-4 h-4 transition-transform ${isAr ? "rotate-180 group-hover:-translate-x-0.5" : "group-hover:translate-x-0.5"}`} />
             </button>
           </div>
         </div>
@@ -181,17 +243,17 @@ export default function TestimonialCarouselSection() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: AUTOPLAY_DURATION_MS / 1000, ease: "linear" }}
-              className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#176B9A] via-[#DFCA9E] to-[#176B9A] origin-left z-20"
+              className={`absolute top-0 ${isAr ? "right-0 origin-right" : "left-0 origin-left"} w-full h-[3px] bg-gradient-to-r from-[#176B9A] via-[#DFCA9E] to-[#176B9A] z-20`}
             />
 
             {/* Large Quote Backdrop */}
-            <div className="absolute top-6 right-8 opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity">
+            <div className={`absolute top-6 ${isAr ? "left-8" : "right-8"} opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity`}>
               <Quote className="w-32 h-32 text-[#DFCA9E]" />
             </div>
 
             <AnimatePresence custom={direction} mode="wait">
               <motion.div
-                key={current.id}
+                key={`${current.id}-${isAr ? 'ar' : 'en'}`}
                 custom={direction}
                 variants={slideVariants}
                 initial="enter"
@@ -210,8 +272,8 @@ export default function TestimonialCarouselSection() {
                           className="w-4 h-4 fill-[#DFCA9E] text-[#DFCA9E]"
                         />
                       ))}
-                      <span className="ml-2 text-xs font-mono tracking-widest text-[#DFCA9E] font-semibold">
-                        VERIFIED COMMISSION
+                      <span className="mx-2 text-xs font-mono tracking-widest text-[#DFCA9E] font-semibold">
+                        {t("testimonials_verified")}
                       </span>
                     </div>
 
@@ -251,9 +313,9 @@ export default function TestimonialCarouselSection() {
                   </div>
 
                   {/* Highlight Badge */}
-                  <div className="hidden lg:block text-right">
+                  <div className={`hidden lg:block ${isAr ? "text-left" : "text-right"}`}>
                     <span className="text-[10px] uppercase tracking-[0.25em] text-[#DFCA9E]/80 block font-mono">
-                      Vessel Milestone
+                      {isAr ? "المحطة المميزة لليخت" : "Vessel Milestone"}
                     </span>
                     <span className="text-sm font-serif text-[#E8D5B5] italic">
                       {current.highlight}
@@ -270,9 +332,9 @@ export default function TestimonialCarouselSection() {
 
         {/* Carousel Pagination Dots */}
         <div className="flex items-center justify-center gap-2.5 mt-8">
-          {TESTIMONIALS.map((t, idx) => (
+          {testimonials.map((item, idx) => (
             <button
-              key={t.id}
+              key={item.id}
               onClick={() => {
                 setDirection(idx > currentIndex ? 1 : -1);
                 setCurrentIndex(idx);

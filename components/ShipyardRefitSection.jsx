@@ -6,27 +6,30 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Wrench, ShieldCheck, Anchor, Compass } from "lucide-react";
 import AnimatedTitle from "./AnimatedTitle";
 import InteractiveCard3D from "./InteractiveCard3D";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ShipyardRefitSection({ onOpenEnquiry }) {
+  const { isAr, t } = useLanguage();
+
   const capabilities = [
     {
-      title: "200-Tonne Travel Lift Haul-Out",
-      desc: "Accommodating motor yachts and superyachts up to 55 metres directly into our Ajman drydocks.",
+      title: t("shipyard_cap1_title"),
+      desc: t("shipyard_cap1_desc"),
       icon: Anchor,
     },
     {
-      title: "Climate-Controlled Alexseal Paint Sheds",
-      desc: "Dust-free, humidity-regulated spray environments producing mirror-finish superyacht topcoats.",
+      title: t("shipyard_cap2_title"),
+      desc: t("shipyard_cap2_desc"),
       icon: Wrench,
     },
     {
-      title: "TASNEEF & Lloyd's Survey Classification",
-      desc: "Full statutory survey renewal, thickness testing, naval architecture recertification, and sea trials.",
+      title: t("shipyard_cap3_title"),
+      desc: t("shipyard_cap3_desc"),
       icon: ShieldCheck,
     },
     {
-      title: "First-Grade Burmese Teak Decking",
-      desc: "In-house joinery artisans laying continuous quarter-sawn Burmese teak with vacuum bonding.",
+      title: t("shipyard_cap4_title"),
+      desc: t("shipyard_cap4_desc"),
       icon: Compass,
     },
   ];
@@ -42,8 +45,9 @@ export default function ShipyardRefitSection({ onOpenEnquiry }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-3xl">
             <AnimatedTitle
-              tagline="45,000 SQM Shipbuilding & Drydock Atelier"
-              title="Where Master Shipwrights Bring Dreams to Water."
+              key={isAr ? "ar" : "en"}
+              tagline={t("shipyard_tagline")}
+              title={t("shipyard_title")}
               dark={false}
             />
           </div>
@@ -55,7 +59,7 @@ export default function ShipyardRefitSection({ onOpenEnquiry }) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-sans text-xs sm:text-sm text-[#486581] max-w-md leading-relaxed font-normal"
           >
-            Spanning over 45,000 square metres on the Arabian Gulf, our Ajman drydocks unite 45 years of composite shipbuilding innovation, high-tonnage haul-outs, and bespoke refit engineering.
+            {t("shipyard_subtitle")}
           </motion.p>
         </div>
 
@@ -74,14 +78,14 @@ export default function ShipyardRefitSection({ onOpenEnquiry }) {
                 <div className="relative aspect-[4/5] w-full rounded-none overflow-hidden border border-[#D9E2EC] shadow-md group">
                   <Image
                     src="/media/yachts/sweet-maryi-52m-yacht-refit-athens.png"
-                    alt="Al Shaali Marine Drydocks Ajman"
+                    alt={t("shipyard_badge_1")}
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-108"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#082B49]/80 via-transparent to-transparent" />
-                  <span className="absolute bottom-4 left-4 text-[10px] tracking-[0.25em] uppercase text-white font-bold bg-[#082B49]/90 px-3 py-1.5 shadow-sm border-l-2 border-[#DFCA9E]">
-                    Ajman Drydock Haul-out
+                  <span className={`absolute bottom-4 ${isAr ? "right-4 border-r-2" : "left-4 border-l-2"} text-[10px] tracking-[0.25em] uppercase text-white font-bold bg-[#082B49]/90 px-3 py-1.5 shadow-sm border-[#DFCA9E]`}>
+                    {t("shipyard_badge_1")}
                   </span>
                 </div>
               </InteractiveCard3D>
@@ -98,14 +102,14 @@ export default function ShipyardRefitSection({ onOpenEnquiry }) {
                 <div className="relative aspect-[4/5] w-full rounded-none overflow-hidden border border-[#D9E2EC] shadow-md group">
                   <Image
                     src="/media/yachts/sweet-maryi-52m-refit.jpeg"
-                    alt="Superyacht Refit & Redocking"
+                    alt={t("shipyard_badge_2")}
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-108"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#082B49]/80 via-transparent to-transparent" />
-                  <span className="absolute bottom-4 left-4 text-[10px] tracking-[0.25em] uppercase text-white font-bold bg-[#082B49]/90 px-3 py-1.5 shadow-sm border-l-2 border-[#176B9A]">
-                    Hull Re-engineering
+                  <span className={`absolute bottom-4 ${isAr ? "right-4 border-r-2" : "left-4 border-l-2"} text-[10px] tracking-[0.25em] uppercase text-white font-bold bg-[#082B49]/90 px-3 py-1.5 shadow-sm border-[#176B9A]`}>
+                    {t("shipyard_badge_2")}
                   </span>
                 </div>
               </InteractiveCard3D>
@@ -121,7 +125,7 @@ export default function ShipyardRefitSection({ onOpenEnquiry }) {
               transition={{ duration: 0.6 }}
               className="font-serif text-3xl sm:text-4xl text-[#082B49] font-normal leading-snug"
             >
-              Every season counts. We ensure your vessel is back at sea without delay.
+              {t("shipyard_feature_title")}
             </motion.h3>
 
             <motion.p
@@ -131,7 +135,7 @@ export default function ShipyardRefitSection({ onOpenEnquiry }) {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-sm sm:text-base text-[#486581] leading-relaxed font-normal"
             >
-              Whether conducting routine annual maintenance, complete engine repowering with MTU or Caterpillar certified technicians, or an ambitious multi-deck interior reconstruction, Al Shaali Marine delivers unyielding German-grade engineering with Emirati hospitality.
+              {t("shipyard_feature_desc")}
             </motion.p>
 
             {/* Staggered Capabilities with Micro Hover */}
@@ -141,11 +145,11 @@ export default function ShipyardRefitSection({ onOpenEnquiry }) {
                 return (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: isAr ? -20 : 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    whileHover={{ x: 6, backgroundColor: "#EEF3F8" }}
+                    whileHover={{ x: isAr ? -6 : 6, backgroundColor: "#EEF3F8" }}
                     className="flex gap-4 p-4 bg-[#F5F8FA] border border-[#D9E2EC] rounded-none transition-all duration-200 cursor-default"
                   >
                     <Icon className="w-5 h-5 text-[#176B9A] flex-shrink-0 mt-0.5" />
@@ -174,14 +178,14 @@ export default function ShipyardRefitSection({ onOpenEnquiry }) {
                 href="/refit"
                 className="inline-flex items-center gap-3 bg-[#082B49] text-white hover:bg-[#176B9A] px-7 py-4 font-sans text-xs tracking-[0.2em] uppercase font-bold transition-all duration-300 shadow-md hover:shadow-xl group"
               >
-                <span>Explore Shipyard & Drydocks</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 text-[#DCEFF7]" />
+                <span>{t("shipyard_cta_explore")}</span>
+                <ArrowUpRight className={`w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 text-[#DCEFF7] ${isAr ? "rotate-90" : ""}`} />
               </Link>
               <button
-                onClick={() => onOpenEnquiry && onOpenEnquiry("Shipyard Refit Slot")}
+                onClick={() => onOpenEnquiry && onOpenEnquiry(isAr ? "حجز موعد بالحوض الجاف" : "Shipyard Refit Slot")}
                 className="inline-flex items-center gap-2 border border-[#082B49] text-[#082B49] hover:bg-[#082B49] hover:text-white px-6 py-4 font-sans text-xs tracking-[0.2em] uppercase font-semibold transition-all duration-300 shadow-sm hover:shadow-md"
               >
-                <span>Reserve Drydock Slot</span>
+                <span>{t("shipyard_cta_reserve")}</span>
               </button>
             </motion.div>
           </div>

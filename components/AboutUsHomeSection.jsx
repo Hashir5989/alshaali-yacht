@@ -6,8 +6,29 @@ import { motion } from "framer-motion";
 import { Compass, Anchor, ShieldCheck, ArrowRight } from "lucide-react";
 import AnimatedTitle from "./AnimatedTitle";
 import InteractiveCard3D from "./InteractiveCard3D";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutUsHomeSection() {
+  const { isAr, t } = useLanguage();
+
+  const pillars = [
+    {
+      icon: Compass,
+      title: t("about_pillar1_title"),
+      desc: t("about_pillar1_desc"),
+    },
+    {
+      icon: Anchor,
+      title: t("about_pillar2_title"),
+      desc: t("about_pillar2_desc"),
+    },
+    {
+      icon: ShieldCheck,
+      title: t("about_pillar3_title"),
+      desc: t("about_pillar3_desc"),
+    },
+  ];
+
   return (
     <section id="about-us" className="py-24 sm:py-32 bg-[#082B49] border-b border-[#176B9A]/30 relative overflow-hidden text-[#E8D5B5]">
       {/* Decorative ambient maritime glow */}
@@ -23,8 +44,9 @@ export default function AboutUsHomeSection() {
             {/* Animated Title Component (Dark Mode) */}
             <div className="mb-6">
               <AnimatedTitle
-                tagline="About Al Shaali Marine · Est. 1979 · Ajman, UAE"
-                title="Crafting Arabian Maritime Mastery for Over Four Decades."
+                key={isAr ? "ar" : "en"}
+                tagline={t("about_tagline")}
+                title={t("about_title")}
                 dark={true}
               />
             </div>
@@ -37,7 +59,7 @@ export default function AboutUsHomeSection() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="text-sm sm:text-base text-[#E8D5B5]/90 leading-relaxed font-light mb-5"
             >
-              Founded in 1979 in the historic maritime Emirate of Ajman, Al Shaali Marine stands as a pioneer of Arabian composite shipbuilding. What began as an ambitious pursuit of engineering vessels capable of mastering the demanding waters of the Arabian Gulf has expanded into a world-class 45,000 sqm shipyard group.
+              {t("about_p1")}
             </motion.p>
 
             {/* Paragraph 2 */}
@@ -48,7 +70,7 @@ export default function AboutUsHomeSection() {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="text-xs sm:text-sm text-[#DCEFF7]/80 leading-relaxed font-normal mb-8"
             >
-              From custom tri-deck superyachts to offshore high-speed cruisers and tactical patrol vessels, every hull embodies rigorous composite laminating standards, Lloyd’s-compliant naval architecture, and Emirati hospitality. With over 1,200 vessels navigating global seas, our legacy is built on unyielding integrity.
+              {t("about_p2")}
             </motion.p>
 
             {/* 3 Pillar Value Highlights with Micro-Interactions */}
@@ -59,23 +81,7 @@ export default function AboutUsHomeSection() {
               transition={{ duration: 0.7, delay: 0.35 }}
               className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 pt-6 border-t border-[#176B9A]/30"
             >
-              {[
-                {
-                  icon: Compass,
-                  title: "In-House Design",
-                  desc: "Naval architecture & CFD hull modeling",
-                },
-                {
-                  icon: Anchor,
-                  title: "1,200+ Hulls",
-                  desc: "Delivered to owners across 32 nations",
-                },
-                {
-                  icon: ShieldCheck,
-                  title: "45,000 sqm Yard",
-                  desc: "Ajman drydock, refit & climate halls",
-                },
-              ].map((pillar, idx) => (
+              {pillars.map((pillar) => (
                 <motion.div
                   key={pillar.title}
                   whileHover={{ y: -4, scale: 1.02 }}
@@ -108,8 +114,8 @@ export default function AboutUsHomeSection() {
                 href="/contact"
                 className="inline-flex items-center gap-3 bg-[#DFCA9E] text-[#082B49] hover:bg-[#E8D5B5] px-7 py-3.5 font-sans text-xs tracking-[0.2em] uppercase font-bold transition-all duration-300 shadow-md group hover:shadow-xl hover:shadow-[#DFCA9E]/20"
               >
-                <span>Connect With Our Ajman Shipyard</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                <span>{t("about_cta")}</span>
+                <ArrowRight className={`w-4 h-4 transition-transform duration-300 ${isAr ? "rotate-180 group-hover:-translate-x-1.5" : "group-hover:translate-x-1.5"}`} />
               </Link>
             </motion.div>
           </div>
@@ -134,10 +140,10 @@ export default function AboutUsHomeSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#082B49]/90 via-transparent to-black/20" />
 
                 {/* Floating Top Heritage Milestone Badge */}
-                <div className="absolute top-6 left-6 bg-[#082B49]/95 backdrop-blur-md border border-[#DFCA9E]/40 px-4 py-2.5 shadow-lg group-hover:border-[#DFCA9E] transition-colors">
-                  <span className="font-serif text-2xl text-[#DFCA9E] block font-light leading-none">1979</span>
+                <div className={`absolute top-6 ${isAr ? "right-6" : "left-6"} bg-[#082B49]/95 backdrop-blur-md border border-[#DFCA9E]/40 px-4 py-2.5 shadow-lg group-hover:border-[#DFCA9E] transition-colors`}>
+                  <span className="font-serif text-2xl text-[#DFCA9E] block font-light leading-none">{isAr ? "١٩٧٩" : "1979"}</span>
                   <span className="font-sans text-[8.5px] tracking-[0.28em] uppercase text-[#DCEFF7] block mt-1 font-bold">
-                    Pioneering Est. Date
+                    {isAr ? "عام التأسيس والريادة" : "Pioneering Est. Date"}
                   </span>
                 </div>
 
@@ -146,14 +152,14 @@ export default function AboutUsHomeSection() {
                   <div className="flex items-center justify-between gap-4">
                     <div>
                       <p className="font-serif text-lg text-[#E8D5B5] font-light leading-tight">
-                        Handcrafted in Ajman, UAE
+                        {isAr ? "صُنعت يدوياً في عجمان، الإمارات" : "Handcrafted in Ajman, UAE"}
                       </p>
                       <p className="font-sans text-[9px] tracking-[0.25em] uppercase text-[#DFCA9E] mt-1 font-semibold">
-                        Lloyd's Register Compliant Superyachts
+                        {isAr ? "يخوت مطابقة لمعايير لويدز ريجستر" : "Lloyd's Register Compliant Superyachts"}
                       </p>
                     </div>
                     <div className="w-10 h-10 rounded-full border border-[#DFCA9E]/40 flex items-center justify-center flex-shrink-0 bg-[#06182a]">
-                      <span className="text-[#DFCA9E] text-xs font-mono font-bold">45Y</span>
+                      <span className="text-[#DFCA9E] text-xs font-mono font-bold">{isAr ? "٤٥ عاماً" : "45Y"}</span>
                     </div>
                   </div>
                 </div>
@@ -161,7 +167,7 @@ export default function AboutUsHomeSection() {
             </InteractiveCard3D>
 
             {/* Decorative Offset Gold Frame Accent */}
-            <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#DFCA9E]/20 -z-10 pointer-events-none hidden sm:block" />
+            <div className={`absolute -bottom-4 ${isAr ? "-left-4" : "-right-4"} w-full h-full border border-[#DFCA9E]/20 -z-10 pointer-events-none hidden sm:block`} />
           </motion.div>
 
         </div>

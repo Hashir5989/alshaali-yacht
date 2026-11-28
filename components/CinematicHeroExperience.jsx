@@ -3,8 +3,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function CinematicHeroExperience({ onOpenEnquiry }) {
+  const { isAr, t } = useLanguage();
   const containerRef = useRef(null);
 
   // Track scroll inside this hero container
@@ -103,7 +105,7 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
           className="absolute left-1/2 -translate-x-1/2 bottom-8 z-20 flex flex-col items-center gap-3 pointer-events-none text-center"
         >
           <span className="font-sans text-[10px] tracking-[0.35em] uppercase text-[#E8D5B5] font-medium">
-            Scroll to Explore
+            {t("hero_scroll_cue")}
           </span>
           <div className="w-[1.5px] h-11 bg-gradient-to-b from-[#DFCA9E] via-[#E8D5B5] to-transparent animate-pulse" />
         </motion.div>
@@ -118,7 +120,7 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#DFCA9E]" />
             <p className="font-sans text-[11px] sm:text-xs tracking-[0.38em] uppercase text-[#DFCA9E] font-semibold">
-              Al Shaali Marine Group &nbsp;·&nbsp; Gulf Yacht Manufacturer &nbsp;·&nbsp; Est. 1979
+              {t("hero_eyebrow")}
             </p>
           </motion.div>
 
@@ -132,7 +134,7 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
                     style={{ y: headlineLine1Y }}
                     className="inline-block"
                   >
-                    Pioneers of the Gulf.
+                    {t("hero_title_line1")}
                   </motion.span>
                 </span>
                 <br />
@@ -141,7 +143,7 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
                     style={{ y: headlineLine2Y }}
                     className="inline-block italic text-[#DFCA9E] font-normal"
                   >
-                    Masters of the Deep.
+                    {t("hero_title_line2")}
                   </motion.span>
                 </span>
               </h1>
@@ -151,7 +153,7 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
               style={{ opacity: bodyOpacity, y: bodyY }}
               className="font-sans text-sm sm:text-base md:text-[17px] text-[#E8D5B5]/90 leading-relaxed max-w-2xl mb-8 font-light"
             >
-              A luxury yacht is thousands of decisions, sculpted over years by master shipwrights who have to trust one another. Here in Ajman, every hull answers to four decades of continuous Emirati composite shipbuilding mastery.
+              {t("hero_body")}
             </motion.p>
 
             {/* Interactive CTAs */}
@@ -160,15 +162,15 @@ export default function CinematicHeroExperience({ onOpenEnquiry }) {
               className="flex flex-wrap items-center gap-4"
             >
               <a href="#fleet" className="btn-ocean group flex items-center gap-2 !bg-[#E8D5B5] !text-[#082B49] !border-[#E8D5B5] hover:!bg-[#DFCA9E]">
-                <span>Explore 2026 Fleet</span>
+                <span>{t("hero_btn_fleet")}</span>
                 <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform text-[#082B49]" />
               </a>
               <button
                 type="button"
-                onClick={() => onOpenEnquiry && onOpenEnquiry("Flagship Consultation")}
+                onClick={() => onOpenEnquiry && onOpenEnquiry(isAr ? "استشارة اليخوت الرائدة" : "Flagship Consultation")}
                 className="btn-white-outline flex items-center gap-2 group !border-[#E8D5B5]/60 !text-[#E8D5B5] hover:!bg-[#E8D5B5] hover:!text-[#082B49]"
               >
-                <span>Commission Inquiry</span>
+                <span>{t("hero_btn_inquiry")}</span>
                 <ArrowUpRight className="w-4 h-4 text-[#E8D5B5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </motion.div>

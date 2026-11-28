@@ -17,7 +17,8 @@ export default function ChairmanSection() {
       id: "abdullah",
       name: t("abdullah_name"),
       role: t("abdullah_role"),
-      tagline: isAr ? "رؤية المؤسس · إرث أصيل" : "FOUNDER’S VISION · ENDURING HERITAGE",
+      tabTitle: isAr ? "عبد الله (المؤسس)" : "Abdullah (Founder)",
+      tagline: t("abdullah_tagline"),
       quote: t("abdullah_quote"),
       bio: t("abdullah_bio"),
       image: "/assets/abdullah-al-shaali.webp",
@@ -27,7 +28,8 @@ export default function ChairmanSection() {
       id: "mohammed",
       name: t("mohammed_name"),
       role: t("mohammed_role"),
-      tagline: isAr ? "رؤية القيادة · رسالة مجلس الإدارة" : "CHAIRMAN’S VISION · LEADERSHIP MESSAGE",
+      tabTitle: isAr ? "محمد (رئيس المجلس)" : "Mohammed (Chairman)",
+      tagline: t("mohammed_tagline"),
       quote: t("mohammed_quote"),
       bio: t("mohammed_bio"),
       image: "/assets/chairman-mohammed-alshaali.webp",
@@ -49,6 +51,7 @@ export default function ChairmanSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-12 mb-12 border-b border-[#DFCA9E]/20">
           <div>
             <AnimatedTitle
+              key={isAr ? "ar" : "en"}
               tagline={t("chairman_tagline")}
               title={t("chairman_title")}
               dark={true}
@@ -59,7 +62,6 @@ export default function ChairmanSection() {
           <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#06182a]/90 backdrop-blur-md rounded-full border border-[#DFCA9E]/30 shadow-inner self-start sm:self-auto">
             {leaders.map((leader) => {
               const isActive = leader.id === activeLeaderId;
-              const firstName = leader.name.split(" ")[0];
               return (
                 <button
                   key={leader.id}
@@ -71,7 +73,7 @@ export default function ChairmanSection() {
                   }`}
                 >
                   <span className={`w-1.5 h-1.5 rounded-full ${isActive ? "bg-[#082B49]" : "bg-transparent border border-[#DFCA9E]/50"}`} />
-                  {firstName} ({leader.role.includes("FOUNDER") || leader.role.includes("المؤسس") ? (isAr ? "المؤسس" : "Founder") : (isAr ? "رئيس المجلس" : "Chairman")})
+                  {leader.tabTitle}
                 </button>
               );
             })}
@@ -120,7 +122,7 @@ export default function ChairmanSection() {
               </InteractiveCard3D>
 
               {/* Offset Gold Accent Frame */}
-              <div className="absolute -bottom-4 -left-4 w-full max-w-md h-full border border-[#DFCA9E]/25 -z-10 pointer-events-none hidden sm:block" />
+              <div className={`absolute -bottom-4 ${isAr ? "-right-4" : "-left-4"} w-full max-w-md h-full border border-[#DFCA9E]/25 -z-10 pointer-events-none hidden sm:block`} />
             </div>
 
             {/* Right Column: Inspiring Dialogue & Credentials */}

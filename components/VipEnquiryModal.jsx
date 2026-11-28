@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, FileDown, Shield, Send, PhoneCall } from "lucide-react";
-import { companyInfo } from "@/data/yachts";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = "" }) {
+  const { isAr, t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,7 +38,7 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[99990] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div className="fixed inset-0 z-[99990] flex items-center justify-center p-4 sm:p-6 overflow-y-auto" dir={isAr ? "rtl" : "ltr"}>
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -58,7 +59,7 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 text-white/50 hover:text-[#C5A880] transition-colors p-2"
+              className={`absolute top-6 ${isAr ? "left-6" : "right-6"} text-white/50 hover:text-[#C5A880] transition-colors p-2`}
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -69,14 +70,14 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                 <div className="w-16 h-16 rounded-full border border-[#C5A880] flex items-center justify-center mx-auto mb-6 text-[#C5A880]">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C5A880] mb-2">
-                  Commission Inquiry Received
+                <p className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C5A880] mb-2 font-bold">
+                  {t("enquiry_badge")}
                 </p>
                 <h3 className="font-serif text-3xl sm:text-4xl text-[#F0EBE0] mb-4">
-                  Thank You, {formData.name || "Esteemed Guest"}
+                  {isAr ? "شكراً لكم، ضيفنا الكريم" : (formData.name ? `Thank You, ${formData.name}` : "Thank You, Esteemed Guest")}
                 </h3>
                 <p className="text-[#F0EBE0]/70 max-w-md mx-auto text-sm leading-relaxed mb-8">
-                  Your private dossier has been dispatched to the Managing Director and Chief Naval Architect at Al Shaali Marine. A confidential consultation will follow within 12 hours.
+                  {t("enquiry_success_desc")}
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -84,15 +85,15 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                     href="#brochure"
                     onClick={(e) => {
                       e.preventDefault();
-                      alert("Downloading Al Shaali Marine 2026 Fleet Compendium (PDF)...");
+                      alert(isAr ? "جارٍ تحميل كتالوج أسطول الشعالي مارين 2026 (PDF)..." : "Downloading Al Shaali Marine 2026 Fleet Compendium (PDF)...");
                     }}
                     className="btn-gold w-full sm:w-auto flex items-center justify-center gap-2"
                   >
                     <FileDown className="w-4 h-4" />
-                    <span>Download Fleet Dossier (PDF)</span>
+                    <span>{t("enquiry_btn_brochure")}</span>
                   </a>
                   <button onClick={handleReset} className="btn-outline-gold w-full sm:w-auto">
-                    Close Window
+                    {t("enquiry_btn_close")}
                   </button>
                 </div>
               </div>
@@ -101,15 +102,15 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                 <div className="mb-8">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C5A880]" />
-                    <p className="font-sans text-[10.5px] tracking-[0.3em] uppercase text-[#C5A880]">
-                      Confidential Advisory · Ajman Shipyard
+                    <p className="font-sans text-[10.5px] tracking-[0.3em] uppercase text-[#C5A880] font-bold">
+                      {t("enquiry_badge")}
                     </p>
                   </div>
                   <h3 className="font-serif text-3xl sm:text-4xl text-[#F0EBE0]">
-                    Request Private Consultation
+                    {t("enquiry_title")}
                   </h3>
                   <p className="text-[#F0EBE0]/60 text-xs sm:text-sm mt-2">
-                    Engage with our naval architects to commission a bespoke superyacht or schedule a private shipyard walk-through.
+                    {t("enquiry_subtitle")}
                   </p>
                 </div>
 
@@ -117,27 +118,27 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/60 mb-1.5">
-                        Full Name *
+                        {t("enquiry_name_label")} *
                       </label>
                       <input
                         type="text"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="His Excellency / Sir / Madam"
+                        placeholder={t("enquiry_name_placeholder")}
                         className="w-full bg-[#071429] border border-white/10 px-4 py-3 text-sm text-[#F0EBE0] placeholder:text-white/20 focus:border-[#C5A880] focus:outline-none transition-colors"
                       />
                     </div>
                     <div>
                       <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/60 mb-1.5">
-                        Email Address *
+                        {t("enquiry_email_label")} *
                       </label>
                       <input
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="client@familyoffice.ae"
+                        placeholder={t("enquiry_email_placeholder")}
                         className="w-full bg-[#071429] border border-white/10 px-4 py-3 text-sm text-[#F0EBE0] placeholder:text-white/20 focus:border-[#C5A880] focus:outline-none transition-colors"
                       />
                     </div>
@@ -146,47 +147,48 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/60 mb-1.5">
-                        Telephone / WhatsApp *
+                        {t("enquiry_phone_label")} *
                       </label>
                       <input
                         type="tel"
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+971 50 000 0000"
+                        placeholder={t("enquiry_phone_placeholder")}
                         className="w-full bg-[#071429] border border-white/10 px-4 py-3 text-sm text-[#F0EBE0] placeholder:text-white/20 focus:border-[#C5A880] focus:outline-none transition-colors"
+                        dir="ltr"
                       />
                     </div>
                     <div>
                       <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/60 mb-1.5">
-                        Vessel of Interest
+                        {t("enquiry_interest_label")}
                       </label>
                       <select
                         value={formData.yachtInterest}
                         onChange={(e) => setFormData({ ...formData, yachtInterest: e.target.value })}
                         className="w-full bg-[#071429] border border-white/10 px-4 py-3 text-sm text-[#F0EBE0] focus:border-[#C5A880] focus:outline-none transition-colors"
                       >
-                        <option value="AS 130 Superyacht">AS 130 Tri-Deck Superyacht (40m / 130ft)</option>
-                        <option value="AS 100 Superyacht">AS 100 Mega Yacht (30m / 100ft)</option>
-                        <option value="AS 88 Flybridge">AS 88 Flybridge Cruiser (27m / 88ft)</option>
-                        <option value="AS 68 Flybridge">AS 68 Mediterranean Cruiser (21m / 68ft)</option>
-                        <option value="Warrior 43">Warrior 43 High Performance Cruiser</option>
-                        <option value="Shark 36">Shark 36 Offshore Tournament Sportfish</option>
-                        <option value="Dolphin 33">Dolphin 33 Centre Console Dayboat</option>
-                        <option value="Shipyard Refit">Ajman Drydock Custom Refit / Overhaul</option>
+                        <option value="AS 130 Superyacht">{isAr ? "يخت سوبر يخت AS 130 ثلاثي الطوابق (40 متراً)" : "AS 130 Tri-Deck Superyacht (40m / 130ft)"}</option>
+                        <option value="AS 100 Superyacht">{isAr ? "يخت ميجا يخت AS 100 فخم (30 متراً)" : "AS 100 Mega Yacht (30m / 100ft)"}</option>
+                        <option value="AS 88 Flybridge">{isAr ? "يخت AS 88 فلاي بريدج (27 متراً)" : "AS 88 Flybridge Cruiser (27m / 88ft)"}</option>
+                        <option value="AS 68 Flybridge">{isAr ? "يخت AS 68 لرحلات البحر المتوسط (21 متراً)" : "AS 68 Mediterranean Cruiser (21m / 68ft)"}</option>
+                        <option value="Warrior 43">{isAr ? "قارب واريور 43 عالي الأداء والسرعة" : "Warrior 43 High Performance Cruiser"}</option>
+                        <option value="Shark 36">{isAr ? "قارب شارك 36 لبطولات صيد الأعماق" : "Shark 36 Offshore Tournament Sportfish"}</option>
+                        <option value="Dolphin 33">{isAr ? "قارب دولفين 33 كونسول أوسط للرحلات اليومية" : "Dolphin 33 Centre Console Dayboat"}</option>
+                        <option value="Shipyard Refit">{isAr ? "صيانة وتجديد مخصص في حوض عجمان الجاف" : "Ajman Drydock Custom Refit / Overhaul"}</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-[10px] tracking-[0.25em] uppercase text-[#F0EBE0]/60 mb-1.5">
-                      Private Advisory Requirements & Desired Berthing
+                      {t("enquiry_message_label")}
                     </label>
                     <textarea
                       rows={3}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Specify bespoke layout modifications, engine options, or drydock haul-out dates..."
+                      placeholder={t("enquiry_message_placeholder")}
                       className="w-full bg-[#071429] border border-white/10 px-4 py-3 text-sm text-[#F0EBE0] placeholder:text-white/20 focus:border-[#C5A880] focus:outline-none transition-colors resize-none"
                     />
                   </div>
@@ -194,7 +196,7 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                   <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-2 text-[10px] text-[#F0EBE0]/40">
                       <Shield className="w-3.5 h-3.5 text-[#C5A880]" />
-                      <span>NDAs & Non-Disclosure Strictly Respected</span>
+                      <span>{isAr ? "اتفاقيات السرية وعدم الإفصاح مضمونة ومحترمة تماماً" : "NDAs & Non-Disclosure Strictly Respected"}</span>
                     </div>
 
                     <button
@@ -203,11 +205,11 @@ export default function VipEnquiryModal({ isOpen, onClose, preselectedYacht = ""
                       className="btn-gold w-full sm:w-auto flex items-center justify-center gap-2"
                     >
                       {loading ? (
-                        <span>Transmitting Dossier...</span>
+                        <span>{t("enquiry_submitting")}</span>
                       ) : (
                         <>
-                          <Send className="w-3.5 h-3.5" />
-                          <span>Submit Private Enquiry</span>
+                          <Send className={`w-3.5 h-3.5 ${isAr ? "rotate-180" : ""}`} />
+                          <span>{t("enquiry_submit_btn")}</span>
                         </>
                       )}
                     </button>

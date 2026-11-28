@@ -241,7 +241,7 @@ export default function Header({ onOpenEnquiry }) {
                           key={brand.name}
                           type="button"
                           onClick={() => triggerUnderConstruction(`${brand.name} (${brand.division})`)}
-                          className="w-full text-left group/item flex items-start gap-3 p-3 hover:bg-[#F5F8FA] transition-colors border-l-2 border-transparent hover:border-[#176B9A]"
+                          className={`w-full ${isAr ? "text-right" : "text-left"} group/item flex items-start gap-3 p-3 hover:bg-[#F5F8FA] transition-colors ${isAr ? "border-r-2" : "border-l-2"} border-transparent hover:border-[#176B9A]`}
                         >
                           <div className="w-8 h-8 rounded-none bg-[#082B49] text-[#DFCA9E] flex items-center justify-center flex-shrink-0 text-xs font-serif font-bold group-hover/item:bg-[#176B9A] group-hover/item:text-white transition-colors">
                             {brand.name[0]}
@@ -270,7 +270,7 @@ export default function Header({ onOpenEnquiry }) {
                         className="w-full text-[10.5px] uppercase tracking-wider text-[#176B9A] font-bold flex items-center justify-between hover:underline pt-1"
                       >
                         <span>{t("nav_view_all_brands")}</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <ArrowRight className={`w-3.5 h-3.5 ${isAr ? "rotate-180" : ""}`} />
                       </button>
                     </div>
                   </motion.div>
@@ -323,7 +323,7 @@ export default function Header({ onOpenEnquiry }) {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}
-                    className="absolute top-full right-0 mt-1 w-84 bg-white/95 backdrop-blur-xl border border-[#D9E2EC] shadow-2xl p-3 z-50 text-[#102A43]"
+                    className={`absolute top-full ${isAr ? "left-0" : "right-0"} mt-1 w-84 bg-white/95 backdrop-blur-xl border border-[#D9E2EC] shadow-2xl p-3 z-50 text-[#102A43]`}
                   >
                     <div className="text-[10px] uppercase tracking-[0.25em] font-mono font-bold text-[#829AB1] px-3 py-2 border-b border-[#D9E2EC]/70 flex items-center justify-between">
                       <span>{t("nav_more_title")}</span>
@@ -338,7 +338,7 @@ export default function Header({ onOpenEnquiry }) {
                             key={item.name}
                             type="button"
                             onClick={() => triggerUnderConstruction(`${item.name} (${item.category})`)}
-                            className="w-full text-left group/more flex items-start gap-3.5 p-3 hover:bg-[#F5F8FA] transition-colors border-l-2 border-transparent hover:border-[#176B9A]"
+                            className={`w-full ${isAr ? "text-right" : "text-left"} group/more flex items-start gap-3.5 p-3 hover:bg-[#F5F8FA] transition-colors ${isAr ? "border-r-2" : "border-l-2"} border-transparent hover:border-[#176B9A]`}
                           >
                             <div className="w-8 h-8 rounded-none bg-[#EEF3F8] text-[#176B9A] flex items-center justify-center flex-shrink-0 group-hover/more:bg-[#082B49] group-hover/more:text-[#DFCA9E] transition-colors">
                               <Icon className="w-4 h-4" />
@@ -379,14 +379,14 @@ export default function Header({ onOpenEnquiry }) {
                   ? "bg-[#082B49] text-white hover:bg-[#176B9A]"
                   : "bg-white text-[#082B49] hover:bg-[#DFCA9E] hover:text-[#082B49]"
               }`}
-              title={isAr ? "Switch to English" : "التبديل إلى العربية"}
+              title={isAr ? "التبديل إلى اللغة الإنجليزية" : "التبديل إلى العربية"}
             >
               <Globe className="w-4 h-4 text-[#DFCA9E] group-hover:rotate-45 transition-transform" />
-              <span>{isAr ? "English" : "العربية"}</span>
+              <span>{isAr ? "الإنجليزية" : "العربية"}</span>
               <span className={`text-[9px] px-1.5 py-0.5 font-mono font-semibold rounded-none ${
                 isLightHeader ? "bg-white/15 text-[#DFCA9E]" : "bg-[#082B49]/10 text-[#082B49]"
               }`}>
-                {isAr ? "EN" : "AR"}
+                {isAr ? "إنجليزي" : "عربي"}
               </span>
             </button>
           </div>
@@ -397,7 +397,7 @@ export default function Header({ onOpenEnquiry }) {
               onClick={toggleLang}
               className="px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase border border-[#DFCA9E]/40 text-[#DFCA9E] bg-[#06182a]"
             >
-              {isAr ? "EN" : "عربي"}
+              {isAr ? "إنجليزي" : "عربي"}
             </button>
 
             <SoundAmbience />
@@ -424,7 +424,7 @@ export default function Header({ onOpenEnquiry }) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="fixed top-[65px] left-0 right-0 z-40 bg-[#082B49]/98 backdrop-blur-2xl border-b border-[#176B9A]/40 text-[#E8D5B5] shadow-2xl lg:hidden overflow-y-auto max-h-[calc(100vh-70px)]"
+            className={`fixed top-[65px] left-0 right-0 z-40 bg-[#082B49]/98 backdrop-blur-2xl border-b border-[#176B9A]/40 text-[#E8D5B5] shadow-2xl lg:hidden overflow-y-auto max-h-[calc(100vh-70px)] ${isAr ? "text-right" : "text-left"}`}
           >
             <div className="px-6 py-8 flex flex-col gap-4">
               
@@ -441,7 +441,7 @@ export default function Header({ onOpenEnquiry }) {
               <button
                 type="button"
                 onClick={() => triggerUnderConstruction(t("nav_about"))}
-                className="text-left font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]"
+                className={`${isAr ? "text-right" : "text-left"} font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]`}
               >
                 {t("nav_about")}
               </button>
@@ -450,7 +450,7 @@ export default function Header({ onOpenEnquiry }) {
               <button
                 type="button"
                 onClick={() => triggerUnderConstruction(t("nav_shipyard"))}
-                className="text-left font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]"
+                className={`${isAr ? "text-right" : "text-left"} font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]`}
               >
                 {t("nav_shipyard")}
               </button>
@@ -471,13 +471,13 @@ export default function Header({ onOpenEnquiry }) {
                 </button>
 
                 {mobileBrandsExpanded && (
-                  <div className="pl-4 pt-2 space-y-3 pb-2 border-l border-[#DFCA9E]/30 mt-1">
+                  <div className={`${isAr ? "pr-4 border-r" : "pl-4 border-l"} pt-2 space-y-3 pb-2 border-[#DFCA9E]/30 mt-1`}>
                     {brandItems.map((brand) => (
                       <button
                         key={brand.name}
                         type="button"
                         onClick={() => triggerUnderConstruction(`${brand.name} (${brand.division})`)}
-                        className="block w-full text-left text-xs uppercase tracking-wider text-[#DCEFF7] hover:text-[#DFCA9E]"
+                        className={`block w-full ${isAr ? "text-right" : "text-left"} text-xs uppercase tracking-wider text-[#DCEFF7] hover:text-[#DFCA9E]`}
                       >
                         <span className="font-bold">{brand.name}</span> · {brand.desc}
                       </button>
@@ -490,7 +490,7 @@ export default function Header({ onOpenEnquiry }) {
               <button
                 type="button"
                 onClick={() => triggerUnderConstruction(t("nav_career"))}
-                className="text-left font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]"
+                className={`${isAr ? "text-right" : "text-left"} font-sans text-sm tracking-[0.25em] uppercase py-2 border-b border-[#176B9A]/20 text-[#E8D5B5] hover:text-[#DFCA9E]`}
               >
                 {t("nav_career")}
               </button>
@@ -511,13 +511,13 @@ export default function Header({ onOpenEnquiry }) {
                 </button>
 
                 {mobileMoreExpanded && (
-                  <div className="pl-4 pt-2 space-y-3 pb-2 border-l border-[#176B9A]/50 mt-1">
+                  <div className={`${isAr ? "pr-4 border-r" : "pl-4 border-l"} pt-2 space-y-3 pb-2 border-[#176B9A]/50 mt-1`}>
                     {moreSubmenuItems.map((item) => (
                       <button
                         key={item.name}
                         type="button"
                         onClick={() => triggerUnderConstruction(`${item.name} (${item.category})`)}
-                        className="block w-full text-left text-xs uppercase tracking-wider text-[#DCEFF7] hover:text-[#DFCA9E]"
+                        className={`block w-full ${isAr ? "text-right" : "text-left"} text-xs uppercase tracking-wider text-[#DCEFF7] hover:text-[#DFCA9E]`}
                       >
                         <span className="font-bold">{item.name}</span> · {item.category}
                       </button>
@@ -532,7 +532,7 @@ export default function Header({ onOpenEnquiry }) {
                 className="w-full bg-[#DFCA9E] text-[#082B49] py-3.5 text-xs font-sans tracking-[0.25em] uppercase font-bold mt-4 shadow-lg flex items-center justify-center gap-2"
               >
                 <Globe className="w-4 h-4" />
-                <span>{isAr ? "Switch to English" : "التبديل إلى العربية"}</span>
+                <span>{isAr ? "التبديل إلى اللغة الإنجليزية" : "التبديل إلى العربية"}</span>
               </button>
 
             </div>
